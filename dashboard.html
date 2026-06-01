@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoComet Call Analytics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f1117; color: #fff; font-family: system-ui, sans-serif; min-height: 100vh; }
+
+    .header {
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-title { font-size: 20px; font-weight: 700; color: #fff; }
+    .header-subtitle { font-size: 13px; color: #888; margin-top: 3px; letter-spacing: 0.04em; }
+    .header-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+    .date-label { font-size: 13px; color: #888; display: flex; align-items: center; gap: 8px; }
+    .date-label select {
+      background: #0f1117;
+      border: 1px solid #2a2d3a;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      outline: none;
+    }
+    .date-label select:hover { border-color: #3a3d4a; }
+    .last-updated { font-size: 12px; color: #444; }
+
+    .main { padding: 24px 28px; max-width: 1440px; margin: 0 auto; }
+
+    .cards-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .cards-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .cards-row { grid-template-columns: 1fr; } }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    .card-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; font-weight: 600; }
+    .card-value { font-size: 32px; font-weight: 700; color: #fff; line-height: 1; }
+    .card-sub { font-size: 12px; color: #555; margin-top: 6px; }
+    .card-green .card-value { color: #1D9E75; }
+    .card-green .card-label { color: #1D9E75; }
+    .card-amber .card-value { color: #EF9F27; }
+    .card-amber .card-label { color: #EF9F27; }
+
+    .agent-section { margin-bottom: 40px; }
+    .agent-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #2a2d3a;
+      flex-wrap: wrap;
+    }
+    .agent-name { font-size: 18px; font-weight: 700; color: #fff; }
+    .region-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .badge-india { background: rgba(4,44,83,0.8); color: #7ab3e0; border: 1px solid rgba(122,179,224,0.2); }
+    .badge-sea   { background: rgba(10,58,53,0.8); color: #4ecdc4; border: 1px solid rgba(78,205,196,0.2); }
+    .badge-us    { background: rgba(45,31,74,0.8); color: #c4a9f0; border: 1px solid rgba(196,169,240,0.2); }
+    .agent-rates { font-size: 12px; color: #555; margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+    .agent-rates span strong { font-weight: 600; }
+
+    .vol-cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 20px; }
+    @media (max-width: 1100px) { .vol-cards { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px)  { .vol-cards { grid-template-columns: repeat(2, 1fr); } }
+
+    .vol-card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .vol-card-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; font-weight: 600; }
+    .vol-card-value { font-size: 24px; font-weight: 700; color: #ccc; }
+    .vol-card-pct { font-size: 11px; color: #555; margin-top: 3px; }
+    .vol-answered .vol-card-value { color: #1D9E75; }
+
+    .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    @media (max-width: 700px) { .charts-row { grid-template-columns: 1fr; } }
+
+    .chart-card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .chart-title { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; font-weight: 600; }
+    .chart-wrap { height: 200px; position: relative; }
+    .chart-no-data { display: flex; align-items: center; justify-content: center; height: 100%; color: #444; font-size: 13px; }
+
+    .table-card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .table-title { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.06em; padding: 12px 16px; border-bottom: 1px solid #2a2d3a; font-weight: 600; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead tr { background: #151722; }
+    th { padding: 10px 13px; text-align: left; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; white-space: nowrap; }
+    td { padding: 10px 13px; border-top: 1px solid #1e2130; color: #bbb; vertical-align: top; line-height: 1.4; }
+    tbody tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .dist-wrap { min-width: 80px; width: 100px; }
+    .dist-bg { background: #2a2d3a; border-radius: 3px; height: 6px; margin-top: 2px; }
+    .dist-fill { height: 6px; border-radius: 3px; transition: width 0.3s; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .scrollable { overflow-x: auto; overflow-y: auto; max-height: 300px; }
+    .no-data-msg { color: #444; font-size: 13px; padding: 24px 16px; text-align: center; }
+
+    .no-agent-data {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      color: #444;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #333;
+      border-top: 1px solid #1a1d27;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <div class="header-title">GoComet Call Analytics</div>
+    <div class="header-subtitle">Harshita &middot; Zara &middot; Maya</div>
+  </div>
+  <div class="header-right">
+    <label class="date-label">
+      Viewing date:
+      <select id="dateSelect" onchange="render(this.value)"></select>
+    </label>
+    <span class="last-updated">Last updated: 1 Jun 2026</span>
+  </div>
+</header>
+
+<div class="main">
+  <div id="content"></div>
+</div>
+
+<footer class="footer">Generated by Claude Code &middot; GoComet Internal &middot; Not for external distribution</footer>
+
+<script>
+const ALL_DATA = {
+  "2026-05-29": {
+    harshita: {
+      total: 76, answered: 9, no_answer: 64, voicemail: 3, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 2, callback_requested: 2, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 1, wrong_contact: 1, existing_customer: 0, other: 2 },
+      calls: [
+        { name: "Swarnadip", company: "ReNew", region: "India", duration: "2:14", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Monday 3 Jun at 2:30 PM IST" },
+        { name: "Chandrashekar", company: "Suzlon", region: "India", duration: "1:53", outcome: "meeting_booked", pain_points: "Supply chain visibility delays", note: "Meeting booked for 30 May at 6:00 PM IST" },
+        { name: "Sukanta", company: "ReNew", region: "India", duration: "0:18", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back after 6:00 PM, was on another call" },
+        { name: "Suraj", company: "Suzlon", region: "India", duration: "2:03", outcome: "callback_requested", pain_points: "Visibility and freight costs", note: "Traveling; asked to call back in two hours" },
+        { name: "Somenath", company: "Tega Industries", region: "India", duration: "1:02", outcome: "not_interested", pain_points: "None confirmed", note: "Said things moving fine, not required at this moment" },
+        { name: "RATHIN", company: "Tega Industries", region: "India", duration: "1:04", outcome: "already_have_system", pain_points: "None confirmed", note: "Already has a digital supply chain provider in place" },
+        { name: "Amit", company: "ReNew", region: "India", duration: "0:50", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered was Amish Singh, not Amit Tyagi" },
+        { name: "Sukanta", company: "ReNew", region: "India", duration: "0:29", outcome: "other", pain_points: "None confirmed", note: "Prospect engaged with intro but call ended mid-pitch" },
+        { name: "Sayed", company: "TBX Upstream", region: "United Arab Emirates", duration: "1:17", outcome: "other", pain_points: "Various supply chain challenges acknowledged", note: "Prospect acknowledged challenges but call dropped before outcome" }
+      ]
+    },
+    zara: {
+      total: 98, answered: 3, no_answer: 79, voicemail: 16, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 2, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Nathus Saeliu", company: "BJC", region: "Thailand", duration: "1:36", outcome: "not_relevant", pain_points: "None confirmed", note: "Not responsible for that market; had to hang up for another call" },
+        { name: "Khanh Nghia Huynh", company: "Siam City Cement", region: "Vietnam", duration: "1:27", outcome: "not_relevant", pain_points: "None confirmed", note: "Only uses local suppliers; no demand for freight/supply chain services" },
+        { name: "Nurcholis Anto", company: "PT Tigaraksa Satria Tbk", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — person named Alicia answered, not the target contact" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
+  "2026-05-28": {
+    harshita: {
+      total: 142, answered: 18, no_answer: 24, voicemail: 3, busy: 0, unknown: 97,
+      outcomes: { meeting_booked: 0, callback_requested: 6, asked_for_email: 4, not_interested: 0, not_relevant: 0, already_have_system: 3, wrong_contact: 4, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Mayur", company: "Varroc", region: "India", duration: "1:34", outcome: "asked_for_email", pain_points: "Freight visibility challenges, delays getting updates internally", note: "Acknowledged freight visibility issues; said he would let them know if any requirement" },
+        { name: "Sakeer", company: "YBA Kanoo", region: "Saudi Arabia", duration: "1:07", outcome: "asked_for_email", pain_points: "None confirmed", note: "On holiday; asked to drop an email and said he would forward to relevant department" },
+        { name: "Peer", company: "AlJomaih Automotive Company", region: "Saudi Arabia", duration: "1:06", outcome: "callback_requested", pain_points: "None confirmed", note: "On holiday in Saudi Arabia; asked to call back after 5 days, after 2–3 PM" },
+        { name: "Ibrahim El", company: "AlJomaih Automotive Company", region: "Saudi Arabia", duration: "1:53", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered was not Ibrahim El; spoke Arabic indicating wrong number" },
+        { name: "Surendra", company: "Hindustan Organic Chemicals", region: "India", duration: "1:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered identified as Mr. Jerry; wrong number confirmed" },
+        { name: "Preeti", company: "Banas Dairy", region: "India", duration: "0:57", outcome: "asked_for_email", pain_points: "None confirmed", note: "Prospect said send it early in the call; call dropped before further conversation" },
+        { name: "Rajender", company: "Ceasefire Industries", region: "India", duration: "1:04", outcome: "already_have_system", pain_points: "None confirmed", note: "Uses Apico for supply chain management" },
+        { name: "Dipendra", company: "Ceasefire Industries", region: "India", duration: "1:43", outcome: "already_have_system", pain_points: "None confirmed", note: "Already has a supply chain system in place, satisfied, not looking to change" },
+        { name: "Girish", company: "Biesse", region: "India", duration: "2:23", outcome: "already_have_system", pain_points: "None confirmed", note: "Has own shipment tracking software; said not interested as of now" },
+        { name: "Suneel", company: "Divis Laboratories", region: "India", duration: "0:53", outcome: "callback_requested", pain_points: "None confirmed", note: "Not the right time, in office; implied to call back" },
+        { name: "Murali", company: "Biesse", region: "India", duration: "2:11", outcome: "wrong_contact", pain_points: "None confirmed", note: "Works in IT department, not right person; directed to purchase team" },
+        { name: "Dhananjay", company: "Amoli Organics", region: "India", duration: "0:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Number answered as Banerjee Research; wrong number confirmed" },
+        { name: "Sudhir", company: "Naresh Kumar & Company", region: "India", duration: "0:33", outcome: "callback_requested", pain_points: "None confirmed", note: "Out of country on holiday; asked to call back after 7th June" },
+        { name: "Ajay", company: "NBC Bearings", region: "India", duration: "1:54", outcome: "other", pain_points: "None confirmed", note: "Supply chain centralized; engaged but no clear decision reached" },
+        { name: "Sanjay", company: "NBC Bearings", region: "India", duration: "2:35", outcome: "asked_for_email", pain_points: "Separate SAP divisions causing cross-divisional delays", note: "Uses SAP with separate divisions; asked to drop an email for future reference" },
+        { name: "Nasser", company: "SATORP", region: "Saudi Arabia", duration: "0:40", outcome: "other", pain_points: "None confirmed", note: "Call connected; transcript cut off mid-pitch with no resolution" },
+        { name: "Ravindra", company: "Varroc Engineering", region: "India", duration: "0:18", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; asked to call back later" },
+        { name: "Zillal", company: "Jubilant Life Sciences", region: "India", duration: "1:20", outcome: "callback_requested", pain_points: "None confirmed", note: "Celebrating Eid holiday; asked to be contacted on WhatsApp after 6 PM" }
+      ]
+    },
+    zara: {
+      total: 120, answered: 9, no_answer: 79, voicemail: 32, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 2, callback_requested: 2, asked_for_email: 2, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Mohamed Abdul Wahid", company: "PETRONAS", region: "Malaysia", duration: "2:43", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Thu 4 Jun at 2pm GMT+8; uses SAP with predictive ETAs" },
+        { name: "Ahmad Nazri", company: "PETRONAS", region: "Malaysia", duration: "2:39", outcome: "meeting_booked", pain_points: "Visibility delays — tracking via email and phone calls", note: "Meeting booked for Thu 28 May at 9:30 AM KL time; confirmed email" },
+        { name: "Sadheer", company: "Fabrinet", region: "Thailand", duration: "1:12", outcome: "callback_requested", pain_points: "None confirmed", note: "On holiday and difficult to hear; asked to connect later next week" },
+        { name: "Sitthiporn Jack", company: "AGC Vinythai Public", region: "Thailand", duration: "1:07", outcome: "callback_requested", pain_points: "None confirmed", note: "Said he was busy; will call back once internal software development gap arises" },
+        { name: "Wilda M", company: "Maxeon Solar Technologies", region: "Philippines", duration: "1:17", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked for details to be sent via email due to unclear audio" },
+        { name: "Sitthiporn Jack", company: "AGC Vinythai Public", region: "Thailand", duration: "2:43", outcome: "asked_for_email", pain_points: "Manual tracking pain points; Yokogawa developing internal logistics software", note: "Has existing Yokogawa project; prefers to wait and will call back; agent to send email" },
+        { name: "Mala Ettiappen", company: "PETRONAS", region: "Malaysia", duration: "2:15", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer at PETRONAS; not in a similar role; could not refer to current contact" },
+        { name: "Manoj Prabhakar", company: "Johnson Electric", region: "SEA", duration: "0:35", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person confirmed it is not Manoj Prabhakar's number" },
+        { name: "Ernie Eizwanie", company: "PETRONAS", region: "Malaysia", duration: "0:21", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect asked what GoComet was and declined: OK, thank you. Bye-bye." }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
+  "2026-05-27": {
+    harshita: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    zara: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    maya: {
+      total: 51, answered: 6, no_answer: 11, voicemail: 34, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 5 },
+      calls: [
+        { name: "Tayebeh", company: "Illumina", region: "US", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Receptionist screened call; never reached Tayebeh directly" },
+        { name: "Mike", company: "Emerson", region: "US", duration: "0:24", outcome: "other", pain_points: "None confirmed", note: "Receptionist put call on hold; never reached Mike directly" },
+        { name: "Douglas", company: "Emerson", region: "US", duration: "0:46", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — Matt from Ostedal answered, not Douglas Johnson" },
+        { name: "Brinton", company: "Emerson", region: "US", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Receptionist answered; target never reached" },
+        { name: "John", company: "Emerson", region: "US", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "John answered but call cut off before any meaningful conversation" },
+        { name: "Umesh", company: "Emerson", region: "US", duration: "1:29", outcome: "other", pain_points: "None confirmed", note: "Umesh engaged briefly but call ended before pitch completion" }
+      ]
+    }
+  },
+  "2026-05-26": {
+    harshita: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    zara: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    maya: {
+      total: 54, answered: 1, no_answer: 17, voicemail: 36, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Kimberly", company: "DuPont", region: "US", duration: "0:49", outcome: "other", pain_points: "None confirmed", note: "Gatekeeper briefly connected to Kimberly who said Hello but call ended before substantive conversation" }
+      ]
+    }
+  }
+};
+
+// ─── Config ───────────────────────────────────────────────────────────────────
+const OUTCOME_ORDER = [
+  'meeting_booked','callback_requested','asked_for_email',
+  'not_interested','not_relevant','already_have_system',
+  'wrong_contact','existing_customer','other'
+];
+
+const OUTCOME_CFG = {
+  meeting_booked:     { label: 'Meeting Booked',     color: '#1D9E75', bg: 'rgba(29,158,117,0.18)' },
+  callback_requested: { label: 'Callback Requested', color: '#EF9F27', bg: 'rgba(239,159,39,0.18)' },
+  asked_for_email:    { label: 'Asked for Email',    color: '#f0c060', bg: 'rgba(240,192,96,0.18)' },
+  not_interested:     { label: 'Not Interested',     color: '#E24B4A', bg: 'rgba(226,75,74,0.18)' },
+  not_relevant:       { label: 'Not Relevant',       color: '#888',    bg: 'rgba(136,136,136,0.12)' },
+  already_have_system:{ label: 'Has System',         color: '#777',    bg: 'rgba(119,119,119,0.12)' },
+  wrong_contact:      { label: 'Wrong Contact',      color: '#666',    bg: 'rgba(102,102,102,0.12)' },
+  existing_customer:  { label: 'Existing Customer',  color: '#555',    bg: 'rgba(85,85,85,0.12)' },
+  other:              { label: 'Other',              color: '#444',    bg: 'rgba(68,68,68,0.12)' }
+};
+
+const VOL_COLORS = ['#1D9E75','#E24B4A','#EF9F27','#888','#555'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+let _charts = {};
+
+function destroyCharts() {
+  Object.values(_charts).forEach(c => { try { c.destroy(); } catch(e) {} });
+  _charts = {};
+}
+
+function pct(n, d) {
+  if (!d) return '—';
+  return (n / d * 100).toFixed(1) + '%';
+}
+
+function badge(outcome) {
+  const cfg = OUTCOME_CFG[outcome] || { label: outcome, color: '#888', bg: 'rgba(136,136,136,0.12)' };
+  return `<span class="badge" style="background:${cfg.bg};color:${cfg.color}">${cfg.label}</span>`;
+}
+
+function sortedCalls(calls) {
+  return [...calls].sort((a, b) => OUTCOME_ORDER.indexOf(a.outcome) - OUTCOME_ORDER.indexOf(b.outcome));
+}
+
+function makeDonut(id, labels, data, colors) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const total = data.reduce((s, v) => s + v, 0);
+  if (total === 0) {
+    canvas.parentElement.innerHTML = '<div class="chart-no-data">No data</div>';
+    return;
+  }
+  const chart = new Chart(canvas, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        backgroundColor: colors,
+        borderWidth: 2,
+        borderColor: '#1a1d27',
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: {
+            color: '#888',
+            font: { size: 11 },
+            boxWidth: 11,
+            padding: 7,
+            filter: (item) => item.parsed > 0
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const v = ctx.parsed;
+              const t = ctx.dataset.data.reduce((s, x) => s + x, 0);
+              return ` ${ctx.label}: ${v} (${t ? (v/t*100).toFixed(1) : 0}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+  _charts[id] = chart;
+}
+
+// ─── Agent Section Renderer ───────────────────────────────────────────────────
+function renderAgent(key, data, name, badgeClass, regionLabel) {
+  const { total, answered, no_answer, voicemail, busy, unknown, outcomes, calls } = data;
+
+  if (total === 0) {
+    return `
+      <div class="agent-section">
+        <div class="agent-header">
+          <span class="agent-name">${name}</span>
+          <span class="region-badge ${badgeClass}">${regionLabel}</span>
+        </div>
+        <div class="no-agent-data">No calls data for this date</div>
+      </div>`;
+  }
+
+  // Volume cards
+  const volCards = `
+    <div class="vol-cards">
+      <div class="vol-card">
+        <div class="vol-card-label">Total</div>
+        <div class="vol-card-value">${total}</div>
+        <div class="vol-card-pct">&mdash;</div>
+      </div>
+      <div class="vol-card vol-answered">
+        <div class="vol-card-label">Answered</div>
+        <div class="vol-card-value">${answered}</div>
+        <div class="vol-card-pct">${pct(answered, total)}</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-card-label">No Answer</div>
+        <div class="vol-card-value">${no_answer}</div>
+        <div class="vol-card-pct">${pct(no_answer, total)}</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-card-label">Voicemail</div>
+        <div class="vol-card-value">${voicemail}</div>
+        <div class="vol-card-pct">${pct(voicemail, total)}</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-card-label">Busy</div>
+        <div class="vol-card-value">${busy}</div>
+        <div class="vol-card-pct">${pct(busy, total)}</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-card-label">Unknown</div>
+        <div class="vol-card-value">${unknown}</div>
+        <div class="vol-card-pct">${pct(unknown, total)}</div>
+      </div>
+    </div>`;
+
+  const volId = `vol_${key}`;
+  const outId = `out_${key}`;
+
+  const outLabels = OUTCOME_ORDER.map(k => OUTCOME_CFG[k].label);
+  const outData   = OUTCOME_ORDER.map(k => outcomes[k] || 0);
+  const outColors = OUTCOME_ORDER.map(k => OUTCOME_CFG[k].color);
+
+  const charts = `
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">Call Volume Breakdown</div>
+        <div class="chart-wrap"><canvas id="${volId}"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Answered Outcomes</div>
+        <div class="chart-wrap"><canvas id="${outId}"></canvas></div>
+      </div>
+    </div>`;
+
+  // Outcome table
+  let outcomeRows = '';
+  OUTCOME_ORDER.forEach(k => {
+    const cnt = outcomes[k] || 0;
+    if (!cnt) return;
+    const cfg = OUTCOME_CFG[k];
+    const w = answered ? Math.min((cnt / answered) * 100, 100) : 0;
+    outcomeRows += `
+      <tr>
+        <td>${badge(k)}</td>
+        <td style="font-weight:700;color:#fff">${cnt}</td>
+        <td style="color:#888">${pct(cnt, answered)}</td>
+        <td>
+          <div class="dist-wrap">
+            <div class="dist-bg">
+              <div class="dist-fill" style="width:${w.toFixed(1)}%;background:${cfg.color}"></div>
+            </div>
+          </div>
+        </td>
+      </tr>`;
+  });
+
+  const outcomeTable = answered > 0 ? `
+    <div class="table-card" style="margin-bottom:16px">
+      <div class="table-title">Outcome Summary</div>
+      <table>
+        <thead><tr><th>Outcome</th><th>Count</th><th>% of Answered</th><th>Distribution</th></tr></thead>
+        <tbody>${outcomeRows}</tbody>
+      </table>
+    </div>` : '';
+
+  // Calls detail table
+  let callsTable;
+  if (answered === 0) {
+    callsTable = `<div class="table-card"><div class="no-data-msg">No answered calls for this date</div></div>`;
+  } else {
+    const rows = sortedCalls(calls).map(c => `
+      <tr>
+        <td style="white-space:nowrap;color:#fff;font-weight:500">${c.name}</td>
+        <td>${c.company}</td>
+        <td style="white-space:nowrap">${c.region}</td>
+        <td style="white-space:nowrap">${c.duration}</td>
+        <td>${badge(c.outcome)}</td>
+        <td style="max-width:160px;font-size:12px">${c.pain_points}</td>
+        <td style="max-width:220px;font-size:12px">${c.note}</td>
+      </tr>`).join('');
+    callsTable = `
+      <div class="table-card">
+        <div class="table-title">Answered Call Details</div>
+        <div class="scrollable">
+          <table>
+            <thead><tr><th>Prospect</th><th>Company</th><th>Region</th><th>Duration</th><th>Outcome</th><th>Pain Points</th><th>Key Note</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>`;
+  }
+
+  const pos = (outcomes.meeting_booked||0)+(outcomes.callback_requested||0)+(outcomes.asked_for_email||0);
+  const rates = `
+    <span class="agent-rates">
+      <span>Answer Rate: <strong style="color:#aaa">${pct(answered,total)}</strong></span>
+      <span>Meeting Rate: <strong style="color:#1D9E75">${pct(outcomes.meeting_booked||0,answered)}</strong></span>
+      <span>Positive Rate: <strong style="color:#EF9F27">${pct(pos,answered)}</strong></span>
+    </span>`;
+
+  return {
+    html: `
+      <div class="agent-section">
+        <div class="agent-header">
+          <span class="agent-name">${name}</span>
+          <span class="region-badge ${badgeClass}">${regionLabel}</span>
+          ${rates}
+        </div>
+        ${volCards}
+        ${charts}
+        ${outcomeTable}
+        ${callsTable}
+      </div>`,
+    volId, outId,
+    volLabels: ['Answered','No Answer','Voicemail','Busy','Unknown'],
+    volData: [answered, no_answer, voicemail, busy, unknown],
+    volColors: VOL_COLORS,
+    outLabels, outData, outColors
+  };
+}
+
+// ─── Main Render ──────────────────────────────────────────────────────────────
+function render(dateStr) {
+  destroyCharts();
+  const d = ALL_DATA[dateStr];
+
+  const totalAll    = d.harshita.total   + d.zara.total   + d.maya.total;
+  const answeredAll = d.harshita.answered + d.zara.answered + d.maya.answered;
+  const meetsAll    = (d.harshita.outcomes.meeting_booked||0) + (d.zara.outcomes.meeting_booked||0) + (d.maya.outcomes.meeting_booked||0);
+  const posAll = ['meeting_booked','callback_requested','asked_for_email']
+    .reduce((s,k) => s + (d.harshita.outcomes[k]||0) + (d.zara.outcomes[k]||0) + (d.maya.outcomes[k]||0), 0);
+
+  const summary = `
+    <div class="cards-row">
+      <div class="card">
+        <div class="card-label">Total Calls</div>
+        <div class="card-value">${totalAll}</div>
+        <div class="card-sub">All agents combined</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Answered</div>
+        <div class="card-value">${answeredAll}</div>
+        <div class="card-sub">Answer rate: ${pct(answeredAll, totalAll)}</div>
+      </div>
+      <div class="card card-green">
+        <div class="card-label">Meetings Booked</div>
+        <div class="card-value">${meetsAll}</div>
+        <div class="card-sub">Of answered: ${pct(meetsAll, answeredAll)}</div>
+      </div>
+      <div class="card card-amber">
+        <div class="card-label">Positive Outcomes</div>
+        <div class="card-value">${posAll}</div>
+        <div class="card-sub">Meetings + callbacks + emails</div>
+      </div>
+    </div>`;
+
+  const hResult = renderAgent('harshita', d.harshita, 'Harshita', 'badge-india', 'India');
+  const zResult = renderAgent('zara',     d.zara,     'Zara',     'badge-sea',   'SEA');
+  const mResult = renderAgent('maya',     d.maya,     'Maya',     'badge-us',    'US');
+
+  const hHtml = typeof hResult === 'string' ? hResult : hResult.html;
+  const zHtml = typeof zResult === 'string' ? zResult : zResult.html;
+  const mHtml = typeof mResult === 'string' ? mResult : mResult.html;
+
+  document.getElementById('content').innerHTML = summary + hHtml + zHtml + mHtml;
+
+  setTimeout(() => {
+    if (typeof hResult === 'object') {
+      makeDonut(hResult.volId, hResult.volLabels, hResult.volData, hResult.volColors);
+      makeDonut(hResult.outId, hResult.outLabels, hResult.outData, hResult.outColors);
+    }
+    if (typeof zResult === 'object') {
+      makeDonut(zResult.volId, zResult.volLabels, zResult.volData, zResult.volColors);
+      makeDonut(zResult.outId, zResult.outLabels, zResult.outData, zResult.outColors);
+    }
+    if (typeof mResult === 'object') {
+      makeDonut(mResult.volId, mResult.volLabels, mResult.volData, mResult.volColors);
+      makeDonut(mResult.outId, mResult.outLabels, mResult.outData, mResult.outColors);
+    }
+  }, 30);
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+(function init() {
+  const sel = document.getElementById('dateSelect');
+  Object.keys(ALL_DATA)
+    .sort()
+    .reverse()
+    .forEach(ds => {
+      const [y, m, day] = ds.split('-');
+      const opt = document.createElement('option');
+      opt.value = ds;
+      opt.textContent = `${parseInt(day)} ${MONTHS[parseInt(m)-1]} ${y}`;
+      sel.appendChild(opt);
+    });
+  render(sel.value);
+})();
+</script>
+</body>
+</html>
