@@ -239,9 +239,16 @@ const ALL_DATA = {
       ]
     },
     maya: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 135, answered: 6, no_answer: 50, voicemail: 79, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 3 },
+      calls: [
+        { name: "Michael", company: "Avient Corporation", region: "United States", duration: "0:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — person who answered was not Michael" },
+        { name: "Freddie", company: "ASTEC", region: "United States", duration: "0:18", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong contact — person answered as Samantha, not Freddie Harris" },
+        { name: "Telesforo", company: "Avient Corporation", region: "United States", duration: "0:56", outcome: "not_interested", pain_points: "None confirmed", note: "Gatekeeper held line; prospect came on and said No when asked if it was a good time" },
+        { name: "Kumara", company: "Atkore", region: "United States", duration: "0:47", outcome: "other", pain_points: "None confirmed", note: "Gatekeeper transferred call; prospect asked what it was about but call cut off before pitch completed" },
+        { name: "Ed", company: "Atkore", region: "United States", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Gatekeeper asked reason for calling and explained supply chain platform but prospect could not take the call" },
+        { name: "Joan", company: "Arthrex", region: "United States", duration: "0:18", outcome: "other", pain_points: "None confirmed", note: "Gatekeeper asked reason for calling and went to check availability but prospect was never connected" }
+      ]
     }
   },
   "2026-06-04": {
