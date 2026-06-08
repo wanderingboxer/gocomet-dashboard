@@ -214,17 +214,28 @@ const ALL_DATA = {
       calls: []
     },
     zara: {
-      total: 138, answered: 8, no_answer: 115, voicemail: 15, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 2, not_interested: 0, not_relevant: 1, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 3 },
+      total: 246, answered: 19, no_answer: 203, voicemail: 24, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 4, not_interested: 2, not_relevant: 1, already_have_system: 1, wrong_contact: 3, existing_customer: 0, other: 7 },
       calls: [
-        { name: "Bill", company: "SM Investments", region: "Philippines", duration: "4:48", outcome: "meeting_booked", pain_points: "Separate systems for procurement, invoicing, and visibility; delays in approvals", note: "Placeholder calendar invite sent; prospect to confirm availability" },
-        { name: "Anne", company: "Mondelez International", region: "Malaysia", duration: "1:38", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked if Zara would call at 1pm, indicating preference for a callback at a better time" },
-        { name: "Panatda", company: "Berli Jucker Public Company Limited (BJC)", region: "Thailand", duration: "4:41", outcome: "asked_for_email", pain_points: "Missing scheduled shipments due to lack of freight visibility", note: "Asked to send email with details; mentioned missing scheduled shipments due to poor visibility" },
-        { name: "Azni", company: "Mondelez International", region: "Indonesia", duration: "1:17", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send details via email as she was busy at work" },
-        { name: "Augusto", company: "Anglo American", region: "Singapore", duration: "0:38", outcome: "not_relevant", pain_points: "None confirmed", note: "Stated he is not the right person to speak about this topic" },
-        { name: "Jeffrey", company: "Ninja Van", region: "Philippines", duration: "2:20", outcome: "other", pain_points: "Disconnected supply chain systems causing delays in updates and approvals", note: "Call dropped mid-pitch after prospect confirmed supply chain visibility challenges" },
-        { name: "Tanya", company: "Mondelez International", region: "Singapore", duration: "0:25", outcome: "other", pain_points: "None confirmed", note: "Call dropped after prospect asked what the call was about" },
-        { name: "Rama Vignesh", company: "Mondelez International", region: "Malaysia", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Prospect willing to hear the pitch but call dropped before any outcome" }
+        { name: "Bill", company: "SM Investments", region: "Philippines", duration: "4:48", outcome: "meeting_booked", pain_points: "Procurement and invoicing systems still siloed; delays in internal approvals", note: "Placeholder calendar invite sent; prospect agreed to explore and will confirm availability" },
+        { name: "Roger", company: "SABIC", region: "Hong Kong", duration: "2:11", outcome: "asked_for_email", pain_points: "None confirmed", note: "No longer in supply chain role at SABIC; asked to send email" },
+        { name: "Rachavanlop", company: "Vinythai Public", region: "Thailand", duration: "3:51", outcome: "asked_for_email", pain_points: "Manual invoice checking against contracts; invoicing fragmented between procurement and accounting", note: "Asked to send email; provided updated email rachavanlop.jand@agc.com" },
+        { name: "Panatda", company: "BJC / Talaypool Natural Product", region: "Thailand", duration: "4:41", outcome: "asked_for_email", pain_points: "Missing scheduled shipments due to lack of visibility", note: "Now at Talaypool Natural Product; evaluating new supply chain solutions; asked for email" },
+        { name: "Azni", company: "Mondelez International", region: "Indonesia", duration: "1:17", outcome: "asked_for_email", pain_points: "None confirmed", note: "Busy at time of call; asked to send details by email" },
+        { name: "Amine Mohamed", company: "DP World", region: "Singapore", duration: "0:31", outcome: "not_interested", pain_points: "None confirmed", note: "Not interested; ended call immediately after pitch began" },
+        { name: "Kennis", company: "Johnson Electric", region: "SEA", duration: "0:41", outcome: "not_interested", pain_points: "None confirmed", note: "Not interested; unfamiliar with GoComet" },
+        { name: "Sureeporn", company: "SABIC", region: "Thailand", duration: "1:26", outcome: "already_have_system", pain_points: "None confirmed", note: "Has own internal system; outside solutions not allowed and must go through HQ" },
+        { name: "Augusto", company: "Anglo American", region: "Singapore", duration: "0:39", outcome: "not_relevant", pain_points: "None confirmed", note: "Not the right person for supply chain topics" },
+        { name: "Thanh Hai", company: "DP World", region: "Vietnam", duration: "1:41", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer at DP World; moved to another company" },
+        { name: "Simon", company: "Vale", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — Alicia answered, not Simon" },
+        { name: "Taufik", company: "Vale", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong contact — Alicia answered again, not Taufik" },
+        { name: "Zudi", company: "Vale", region: "Indonesia", duration: "0:31", outcome: "other", pain_points: "None confirmed", note: "Brief exchange; call ended mid-greeting" },
+        { name: "Ganesan Mukundan", company: "ST Engineering", region: "Singapore", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "Brief exchange only; call dropped mid-pitch" },
+        { name: "Duy", company: "Siam City Cement", region: "Vietnam", duration: "0:48", outcome: "other", pain_points: "None confirmed", note: "Brief engagement then call disconnected after initial greeting" },
+        { name: "Tanya", company: "Mondelez International", region: "Singapore", duration: "0:26", outcome: "other", pain_points: "None confirmed", note: "Call dropped before full pitch could be delivered" },
+        { name: "Jeffrey", company: "Ninja Van", region: "Philippines", duration: "2:21", outcome: "other", pain_points: "None confirmed", note: "Engaged in conversation but call cut off with no clear outcome" },
+        { name: "Anne", company: "Mondelez International", region: "Malaysia", duration: "1:38", outcome: "other", pain_points: "None confirmed", note: "Connected and engaged but call dropped mid-pitch" },
+        { name: "Rama Vignesh", company: "Mondelez International", region: "Malaysia", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Call ended during pitch; no outcome reached" }
       ]
     },
     maya: {
