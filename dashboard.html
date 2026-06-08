@@ -215,9 +215,9 @@ const ALL_DATA = {
     },
     zara: {
       total: 138, answered: 8, no_answer: 115, voicemail: 15, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 2, not_interested: 0, not_relevant: 1, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 3 },
+      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 2, not_interested: 0, not_relevant: 1, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 3 },
       calls: [
-        { name: "Bill", company: "SM Investments", region: "Philippines", duration: "4:48", outcome: "callback_requested", pain_points: "Separate systems for procurement, invoicing, and visibility; delays in approvals", note: "Open to follow-up; asked for calendar invite but needs to review availability first" },
+        { name: "Bill", company: "SM Investments", region: "Philippines", duration: "4:48", outcome: "meeting_booked", pain_points: "Separate systems for procurement, invoicing, and visibility; delays in approvals", note: "Placeholder calendar invite sent; prospect to confirm availability" },
         { name: "Anne", company: "Mondelez International", region: "Malaysia", duration: "1:38", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked if Zara would call at 1pm, indicating preference for a callback at a better time" },
         { name: "Panatda", company: "Berli Jucker Public Company Limited (BJC)", region: "Thailand", duration: "4:41", outcome: "asked_for_email", pain_points: "Missing scheduled shipments due to lack of freight visibility", note: "Asked to send email with details; mentioned missing scheduled shipments due to poor visibility" },
         { name: "Azni", company: "Mondelez International", region: "Indonesia", duration: "1:17", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send details via email as she was busy at work" },
@@ -599,6 +599,7 @@ const ALL_DATA = {
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const COMPANY_WEBSITE = {
+  'SM Investments':       'sminvestments.com',
   'Lotte':                'lotteindia.com',
   'Adani Group':          'adani.com',
   'Meril':                'merillife.com',
@@ -612,6 +613,7 @@ const COMPANY_WEBSITE = {
 };
 
 const COMPANY_REVENUE = {
+  'SM Investments':       '$10,400 Mn',
   'Lotte':                '$11,470 Mn',
   'Adani Group':          '$30,400 Mn',
   'Meril':                '$1,000 Mn',
