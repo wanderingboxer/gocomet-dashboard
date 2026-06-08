@@ -209,9 +209,28 @@
 const ALL_DATA = {
   "2026-06-08": {
     harshita: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 170, answered: 18, no_answer: 140, voicemail: 12, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 5, existing_customer: 0, other: 10 },
+      calls: [
+        { name: "Vipul", company: "Essar", region: "India", duration: "2:56", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Tuesday 9 Jun at 4pm IST" },
+        { name: "Sneha", company: "Bharat Petroleum Corporation Limited", region: "India", duration: "1:18", outcome: "callback_requested", pain_points: "None confirmed", note: "Prospect said she can't talk now and will call back later" },
+        { name: "Rohit", company: "Bharat Petroleum Corporation Limited", region: "India", duration: "1:31", outcome: "not_interested", pain_points: "None confirmed", note: "Stated no supply chain problems exist; ended call amicably" },
+        { name: "Gajraj", company: "Napino Auto & Electronics Ltd", region: "India", duration: "1:46", outcome: "other", pain_points: "Centralised approval process causing delays in shipment sign-offs", note: "Confirmed approval delays but call cut off before close" },
+        { name: "Sudhakar", company: "WayCool Foods", region: "India", duration: "0:45", outcome: "other", pain_points: "None confirmed", note: "Call connected but audio was severely garbled; no substantive discussion" },
+        { name: "Mohsin", company: "Uno Minda", region: "India", duration: "0:44", outcome: "other", pain_points: "None confirmed", note: "Prospect was receptive and available; call cut off before pitch completed" },
+        { name: "Madan", company: "Hindalco Industries Limited", region: "India", duration: "0:34", outcome: "other", pain_points: "None confirmed", note: "Prospect engaged briefly but call cut off due to audio issues" },
+        { name: "Rajesh", company: "Uno Minda", region: "India", duration: "0:30", outcome: "other", pain_points: "None confirmed", note: "Prospect confirmed availability; call cut off before pitch completed" },
+        { name: "Rk", company: "Bharat Petroleum Corporation Limited", region: "India", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Prospect asked who was calling; call cut off mid-pitch" },
+        { name: "Sanjay", company: "Steel Authority of India Limited", region: "India", duration: "0:34", outcome: "other", pain_points: "None confirmed", note: "Prospect asked for company name; call cut off before full pitch" },
+        { name: "Kalpana", company: "Essar", region: "India", duration: "0:42", outcome: "other", pain_points: "None confirmed", note: "Prospect was responsive; call cut off mid-pitch" },
+        { name: "Kalpana", company: "Essar", region: "India", duration: "0:18", outcome: "other", pain_points: "None confirmed", note: "Prospect said 'yeah, please tell me' but call cut off due to audio issues" },
+        { name: "Rohit", company: "Bharat Petroleum Corporation Limited", region: "India", duration: "0:28", outcome: "other", pain_points: "None confirmed", note: "Prospect confirmed identity but call cut off before pitch" },
+        { name: "Rajesh", company: "Uno Minda", region: "India", duration: "0:35", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered said the number belongs to his father, not Rajesh" },
+        { name: "Yogesh", company: "Napino Auto & Electronics Ltd", region: "India", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered; someone named Aman picked up instead of Yogesh" },
+        { name: "Vikas", company: "Napino Auto & Electronics Ltd", region: "India", duration: "0:16", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person (Mahesh) answered instead of Vikas" },
+        { name: "Rahul", company: "UFLEX Group", region: "India", duration: "0:39", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered confirmed they are not Rahul" },
+        { name: "Shreyas", company: "Hindalco Industries Limited", region: "India", duration: "0:26", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered; confirmed it was not Shreyas" }
+      ]
     },
     zara: {
       total: 246, answered: 19, no_answer: 203, voicemail: 24, busy: 0, unknown: 0,
@@ -239,9 +258,13 @@ const ALL_DATA = {
       ]
     },
     maya: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 107, answered: 3, no_answer: 37, voicemail: 67, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 1, not_relevant: 2, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "James", company: "Boart Longyear", region: "United States", duration: "10:01", outcome: "not_relevant", pain_points: "None confirmed", note: "Reached wrong number — prospect appeared to be a health teacher mid-class, unaware of the call" },
+        { name: "James", company: "Boart Longyear", region: "United States", duration: "5:38", outcome: "not_relevant", pain_points: "None confirmed", note: "Second attempt reached same classroom — prospect was teaching health class and could not be engaged" },
+        { name: "Ken", company: "Berlin Packaging", region: "United States", duration: "0:17", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect said 'No, you don't. Have a good day' and declined immediately" }
+      ]
     }
   },
   "2026-06-05": {
