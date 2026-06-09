@@ -246,8 +246,8 @@ const ALL_DATA = {
       total: 143, answered: 9, no_answer: 89, voicemail: 45, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 2, callback_requested: 0, asked_for_email: 0, not_interested: 2, not_relevant: 1, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 1 },
       calls: [
-        { name: "Fransjono", company: "PT Pertamina", region: "Indonesia", duration: "4:37", outcome: "meeting_booked", pain_points: "General supply chain management challenges mentioned", note: "Placeholder calendar invite sent for 10 Jun; agreed to meeting via WhatsApp contact" },
-        { name: "Yeojin", company: "Lotte Biologics", region: "South Korea", duration: "3:11", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar invite sent for 10 Jun; agreed to discuss with boss and confirmed meeting" },
+        { name: "Fransjono", designation: "Manager of Supply Chain", company: "PT Pertamina", region: "Indonesia", duration: "4:37", outcome: "meeting_booked", pain_points: "General supply chain management challenges mentioned", note: "Placeholder calendar invite sent for 10 Jun; agreed to meeting via WhatsApp contact" },
+        { name: "Yeojin", designation: "Procurement Manager", company: "Lotte Biologics", region: "South Korea", duration: "3:11", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar invite sent for 10 Jun; agreed to discuss with boss and confirmed meeting" },
         { name: "Nicholas", company: "GOLD FIELDS", region: "Australia", duration: "1:07", outcome: "not_interested", pain_points: "None confirmed", note: "Said GoComet was not relevant; suspected AI call and disengaged" },
         { name: "Mark", company: "GOLD FIELDS", region: "Australia", duration: "0:44", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested; doubted it was a real person calling" },
         { name: "Gabriella", company: "PT HM Sampoerna Tbk.", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered (Alicia); Gabriella Kesita was not reachable at this number" },
@@ -268,7 +268,7 @@ const ALL_DATA = {
       total: 170, answered: 18, no_answer: 140, voicemail: 12, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 5, existing_customer: 0, other: 10 },
       calls: [
-        { name: "Vipul", company: "Essar", region: "India", duration: "2:56", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Tuesday 9 Jun at 4pm IST" },
+        { name: "Vipul", designation: "Export Manager", company: "Essar", region: "India", duration: "2:56", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Tuesday 9 Jun at 4pm IST" },
         { name: "Sneha", company: "Bharat Petroleum Corporation Limited", region: "India", duration: "1:18", outcome: "callback_requested", pain_points: "None confirmed", note: "Prospect said she can't talk now and will call back later" },
         { name: "Rohit", company: "Bharat Petroleum Corporation Limited", region: "India", duration: "1:31", outcome: "not_interested", pain_points: "None confirmed", note: "Stated no supply chain problems exist; ended call amicably" },
         { name: "Gajraj", company: "Napino Auto & Electronics Ltd", region: "India", duration: "1:46", outcome: "other", pain_points: "Centralised approval process causing delays in shipment sign-offs", note: "Confirmed approval delays but call cut off before close" },
@@ -292,7 +292,7 @@ const ALL_DATA = {
       total: 246, answered: 19, no_answer: 203, voicemail: 24, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 4, not_interested: 2, not_relevant: 1, already_have_system: 1, wrong_contact: 3, existing_customer: 0, other: 7 },
       calls: [
-        { name: "Bill", company: "SM Investments", region: "Philippines", duration: "4:48", outcome: "meeting_booked", pain_points: "Procurement and invoicing systems still siloed; delays in internal approvals", note: "Placeholder calendar invite sent; prospect agreed to explore and will confirm availability" },
+        { name: "Bill", designation: "Assistant Vice President of Procurement", company: "SM Investments", region: "Philippines", duration: "4:48", outcome: "meeting_booked", pain_points: "Procurement and invoicing systems still siloed; delays in internal approvals", note: "Placeholder calendar invite sent; prospect agreed to explore and will confirm availability" },
         { name: "Roger", company: "SABIC", region: "Hong Kong", duration: "2:11", outcome: "asked_for_email", pain_points: "None confirmed", note: "No longer in supply chain role at SABIC; asked to send email" },
         { name: "Rachavanlop", company: "Vinythai Public", region: "Thailand", duration: "3:51", outcome: "asked_for_email", pain_points: "Manual invoice checking against contracts; invoicing fragmented between procurement and accounting", note: "Asked to send email; provided updated email rachavanlop.jand@agc.com" },
         { name: "Panatda", company: "BJC / Talaypool Natural Product", region: "Thailand", duration: "4:41", outcome: "asked_for_email", pain_points: "Missing scheduled shipments due to lack of visibility", note: "Now at Talaypool Natural Product; evaluating new supply chain solutions; asked for email" },
@@ -328,8 +328,8 @@ const ALL_DATA = {
       total: 81, answered: 10, no_answer: 69, voicemail: 2, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 2, callback_requested: 2, asked_for_email: 1, not_interested: 2, not_relevant: 0, already_have_system: 1, wrong_contact: 1, existing_customer: 0, other: 1 },
       calls: [
-        { name: "Vishwajeet Pratap", company: "Adani Group", region: "India", duration: "2:44", outcome: "meeting_booked", pain_points: "ESG tracking and sustainability metrics", note: "Meeting booked for Thursday 12 Jun 2026 at 11:00 AM IST; interested in ESG and sustainability tracking" },
-        { name: "Ganesh", company: "Lotte", region: "India", duration: "1:01", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar sent; meeting scheduled for Monday" },
+        { name: "Vishwajeet Pratap", designation: "Deputy General Manager of Procurement and Contracts", company: "Adani Group", region: "India", duration: "2:44", outcome: "meeting_booked", pain_points: "ESG tracking and sustainability metrics", note: "Meeting booked for Thursday 12 Jun 2026 at 11:00 AM IST; interested in ESG and sustainability tracking" },
+        { name: "Ganesh", designation: "General Manager of Supply Chain and Procurement", company: "Lotte", region: "India", duration: "1:01", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar sent; meeting scheduled for Monday" },
         { name: "Yash", company: "Adani Power", region: "India", duration: "1:05", outcome: "callback_requested", pain_points: "None confirmed", note: "Audio quality issues; asked agent to WhatsApp and said he'd call back within half an hour" },
         { name: "Ajay", company: "Adani Power", region: "India", duration: "1:02", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; asked to call back after half an hour" },
         { name: "Tamil", company: "Lotte", region: "India", duration: "1:57", outcome: "asked_for_email", pain_points: "Requires end-to-end process flow automation", note: "Interested in end-to-end automation; asked for company profile via email" },
@@ -372,8 +372,8 @@ const ALL_DATA = {
       total: 186, answered: 27, no_answer: 153, voicemail: 6, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 2, callback_requested: 3, asked_for_email: 1, not_interested: 3, not_relevant: 2, already_have_system: 2, wrong_contact: 0, existing_customer: 0, other: 14 },
       calls: [
-        { name: "Nitinkumar", company: "Meril", region: "India", duration: "2:29", outcome: "meeting_booked", pain_points: "Gaps in freight market intelligence and port congestion data with existing SAP", note: "Meeting booked for Tuesday 9 Jun at 11am CET" },
-        { name: "Mrugen", company: "Meril", region: "India", duration: "2:00", outcome: "meeting_booked", pain_points: "Not currently looking for changes", note: "Meeting booked for Saturday 6 Jun at 10am IST" },
+        { name: "Nitinkumar", designation: "Supply Chain Manager", company: "Meril", region: "India", duration: "2:29", outcome: "meeting_booked", pain_points: "Gaps in freight market intelligence and port congestion data with existing SAP", note: "Meeting booked for Tuesday 9 Jun at 11am CET" },
+        { name: "Mrugen", designation: "Assistant Manager of Procurement", company: "Meril", region: "India", duration: "2:00", outcome: "meeting_booked", pain_points: "Not currently looking for changes", note: "Meeting booked for Saturday 6 Jun at 10am IST" },
         { name: "Anooj", company: "Tata Communications", region: "India", duration: "0:24", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back in 10 minutes" },
         { name: "Shitij", company: "Meril", region: "India", duration: "0:32", outcome: "callback_requested", pain_points: "None confirmed", note: "Heading into a meeting, asked to call back tomorrow" },
         { name: "Hitendra", company: "Torrent Power", region: "India", duration: "0:29", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting, asked to call back tomorrow" },
@@ -405,7 +405,7 @@ const ALL_DATA = {
       total: 102, answered: 11, no_answer: 68, voicemail: 23, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 1, callback_requested: 3, asked_for_email: 3, not_interested: 1, not_relevant: 0, already_have_system: 1, wrong_contact: 1, existing_customer: 0, other: 1 },
       calls: [
-        { name: "Kim Hong", company: "DP World", region: "South Korea", duration: "3:13", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Fri 5 Jun at 10:30 KST; confirmed email jameskim9677@gmail.com" },
+        { name: "Kim Hong", designation: "Senior Director of Contract Logistics", company: "DP World", region: "South Korea", duration: "3:13", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Fri 5 Jun at 10:30 KST; confirmed email jameskim9677@gmail.com" },
         { name: "Yogendra", company: "ZIM Integrated Shipping Services", region: "Hong Kong", duration: "2:41", outcome: "asked_for_email", pain_points: "None confirmed", note: "Wanted to review website and email details before committing to further discussion" },
         { name: "영혜숙 부장", company: "CJ Logistics", region: "South Korea", duration: "1:32", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked for email; does not speak English, call ended politely" },
         { name: "Sirichai Timmy", company: "PTT Group", region: "Thailand", duration: "1:30", outcome: "asked_for_email", pain_points: "None confirmed", note: "Has existing supply chain tools; asked for email details before discussing further" },
@@ -436,7 +436,7 @@ const ALL_DATA = {
       total: 146, answered: 14, no_answer: 123, voicemail: 9, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 1, callback_requested: 2, asked_for_email: 1, not_interested: 0, not_relevant: 1, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 6 },
       calls: [
-        { name: "Naveen", company: "JSW", region: "India", duration: "4:52", outcome: "meeting_booked", pain_points: "No centralised platform, no predictive ETAs (firefighting mode), delays in updates and approvals", note: "Meeting booked for 4 Jun after 12pm IST; confirmed via email potnoor.naveen@jsw.in" },
+        { name: "Naveen", designation: "Head of Procurement", company: "JSW", region: "India", duration: "4:52", outcome: "meeting_booked", pain_points: "No centralised platform, no predictive ETAs (firefighting mode), delays in updates and approvals", note: "Meeting booked for 4 Jun after 12pm IST; confirmed via email potnoor.naveen@jsw.in" },
         { name: "Naveen", company: "JSW", region: "India", duration: "1:43", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back at 5:30 PM IST as he was in another meeting" },
         { name: "Rajeshwar", company: "Croma", region: "India", duration: "0:42", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back in 15 minutes as he was in a meeting" },
         { name: "Joshan", company: "Indian Oil Corp Limited", region: "India", duration: "0:52", outcome: "asked_for_email", pain_points: "None confirmed", note: "Not the right person; asked to send an email which he will forward to the responsible person" },
@@ -533,8 +533,8 @@ const ALL_DATA = {
       total: 162, answered: 13, no_answer: 148, voicemail: 1, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 2, callback_requested: 1, asked_for_email: 0, not_interested: 2, not_relevant: 0, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 5 },
       calls: [
-        { name: "Kailas", company: "Capricorn Logistics", region: "India", duration: "2:44", outcome: "meeting_booked", pain_points: "Custom documentation delays in supply chain", note: "Meeting booked for 6 Jun 2026 at 11:00 AM IST" },
-        { name: "Hazem", company: "Alghanim Industries", region: "Kuwait", duration: "2:52", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for 9 Jun 2026 at 11:00 AM Kuwait Time" },
+        { name: "Kailas", designation: "Deputy General Manager - Import", company: "Capricorn Logistics", region: "India", duration: "2:44", outcome: "meeting_booked", pain_points: "Custom documentation delays in supply chain", note: "Meeting booked for 6 Jun 2026 at 11:00 AM IST" },
+        { name: "Hazem", designation: "Assistant Procurement Manager", company: "Alghanim Industries", region: "Kuwait", duration: "2:52", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for 9 Jun 2026 at 11:00 AM Kuwait Time" },
         { name: "Ahmed", company: "Halwani Bros", region: "Egypt", duration: "1:25", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back in 30 minutes from call time" },
         { name: "Erik", company: "Nouryon", region: "Sweden", duration: "0:39", outcome: "not_interested", pain_points: "None confirmed", note: "Said not at this time and thanked the agent" },
         { name: "Perry Ben", company: "KLA", region: "Israel", duration: "0:19", outcome: "not_interested", pain_points: "None confirmed", note: "Declined immediately" },
@@ -570,8 +570,8 @@ const ALL_DATA = {
       total: 76, answered: 9, no_answer: 64, voicemail: 3, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 2, callback_requested: 2, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 1, wrong_contact: 1, existing_customer: 0, other: 2 },
       calls: [
-        { name: "Swarnadip", company: "ReNew", region: "India", duration: "2:14", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Monday 3 Jun at 2:30 PM IST" },
-        { name: "Chandrashekar", company: "Suzlon", region: "India", duration: "1:53", outcome: "meeting_booked", pain_points: "Supply chain visibility delays", note: "Meeting booked for 3 Jun 2026 at 18:00 IST" },
+        { name: "Swarnadip", designation: "Logistics Supply Chain Specialist", company: "ReNew", region: "India", duration: "2:14", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Monday 3 Jun at 2:30 PM IST" },
+        { name: "Chandrashekar", designation: "Supply Chain Management", company: "Suzlon", region: "India", duration: "1:53", outcome: "meeting_booked", pain_points: "Supply chain visibility delays", note: "Meeting booked for 3 Jun 2026 at 18:00 IST" },
         { name: "Sukanta", company: "ReNew", region: "India", duration: "0:18", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back after 6:00 PM, was on another call" },
         { name: "Suraj", company: "Suzlon", region: "India", duration: "2:03", outcome: "callback_requested", pain_points: "Visibility and freight costs", note: "Traveling; asked to call back in two hours" },
         { name: "Somenath", company: "Tega Industries", region: "India", duration: "1:02", outcome: "not_interested", pain_points: "None confirmed", note: "Said things moving fine, not required at this moment" },
@@ -603,7 +603,7 @@ const ALL_DATA = {
       calls: [
         { name: "Mayur", company: "Varroc", region: "India", duration: "1:34", outcome: "asked_for_email", pain_points: "Freight visibility challenges, delays getting updates internally", note: "Acknowledged freight visibility issues; said he would let them know if any requirement" },
         { name: "Sakeer", company: "YBA Kanoo", region: "Saudi Arabia", duration: "1:07", outcome: "asked_for_email", pain_points: "None confirmed", note: "On holiday; asked to drop an email and said he would forward to relevant department" },
-        { name: "Peer", company: "AlJomaih Automotive Company", region: "Saudi Arabia", duration: "1:06", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar invite sent; on holiday, asked to call back after 5 days after 2–3 PM" },
+        { name: "Peer", designation: "Procurement Specialist", company: "AlJomaih Automotive Company", region: "Saudi Arabia", duration: "1:06", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar invite sent; on holiday, asked to call back after 5 days after 2–3 PM" },
         { name: "Ibrahim El", company: "AlJomaih Automotive Company", region: "Saudi Arabia", duration: "1:53", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered was not Ibrahim El; spoke Arabic indicating wrong number" },
         { name: "Surendra", company: "Hindustan Organic Chemicals", region: "India", duration: "1:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered identified as Mr. Jerry; wrong number confirmed" },
         { name: "Preeti", company: "Banas Dairy", region: "India", duration: "0:57", outcome: "asked_for_email", pain_points: "None confirmed", note: "Prospect said send it early in the call; call dropped before further conversation" },
@@ -625,8 +625,8 @@ const ALL_DATA = {
       total: 120, answered: 9, no_answer: 79, voicemail: 32, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 2, callback_requested: 2, asked_for_email: 2, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 0 },
       calls: [
-        { name: "Mohamed Abdul Wahid", company: "PETRONAS", region: "Malaysia", duration: "2:43", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Thu 4 Jun at 2pm GMT+8; uses SAP with predictive ETAs" },
-        { name: "Ahmad Nazri", company: "PETRONAS", region: "Malaysia", duration: "2:39", outcome: "meeting_booked", pain_points: "Visibility delays — tracking via email and phone calls", note: "Meeting booked for Thu 28 May at 9:30 AM KL time; confirmed email" },
+        { name: "Mohamed Abdul Wahid", designation: "Workstream Lead of Capital Project Digital Transformation", company: "PETRONAS", region: "Malaysia", duration: "2:43", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Thu 4 Jun at 2pm GMT+8; uses SAP with predictive ETAs" },
+        { name: "Ahmad Nazri", designation: "Procurement Logistics Manager", company: "PETRONAS", region: "Malaysia", duration: "2:39", outcome: "meeting_booked", pain_points: "Visibility delays — tracking via email and phone calls", note: "Meeting booked for Thu 28 May at 9:30 AM KL time; confirmed email" },
         { name: "Sadheer", company: "Fabrinet", region: "Thailand", duration: "1:12", outcome: "callback_requested", pain_points: "None confirmed", note: "On holiday and difficult to hear; asked to connect later next week" },
         { name: "Sitthiporn Jack", company: "AGC Vinythai Public", region: "Thailand", duration: "1:07", outcome: "callback_requested", pain_points: "None confirmed", note: "Said he was busy; will call back once internal software development gap arises" },
         { name: "Wilda M", company: "Maxeon Solar Technologies", region: "Philippines", duration: "1:17", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked for details to be sent via email due to unclear audio" },
@@ -689,6 +689,7 @@ const ALL_DATA = {
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const COMPANY_WEBSITE = {
+  'Essar':                'essar.com',
   'PT Pertamina':         'pertamina.com',
   'Lotte Biologics':      'lottebiologics.com',
   'SM Investments':       'sminvestments.com',
@@ -705,6 +706,7 @@ const COMPANY_WEBSITE = {
 };
 
 const COMPANY_REVENUE = {
+  'Essar':                '$15,000 Mn',
   'PT Pertamina':         '$32,800 Mn',
   'Lotte Biologics':      '$11,470 Mn',
   'SM Investments':       '$10,400 Mn',
@@ -848,6 +850,7 @@ function renderAgent(key, data, name, badgeClass, regionLabel, isMulti) {
       <tr>
         ${dateCell}
         <td style="white-space:nowrap;color:#fff;font-weight:500">${c.name}</td>
+        <td style="white-space:nowrap;font-size:12px;color:#888">${c.designation || '—'}</td>
         <td style="white-space:nowrap">${c.company}</td>
         <td style="white-space:nowrap">${websiteCell}</td>
         <td style="white-space:nowrap;color:#1D9E75;font-weight:600">${revenue}</td>
@@ -862,7 +865,7 @@ function renderAgent(key, data, name, badgeClass, regionLabel, isMulti) {
         <div class="table-title">Meetings Booked</div>
         <div class="scrollable">
           <table>
-            <thead><tr>${dateHeader}<th>Prospect</th><th>Company</th><th>Website</th><th>Revenue (USD Mn)</th><th>Region</th><th>Duration</th><th>Pain Points</th><th>Key Note</th></tr></thead>
+            <thead><tr>${dateHeader}<th>Prospect</th><th>Designation</th><th>Company</th><th>Website</th><th>Revenue (USD Mn)</th><th>Region</th><th>Duration</th><th>Pain Points</th><th>Key Note</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>
