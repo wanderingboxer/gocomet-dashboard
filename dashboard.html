@@ -244,10 +244,10 @@ const ALL_DATA = {
     },
     zara: {
       total: 143, answered: 9, no_answer: 89, voicemail: 45, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 2, not_interested: 2, not_relevant: 1, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 1 },
+      outcomes: { meeting_booked: 2, callback_requested: 0, asked_for_email: 0, not_interested: 2, not_relevant: 1, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 1 },
       calls: [
-        { name: "Fransjono", company: "PT Pertamina", region: "Indonesia", duration: "4:37", outcome: "asked_for_email", pain_points: "General supply chain management challenges mentioned", note: "Asked to be contacted via WhatsApp; gave personal gmail; open to a call but preferred written outreach first" },
-        { name: "Yeojin", company: "Lotte", region: "South Korea", duration: "3:11", outcome: "asked_for_email", pain_points: "None confirmed", note: "Not looking to outsource currently; asked for email with time slots to discuss with boss before booking meeting" },
+        { name: "Fransjono", company: "PT Pertamina", region: "Indonesia", duration: "4:37", outcome: "meeting_booked", pain_points: "General supply chain management challenges mentioned", note: "Placeholder calendar invite sent for 10 Jun; agreed to meeting via WhatsApp contact" },
+        { name: "Yeojin", company: "Lotte Biologics", region: "South Korea", duration: "3:11", outcome: "meeting_booked", pain_points: "None confirmed", note: "Placeholder calendar invite sent for 10 Jun; agreed to discuss with boss and confirmed meeting" },
         { name: "Nicholas", company: "GOLD FIELDS", region: "Australia", duration: "1:07", outcome: "not_interested", pain_points: "None confirmed", note: "Said GoComet was not relevant; suspected AI call and disengaged" },
         { name: "Mark", company: "GOLD FIELDS", region: "Australia", duration: "0:44", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested; doubted it was a real person calling" },
         { name: "Gabriella", company: "PT HM Sampoerna Tbk.", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered (Alicia); Gabriella Kesita was not reachable at this number" },
@@ -689,6 +689,8 @@ const ALL_DATA = {
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const COMPANY_WEBSITE = {
+  'PT Pertamina':         'pertamina.com',
+  'Lotte Biologics':      'lottebiologics.com',
   'SM Investments':       'sminvestments.com',
   'Lotte':                'lotteindia.com',
   'Adani Group':          'adani.com',
@@ -703,6 +705,8 @@ const COMPANY_WEBSITE = {
 };
 
 const COMPANY_REVENUE = {
+  'PT Pertamina':         '$32,800 Mn',
+  'Lotte Biologics':      '$11,470 Mn',
   'SM Investments':       '$10,400 Mn',
   'Lotte':                '$11,470 Mn',
   'Adani Group':          '$30,400 Mn',
