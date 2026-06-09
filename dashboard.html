@@ -207,6 +207,62 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-09": {
+    harshita: {
+      total: 123, answered: 28, no_answer: 93, voicemail: 2, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 4, asked_for_email: 1, not_interested: 1, not_relevant: 1, already_have_system: 2, wrong_contact: 6, existing_customer: 0, other: 13 },
+      calls: [
+        { name: "Rishi Bhandari", company: "Ambuja Cements", region: "India", duration: "0:47", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to be called back at 8pm" },
+        { name: "Ganesh Mane", company: "Uno Minda", region: "India", duration: "0:27", outcome: "callback_requested", pain_points: "None confirmed", note: "Said timing not right; implied callback needed" },
+        { name: "Anirudh Arunkumar", company: "Swiggy", region: "India", duration: "0:41", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back tomorrow" },
+        { name: "Nitin Bartaria", company: "Hindalco Industries Limited", region: "India", duration: "1:31", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; said not interested currently but will call back later" },
+        { name: "Vivian Joe", company: "Swiggy", region: "India", duration: "1:22", outcome: "asked_for_email", pain_points: "None confirmed", note: "Requested email; prefers mail over calls" },
+        { name: "B Satya Pratap", company: "Rockman Industries", region: "India", duration: "1:10", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested in commenting right now" },
+        { name: "Ram Kumar", company: "Tata Communications", region: "India", duration: "1:04", outcome: "not_relevant", pain_points: "None confirmed", note: "No longer with Tata Communications; out of supply chain for 5 years" },
+        { name: "Sayed Mohammad", company: "Swiggy", region: "India", duration: "1:05", outcome: "already_have_system", pain_points: "None confirmed", note: "Has existing system; said not interested in anything additional" },
+        { name: "Nithin Surendran", company: "Swiggy", region: "India", duration: "2:01", outcome: "already_have_system", pain_points: "None confirmed", note: "Has in-house AI system already in use; not interested" },
+        { name: "Dwijesh Patel", company: "Ambuja Cements", region: "India", duration: "0:19", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong contact — person who answered said 'No'" },
+        { name: "Raju Nrk", company: "VISAKHAPATNAM STEEL PLANT", region: "India", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number" },
+        { name: "Varun Dave", company: "Intas Pharmaceuticals", region: "India", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong contact" },
+        { name: "Vishwas Shravankar", company: "Intas Pharmaceuticals", region: "India", duration: "0:16", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number" },
+        { name: "Sukanta Das", company: "Hindalco Industries Limited", region: "India", duration: "0:38", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number; person confirmed not Mr. Sukanta" },
+        { name: "Meera Nautiyal", company: "Hindalco Industries Limited", region: "India", duration: "0:19", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong contact; Ajay Kumar answered instead" },
+        { name: "Vipin Kumar Vadera", company: "Rockman Industries", region: "India", duration: "0:43", outcome: "other", pain_points: "None confirmed", note: "Prospect gave minimal responses; call ended without clear outcome" },
+        { name: "Abhishek Panda", company: "National Aluminium Company Limited - NALCO", region: "India", duration: "0:26", outcome: "other", pain_points: "None confirmed", note: "Reached gatekeeper; put on hold; prospect never came on line" },
+        { name: "Akant Khanduri", company: "Chambal Fertilisers and Chemicals Limited", region: "India", duration: "0:29", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-pitch after prospect asked what the call was related to" },
+        { name: "Keval Patel", company: "Swiggy", region: "India", duration: "1:12", outcome: "other", pain_points: "Uses spreadsheets for tracking; experiences delays in internal approvals", note: "Engaged on spreadsheet pain point but call cut off before booking" },
+        { name: "Akash Biradar", company: "Swiggy", region: "India", duration: "1:09", outcome: "other", pain_points: "None confirmed", note: "Engaged but poor call quality throughout; no clear outcome" },
+        { name: "Karthik Arumugam", company: "Swiggy", region: "India", duration: "0:42", outcome: "other", pain_points: "None confirmed", note: "Reached gatekeeper; put on hold; prospect never came on line" },
+        { name: "Harsha Sreedharan", company: "Swiggy", region: "India", duration: "0:42", outcome: "other", pain_points: "None confirmed", note: "Prospect said go ahead but call transcript ends mid-pitch" },
+        { name: "Pravin Hinge", company: "BGAUSS", region: "India", duration: "0:34", outcome: "other", pain_points: "None confirmed", note: "Reached gatekeeper; put on hold; prospect never came on line" },
+        { name: "Kapil Bhatiya", company: "Swiggy", region: "India", duration: "0:45", outcome: "other", pain_points: "None confirmed", note: "Confirmed good time but went silent after pitch was delivered" },
+        { name: "Nitin Khatri", company: "Intas Pharmaceuticals", region: "India", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "Reached gatekeeper who put agent on hold; prospect never connected" },
+        { name: "Sambit Patnaik", company: "Hindalco Industries Limited", region: "India", duration: "0:20", outcome: "other", pain_points: "None confirmed", note: "Prospect answered but only said 'Sorry'; no real engagement" },
+        { name: "Shree Nath Mishra", company: "Hindalco Industries Limited", region: "India", duration: "0:42", outcome: "other", pain_points: "None confirmed", note: "Reached gatekeeper; waited on hold; call ended" },
+        { name: "Surendra Tiwary", company: "Hindalco Industries Limited", region: "India", duration: "0:20", outcome: "other", pain_points: "None confirmed", note: "Echo and audio confusion on the line; no meaningful conversation" }
+      ]
+    },
+    zara: {
+      total: 143, answered: 9, no_answer: 89, voicemail: 45, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 2, not_interested: 2, not_relevant: 1, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Fransjono", company: "PT Pertamina", region: "Indonesia", duration: "4:37", outcome: "asked_for_email", pain_points: "General supply chain management challenges mentioned", note: "Asked to be contacted via WhatsApp; gave personal gmail; open to a call but preferred written outreach first" },
+        { name: "Yeojin", company: "Lotte", region: "South Korea", duration: "3:11", outcome: "asked_for_email", pain_points: "None confirmed", note: "Not looking to outsource currently; asked for email with time slots to discuss with boss before booking meeting" },
+        { name: "Nicholas", company: "GOLD FIELDS", region: "Australia", duration: "1:07", outcome: "not_interested", pain_points: "None confirmed", note: "Said GoComet was not relevant; suspected AI call and disengaged" },
+        { name: "Mark", company: "GOLD FIELDS", region: "Australia", duration: "0:44", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested; doubted it was a real person calling" },
+        { name: "Gabriella", company: "PT HM Sampoerna Tbk.", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered (Alicia); Gabriella Kesita was not reachable at this number" },
+        { name: "Matthew", company: "InfraBuild", region: "Australia", duration: "0:20", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered (someone named Ash, not Matthew Ryan)" },
+        { name: "Rob", company: "Qantas", region: "Australia", duration: "0:45", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person; said he works in a warehouse and doesn't know how his number was obtained" },
+        { name: "James", company: "InfraBuild", region: "Australia", duration: "1:19", outcome: "not_relevant", pain_points: "None confirmed", note: "InfraBuild has closed; James is retired since February, company now trades as Steel Force" },
+        { name: "Robyn", company: "InfraBuild", region: "Australia", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Call dropped after prospect asked who was calling; no meaningful conversation" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-08": {
     harshita: {
       total: 170, answered: 18, no_answer: 140, voicemail: 12, busy: 0, unknown: 0,
