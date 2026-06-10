@@ -258,9 +258,14 @@ const ALL_DATA = {
       ]
     },
     maya: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 70, answered: 4, no_answer: 28, voicemail: 38, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 1, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Rafael Baleki", company: "Caldic", region: "Brazil", duration: "1:45", outcome: "not_interested", pain_points: "None confirmed", note: "Previously used GoComet at a prior company but sees no fit in current role; politely declined" },
+        { name: "Basilio Bogarin", company: "Caldic", region: "Brazil", duration: "1:07", outcome: "asked_for_email", pain_points: "None confirmed", note: "Called during lunch; asked to communicate via message or email instead" },
+        { name: "Gary Simpson", company: "Club Car", region: "United States", duration: "0:28", outcome: "wrong_contact", pain_points: "None confirmed", note: "Number no longer assigned to Gary Simpson; person who answered redirected to Josh Linneman" },
+        { name: "Amy Johnson", company: "BW Papersystems", region: "United States", duration: "0:21", outcome: "wrong_contact", pain_points: "None confirmed", note: "Receptionist answered as B.W. Paper Systems; confirmed Amy Johnson was not available" }
+      ]
     }
   },
   "2026-06-08": {
