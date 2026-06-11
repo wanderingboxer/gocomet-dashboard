@@ -207,6 +207,54 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-10": {
+    harshita: {
+      total: 164, answered: 15, no_answer: 143, voicemail: 6, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 1, not_interested: 2, not_relevant: 0, already_have_system: 1, wrong_contact: 2, existing_customer: 0, other: 9 },
+      calls: [
+        { name: "Rohit Kumar Yadav", company: "DLF Limited", region: "India", duration: "2:06", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; referred to Mr. Udit Mukherjee at DLF" },
+        { name: "Sugandha Kaushal", company: "MANKIND PHARMA", region: "India", duration: "1:15", outcome: "already_have_system", pain_points: "Predictive ETAs still being worked on", note: "Already has supply chain platform; working on predictive ETAs" },
+        { name: "Umesh Garje", company: "Ashoka Buildcon Limited", region: "India", duration: "1:26", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send details on WhatsApp" },
+        { name: "Prathmesh Badgujar", company: "Deepak Fertilisers And Petrochemicals Corp. Ltd.", region: "India", duration: "1:13", outcome: "not_interested", pain_points: "None confirmed", note: "Said they don't need any supply chain solution" },
+        { name: "Dalip Malhotra", company: "Apraava Energy", region: "India", duration: "0:35", outcome: "not_interested", pain_points: "None confirmed", note: "Said not required right now" },
+        { name: "Nikhil Ansal", company: "Swiggy", region: "India", duration: "0:49", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; didn't know who handles supply chain" },
+        { name: "Naveen Sharma", company: "MANKIND PHARMA", region: "India", duration: "0:50", outcome: "other", pain_points: "Looking for a supply chain platform", note: "Expressed interest in a similar platform; call ended mid-conversation" },
+        { name: "Sarika Kalunke", company: "Deepak Fertilisers And Petrochemicals Corp. Ltd.", region: "India", duration: "1:01", outcome: "other", pain_points: "Gulf region shipment issues (visibility, costs, delays)", note: "Mentioned Gulf region supply chain pain points; call ended mid-conversation" },
+        { name: "Paresh Sinha", company: "Indian Oil Corp Limited", region: "India", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "Call cut off shortly after pitch began" },
+        { name: "Avinash Sharma", company: "DLF Limited", region: "India", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Prospect asked why Harshita called; call cut off mid-pitch" },
+        { name: "Abhijit Mitra", company: "Berger Paints", region: "India", duration: "0:41", outcome: "other", pain_points: "None confirmed", note: "Prospect engaged but call cut off before pitch completed" },
+        { name: "Samanth Kumar", company: "Swiggy", region: "India", duration: "0:33", outcome: "other", pain_points: "None confirmed", note: "Prospect said 'yeah, tell me'; call cut off mid-pitch" },
+        { name: "Krishna Parik", company: "Swiggy", region: "India", duration: "0:30", outcome: "other", pain_points: "None confirmed", note: "Prospect asked to hear about GoComet; call cut off mid-pitch" },
+        { name: "Surendhar Kumar", company: "Swiggy", region: "India", duration: "0:39", outcome: "other", pain_points: "None confirmed", note: "Gatekeeper screened call; never connected to Surendhar" },
+        { name: "Jagannath Dhumal", company: "Deepak Fertilisers And Petrochemicals Corp. Ltd.", region: "India", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Transferred through gatekeeper; call ended before real conversation" }
+      ]
+    },
+    zara: {
+      total: 135, answered: 11, no_answer: 87, voicemail: 37, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 1, not_interested: 1, not_relevant: 1, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 3 },
+      calls: [
+        { name: "Nuttida", company: "Betagro Group", region: "Thailand", duration: "1:39", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send email so she can pass info to relevant people; in meeting, not decision-maker" },
+        { name: "Joshua", company: "CJ Logistics", region: "Malaysia", duration: "0:38", outcome: "callback_requested", pain_points: "None confirmed", note: "At hospital for doctor's appointment; asked to call back later" },
+        { name: "Tanakrit", company: "SPC Sahapat", region: "Thailand", duration: "0:52", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; asked to call back tomorrow" },
+        { name: "Daniel", company: "BHP", region: "Australia", duration: "1:31", outcome: "not_interested", pain_points: "None confirmed", note: "Said no when asked if GoComet was relevant; questioned if it was in scope of his role" },
+        { name: "Janewit", company: "Betagro Group", region: "Thailand", duration: "1:06", outcome: "not_relevant", pain_points: "None confirmed", note: "Identified as a salesperson; not in supply chain or logistics role" },
+        { name: "Toto", company: "PT Pertamina Hulu Energi", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered — woman named Alicia picked up, not Toto" },
+        { name: "Alice", company: "Sembcorp Industries", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered — Alicia picked up instead of Alice Wijaya" },
+        { name: "Virat", company: "Betagro Group", region: "Thailand", duration: "1:06", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; referred to colleague at different number" },
+        { name: "Lai Yee", company: "Ansell", region: "Malaysia", duration: "0:30", outcome: "other", pain_points: "None confirmed", note: "Answered and confirmed identity; call ended mid-pitch before any outcome" },
+        { name: "Thu", company: "ETG", region: "Vietnam", duration: "0:21", outcome: "other", pain_points: "None confirmed", note: "Poor audio quality; prospect could not hear agent clearly" },
+        { name: "Melissa", company: "BHP", region: "Australia", duration: "0:25", outcome: "other", pain_points: "None confirmed", note: "Answered and asked what it was regarding; call ended mid-pitch" }
+      ]
+    },
+    maya: {
+      total: 130, answered: 2, no_answer: 63, voicemail: 65, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 2 },
+      calls: [
+        { name: "Akash", company: "Gibraltar Industries", region: "United States", duration: "0:38", outcome: "other", pain_points: "None confirmed", note: "Prospect asked what Go Comet is; call cut off before pitch could be completed" },
+        { name: "Joseph", company: "CONMED Corporation", region: "United States", duration: "0:44", outcome: "other", pain_points: "None confirmed", note: "Prospect picked up via IVR screening and said hello; call dropped before substantive discussion" }
+      ]
+    }
+  },
   "2026-06-09": {
     harshita: {
       total: 123, answered: 28, no_answer: 93, voicemail: 2, busy: 0, unknown: 0,
