@@ -207,6 +207,54 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-12": {
+    harshita: {
+      total: 131, answered: 18, no_answer: 101, voicemail: 12, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 1, not_interested: 2, not_relevant: 0, already_have_system: 1, wrong_contact: 3, existing_customer: 0, other: 9 },
+      calls: [
+        { name: "Venkatesh", company: "Delhivery", region: "India", duration: "1:35", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to call back tomorrow morning" },
+        { name: "Arun", company: "Bisleri International Pvt Ltd", region: "India", duration: "0:56", outcome: "callback_requested", pain_points: "None confirmed", note: "Said will call back later; agent confirmed callback" },
+        { name: "Pradeep", company: "Bisleri International Pvt Ltd", region: "India", duration: "2:09", outcome: "asked_for_email", pain_points: "None confirmed", note: "Prospect said Okay, Bye — agent offered to send email with details" },
+        { name: "Chandrakant", company: "Serum Institute of India Pvt. Ltd.", region: "India", duration: "0:41", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect said Nothing, Nothing. I'm not interested." },
+        { name: "Jagadeesh", company: "Delhivery", region: "India", duration: "0:50", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect called it a spam call and asked not to be called again" },
+        { name: "Pinakin", company: "Zydus Group", region: "India", duration: "0:46", outcome: "already_have_system", pain_points: "None confirmed", note: "Already using another supply chain platform; partner already finalised" },
+        { name: "Pawan", company: "Serum Institute of India Pvt. Ltd.", region: "India", duration: "0:40", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; stated not looking for services and not the right contact" },
+        { name: "Satish", company: "JKCement", region: "India", duration: "0:29", outcome: "wrong_contact", pain_points: "None confirmed", note: "Prospect said wrong number was dialled" },
+        { name: "Farhan", company: "Delhivery", region: "India", duration: "0:38", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — not Farhan's contact number" },
+        { name: "Raj Gupta", company: "Delhivery", region: "India", duration: "0:47", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-conversation; prospect briefly acknowledged supply chain complexity" },
+        { name: "Abhishek", company: "JKCement", region: "India", duration: "1:02", outcome: "other", pain_points: "None confirmed", note: "Prospect engaged positively but call cut off mid-pitch" },
+        { name: "Uttam", company: "Delhivery", region: "India", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Prospect said not well; call ended without a pitch" },
+        { name: "Mahesh", company: "Bisleri International Pvt Ltd", region: "India", duration: "0:37", outcome: "other", pain_points: "None confirmed", note: "Engaged briefly but call cut off mid-conversation" },
+        { name: "Haresh", company: "APAR Industries Limited", region: "India", duration: "0:22", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-pitch after prospect asked where the call was from" },
+        { name: "Vishnu", company: "APAR Industries Limited", region: "India", duration: "0:24", outcome: "other", pain_points: "None confirmed", note: "Call cut off shortly after prospect engaged with the opener" },
+        { name: "Jyoti", company: "KION India Private Limited", region: "India", duration: "0:21", outcome: "other", pain_points: "None confirmed", note: "Call cut off after prospect asked what the call was regarding" },
+        { name: "Shubham", company: "KION India Private Limited", region: "India", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "Connection issues throughout; call cut off mid-conversation" },
+        { name: "Pushpakkumar", company: "Zydus Group", region: "India", duration: "1:29", outcome: "other", pain_points: "Invoicing and procurement workflows handled separately", note: "Acknowledged supply chain gaps but call cut off before any next step" }
+      ]
+    },
+    zara: {
+      total: 107, answered: 6, no_answer: 81, voicemail: 20, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 1, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 4 },
+      calls: [
+        { name: "Anisa Aprylita", company: "PT So Good Food", region: "Indonesia", duration: "4:00", outcome: "other", pain_points: "None confirmed", note: "Communication failed due to language barrier; prospect spoke Bengali throughout and was busy" },
+        { name: "Giao", company: "Ninja Van", region: "Vietnam", duration: "1:19", outcome: "other", pain_points: "None confirmed", note: "Prospect confirmed availability but call ended before Zara could complete the pitch" },
+        { name: "Nathaporn", company: "Betagro Group", region: "Thailand", duration: "1:24", outcome: "not_relevant", pain_points: "None confirmed", note: "Handles sales, not logistics or supply chain; could not refer to correct contact" },
+        { name: "Sunisa", company: "Ansell", region: "Thailand", duration: "3:52", outcome: "wrong_contact", pain_points: "None confirmed", note: "Freight bidding handled by Malaysia control tower; referred to Cimy at Ansell Malaysia, Cyberjaya" },
+        { name: "Joselito", company: "San Miguel Foods", region: "Philippines", duration: "0:29", outcome: "other", pain_points: "None confirmed", note: "Call ended shortly after basic exchange before GoComet pitch could be delivered" },
+        { name: "Manny P.", company: "San Miguel Foods", region: "Philippines", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Call dropped mid-introduction after prospect asked where Zara was calling from" }
+      ]
+    },
+    maya: {
+      total: 106, answered: 4, no_answer: 47, voicemail: 55, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Mavi Murillo", company: "Ashland", region: "United States", duration: "0:51", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect explicitly said no and asked to be left alone" },
+        { name: "Anne Prousi", company: "Ashland", region: "United States", duration: "0:24", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered — identified as Julie Kenny, not Anne Prousi" },
+        { name: "Christian Perez", company: "Arcosa Inc.", region: "United States", duration: "0:51", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered — Jack Deely from Martinrea picked up instead" },
+        { name: "Daniela B", company: "Ashland", region: "Brazil", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Prospect said she was not home and disconnected; no real conversation established" }
+      ]
+    }
+  },
   "2026-06-11": {
     harshita: {
       total: 124, answered: 18, no_answer: 101, voicemail: 5, busy: 0, unknown: 0,
