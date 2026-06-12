@@ -207,6 +207,52 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-11": {
+    harshita: {
+      total: 124, answered: 18, no_answer: 101, voicemail: 5, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 2, wrong_contact: 2, existing_customer: 0, other: 11 },
+      calls: [
+        { name: "Santosh Kumar", company: "Croma", region: "India", duration: "0:24", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; asked to call back tomorrow" },
+        { name: "Bhupender", company: "Mahanagar Gas Limited", region: "India", duration: "0:48", outcome: "callback_requested", pain_points: "None confirmed", note: "Busy in meeting; agreed to a call tomorrow afternoon" },
+        { name: "Suneel", company: "DIVIS LABORATORIES", region: "India", duration: "2:48", outcome: "already_have_system", pain_points: "None confirmed", note: "Has a specialised system; not interested; also concerned about how mobile number was obtained" },
+        { name: "Santosh K", company: "APAR Industries Limited", region: "India", duration: "1:26", outcome: "already_have_system", pain_points: "None confirmed", note: "Uses existing software; said no issues with current setup" },
+        { name: "Pranav", company: "Tega Industries", region: "India", duration: "1:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer works at Tega; not in a supply chain role" },
+        { name: "Abhishek", company: "JKCement", region: "India", duration: "0:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Said Nope when asked if he was Abhishek — wrong contact" },
+        { name: "Mangilal", company: "JKCement", region: "India", duration: "0:37", outcome: "not_interested", pain_points: "None confirmed", note: "Declined quickly, said sorry and hung up" },
+        { name: "Pratik", company: "Croma", region: "India", duration: "0:52", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-pitch; mentioned supply chain is centralised" },
+        { name: "Ameyo", company: "Croma", region: "India", duration: "0:25", outcome: "other", pain_points: "None confirmed", note: "Call cut off before pitch could be delivered" },
+        { name: "Manish Kumar", company: "JKCement", region: "India", duration: "2:24", outcome: "other", pain_points: "None confirmed", note: "Confused prospect; thought it was a job inquiry; call ended unresolved" },
+        { name: "Mangilal", company: "JKCement", region: "India", duration: "0:21", outcome: "other", pain_points: "None confirmed", note: "Second call attempt; cut off after brief acknowledgement" },
+        { name: "Abhiram", company: "Deepak Fertilisers And Petrochemicals Corp. Ltd.", region: "India", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-pitch after prospect asked regarding" },
+        { name: "Sachin", company: "APAR Industries Limited", region: "India", duration: "0:20", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-pitch after brief greeting exchange" },
+        { name: "Ramesh", company: "Zydus Group", region: "India", duration: "0:49", outcome: "other", pain_points: "None confirmed", note: "Call cut off before pitch could be completed; prospect was engaged" },
+        { name: "Urmil", company: "Zydus Group", region: "India", duration: "0:58", outcome: "other", pain_points: "None confirmed", note: "Connectivity issues throughout; prospect tried to forward call; ended without outcome" },
+        { name: "Rajesh", company: "Mahanagar Gas Limited", region: "India", duration: "0:18", outcome: "other", pain_points: "None confirmed", note: "Prospect asked who was calling; call cut off before pitch" },
+        { name: "Krishna Kireeti", company: "DIVIS LABORATORIES", region: "India", duration: "0:31", outcome: "other", pain_points: "None confirmed", note: "Call dropped after initial greeting exchange" },
+        { name: "Rajesh", company: "DIVIS LABORATORIES", region: "India", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Connection issues throughout; ended without completing pitch" }
+      ]
+    },
+    zara: {
+      total: 90, answered: 7, no_answer: 73, voicemail: 10, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 1, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 3, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Ferdinand Brian", company: "Ginebra San Miguel", region: "Philippines", duration: "2:43", outcome: "meeting_booked", pain_points: "Delays getting internal updates and approvals across supply chain", note: "Meeting booked for Tue 16 Jun at 10am Philippine time" },
+        { name: "Marilen", company: "Ginebra San Miguel", region: "Philippines", duration: "1:01", outcome: "callback_requested", pain_points: "None confirmed", note: "Was driving; asked to call back tomorrow" },
+        { name: "Pruet", company: "Global Power Synergy Public Company Limited", region: "Thailand", duration: "3:22", outcome: "asked_for_email", pain_points: "Procure-to-pay delays; fragmented systems; invoice reconciliation challenges", note: "Building in-house platform with AI; asked to send email before scheduling meeting" },
+        { name: "Rawiwan", company: "Global Power Synergy Public Company Limited", region: "Thailand", duration: "1:34", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly not interested at this time" },
+        { name: "Fanny", company: "Siloam Hospitals Group", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered (Alicia); Fanny not reachable at this number" },
+        { name: "Marten", company: "Siloam Hospitals Group", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered (Alicia again); bad connection throughout" },
+        { name: "Leonic", company: "Lee Kum Kee", region: "Hong Kong", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right contact; referred to Scarlett Li in China for logistics procurement" }
+      ]
+    },
+    maya: {
+      total: 101, answered: 1, no_answer: 42, voicemail: 58, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Francis R. Spolaor", company: "Bracell", region: "Brazil", duration: "2:01", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer works at Bracell; now at Isenergia Brazil — wrong contact data" }
+      ]
+    }
+  },
   "2026-06-10": {
     harshita: {
       total: 164, answered: 15, no_answer: 143, voicemail: 6, busy: 0, unknown: 0,
