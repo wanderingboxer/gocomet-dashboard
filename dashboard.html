@@ -195,7 +195,7 @@
       </div>
       <div id="filterControl" class="filter-control"></div>
     </div>
-    <span class="last-updated">Last updated: 1 Jun 2026</span>
+    <span class="last-updated">Last updated: 15 Jun 2026</span>
   </div>
 </header>
 
@@ -207,6 +207,46 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-15": {
+    harshita: {
+      total: 117, answered: 16, no_answer: 92, voicemail: 9, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 3, asked_for_email: 2, not_interested: 2, not_relevant: 2, already_have_system: 1, wrong_contact: 1, existing_customer: 0, other: 5 },
+      calls: [
+        { name: "Nitesh", company: "APAR Industries Limited", region: "India", duration: "0:31", outcome: "other", pain_points: "None confirmed", note: "Call connected mid-pitch; prospect agreed to listen but call ended before completion" },
+        { name: "Ketan", company: "Torrent Pharmaceuticals Ltd", region: "India", duration: "0:28", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — person who answered identified as William, not Ketan" },
+        { name: "Taral", company: "Torrent Pharmaceuticals Ltd", region: "India", duration: "0:42", outcome: "other", pain_points: "None confirmed", note: "Prospect engaged briefly but call ended mid-pitch without outcome" },
+        { name: "Kalpesh Kumar", company: "Torrent Pharmaceuticals Ltd", region: "India", duration: "0:45", outcome: "callback_requested", pain_points: "None confirmed", note: "Was driving; asked to be called back tomorrow morning" },
+        { name: "Prabakaran", company: "Titan Company Limited", region: "India", duration: "0:45", outcome: "callback_requested", pain_points: "None confirmed", note: "Commuting; asked to be called back in 30 minutes" },
+        { name: "Naresh Kumar", company: "Croma", region: "India", duration: "0:48", outcome: "not_interested", pain_points: "None confirmed", note: "No pain points identified; prospect said No to all supply chain improvement questions" },
+        { name: "G Raja Sekhar", company: "Croma", region: "India", duration: "1:24", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not looking at it right now due to timing" },
+        { name: "Satish", company: "Hindalco Industries Limited", region: "India", duration: "0:38", outcome: "other", pain_points: "None confirmed", note: "Agreed to listen but call ended mid-pitch" },
+        { name: "Tapas", company: "Hindalco Industries Limited", region: "India", duration: "0:56", outcome: "other", pain_points: "None confirmed", note: "Acknowledged pitch with Okay but no substantive engagement; call ended without outcome" },
+        { name: "Rahul", company: "APAR Industries Limited", region: "India", duration: "1:06", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to forward materials for review before call ended" },
+        { name: "Siraj", company: "APAR Industries Limited", region: "India", duration: "1:24", outcome: "other", pain_points: "None confirmed", note: "Prospect said learn later — call ended without a clear next step" },
+        { name: "Milind", company: "APAR Industries Limited", region: "India", duration: "0:27", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send details before call dropped mid-sentence" },
+        { name: "Ritesh", company: "APAR Industries Limited", region: "India", duration: "2:11", outcome: "already_have_system", pain_points: "Dedicated TMS in place with all systems integrated online", note: "Has a dedicated TMS; all workflows integrated — no gaps identified" },
+        { name: "Shraddha", company: "APAR Industries Limited", region: "India", duration: "1:49", outcome: "not_relevant", pain_points: "None confirmed", note: "Said she is not the right person for logistics or procurement decisions" },
+        { name: "Prabakaran", company: "Titan Company Limited", region: "India", duration: "3:18", outcome: "not_relevant", pain_points: "None confirmed", note: "Revealed he is leaving Titan after four decades; no longer a relevant contact" },
+        { name: "Prabakaran", company: "Titan Company Limited", region: "India", duration: "0:44", outcome: "callback_requested", pain_points: "None confirmed", note: "Stuck in traffic; asked to be called back in 45 minutes" }
+      ]
+    },
+    zara: {
+      total: 28, answered: 2, no_answer: 19, voicemail: 7, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Janet", company: "San Miguel Corporation", region: "Philippines", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Call connected but dropped mid-pitch before any real discussion" },
+        { name: "Mac", company: "San Miguel Corporation", region: "Philippines", duration: "4:10", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for 2pm Jun 16 Philippine time; Mac confirmed email and location" }
+      ]
+    },
+    maya: {
+      total: 102, answered: 2, no_answer: 35, voicemail: 65, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 2 },
+      calls: [
+        { name: "Andrew", company: "Diversey", region: "United States", duration: "0:22", outcome: "other", pain_points: "None confirmed", note: "Prospect agreed to a quick chat but call ended before any substantive discussion" },
+        { name: "O'Shanae Bell", company: "Dematic", region: "United States", duration: "0:27", outcome: "other", pain_points: "None confirmed", note: "Prospect asked what the call was concerning; pitch delivered but call ended without outcome" }
+      ]
+    }
+  },
   "2026-06-12": {
     harshita: {
       total: 131, answered: 18, no_answer: 101, voicemail: 12, busy: 0, unknown: 0,
