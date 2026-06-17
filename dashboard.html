@@ -215,7 +215,7 @@ const ALL_DATA = {
         { name: "Prem Sounder", company: "Larsen & Toubro", region: "India", duration: "2:05", outcome: "asked_for_email", pain_points: "None confirmed", note: "No current supply chain issues; asked for email with details before scheduling a meeting" },
         { name: "Murali Shankar", company: "Larsen & Toubro", region: "India", duration: "0:41", outcome: "other", pain_points: "None confirmed", note: "Prospect confirmed he could hear but call ended mid-pitch before any outcome" },
         { name: "Elangovan", company: "Larsen & Toubro", region: "India", duration: "3:27", outcome: "asked_for_email", pain_points: "None confirmed", note: "Supply chain centralized; asked for email before scheduling; questioned email address on file" },
-        { name: "Kumar", company: "Larsen & Toubro", region: "India", duration: "4:46", outcome: "meeting_booked", pain_points: "Delays in getting updates and approvals internally", note: "Meeting booked for 17 Jun at 5:30 PM London time after prolonged fragmented call" },
+        { name: "Kumar Shantanu", designation: "Deputy General Manager of Supply Chain Management", company: "Larsen & Toubro", region: "India", duration: "4:46", outcome: "meeting_booked", pain_points: "Delays in getting updates and approvals internally", note: "Meeting booked for 17 Jun at 5:30 PM London time after prolonged fragmented call" },
         { name: "Amitabh", company: "Larsen & Toubro", region: "India", duration: "1:18", outcome: "already_have_system", pain_points: "None confirmed", note: "Has a centralized supply chain system already in place; no current requirements" },
         { name: "Rohith", company: "Larsen & Toubro", region: "India", duration: "1:20", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person at the number; asked to be removed" },
         { name: "Dinesh Lal", company: "DP World", region: "India", duration: "0:30", outcome: "other", pain_points: "None confirmed", note: "Prospect said he doesn't know GoComet; call ended mid-pitch" },
@@ -223,7 +223,7 @@ const ALL_DATA = {
         { name: "Raman", company: "DP World", region: "India", duration: "0:37", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect said doesn't work now and declined a callback" },
         { name: "Samar", company: "DP World", region: "India", duration: "0:48", outcome: "other", pain_points: "None confirmed", note: "Prospect engaged positively but transcript ended mid-pitch before outcome" },
         { name: "Pankaj", company: "DP World", region: "India", duration: "0:59", outcome: "already_have_system", pain_points: "None confirmed", note: "Already have a supply chain solution in place; not interested" },
-        { name: "Ashwin", company: "DP World", region: "India", duration: "3:34", outcome: "meeting_booked", pain_points: "Billing handling, forecasting, and trip planning", note: "Meeting booked for 17 Jun at 2:00 PM IST; mentioned pain points in billing, forecasting, and trip planning" }
+        { name: "Ashwin Kumar", designation: "Logistics Supervisor", company: "DP World", region: "India", duration: "3:34", outcome: "meeting_booked", pain_points: "Billing handling, forecasting, and trip planning", note: "Meeting booked for 17 Jun at 2:00 PM IST; mentioned pain points in billing, forecasting, and trip planning" }
       ]
     },
     zara: {
@@ -231,7 +231,7 @@ const ALL_DATA = {
       outcomes: { meeting_booked: 1, callback_requested: 2, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 3 },
       calls: [
         { name: "Monika", company: "San Miguel Yamamura Packaging Corporation", region: "Philippines", duration: "2:26", outcome: "other", pain_points: "None confirmed", note: "Uses multiple services for supply chain; no pain points or interest confirmed" },
-        { name: "Huy", company: "San Miguel Yamamura Packaging Corporation", region: "Philippines", duration: "1:56", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Thursday 18 Jun at 10:00 AM Philippine time" },
+        { name: "Huy Truong", designation: "Logistics Manager", company: "San Miguel Yamamura Packaging Corporation", region: "Philippines", duration: "1:56", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Thursday 18 Jun at 10:00 AM Philippine time" },
         { name: "Teresa", company: "San Miguel Yamamura Packaging Corporation", region: "Philippines", duration: "0:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered the phone; Zara removed the number" },
         { name: "Aziz", company: "PT Lippo Cikarang Tbk", region: "Indonesia", duration: "2:07", outcome: "other", pain_points: "Visibility and cost issues in supply chain", note: "Acknowledged visibility and cost issues but was disengaged and declined a meeting" },
         { name: "Muhammad", company: "PT Bukit Asam (Persero) Tbk", region: "Indonesia", duration: "3:52", outcome: "other", pain_points: "None confirmed", note: "Call quality was very poor throughout; appeared to confirm a time but connection issues made outcome inconclusive" },
@@ -275,7 +275,7 @@ const ALL_DATA = {
       total: 66, answered: 3, no_answer: 30, voicemail: 33, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 1 },
       calls: [
-        { name: "Mac", company: "San Miguel Corporation", region: "Philippines", duration: "4:10", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for 16 Jun at 2 PM Philippines time; Mac confirmed invite to mmacaraig@sanmiguel.com.ph" },
+        { name: "Mac Macaraig", designation: "Logistics Supervisor", company: "San Miguel Corporation", region: "Philippines", duration: "4:10", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for 16 Jun at 2 PM Philippines time; Mac confirmed invite to mmacaraig@sanmiguel.com.ph" },
         { name: "Gary", company: "Primary Connect", region: "New Zealand", duration: "0:58", outcome: "other", pain_points: "None confirmed", note: "Gary confirmed supply chain is centralized; gave ambiguous response to discovery questions, call ended before outcome resolved" },
         { name: "Henry", company: "Dematic", region: "Australia", duration: "1:16", outcome: "not_interested", pain_points: "None confirmed", note: "Henry identified the AI voice immediately, explicitly declined twice and hung up" }
       ]
@@ -932,7 +932,11 @@ const COMPANY_WEBSITE = {
   'Suzlon':               'suzlon.com',
   'AlJomaih Automotive Company': 'aljomaih.com',
   'Alghanim Industries':  'alghanim.com',
-  'Capricorn Logistics':  'capricornlogistics.com'
+  'Capricorn Logistics':  'capricornlogistics.com',
+  'San Miguel Corporation': 'sanmiguel.com.ph',
+  'San Miguel Yamamura Packaging Corporation': 'smypc.com',
+  'DP World':             'dpworld.com',
+  'Larsen & Toubro':      'larsentoubro.com'
 };
 
 const COMPANY_REVENUE = {
@@ -949,7 +953,11 @@ const COMPANY_REVENUE = {
   'ReNew':                '$975 Mn',
   'Suzlon':               '$920 Mn',
   'Alghanim Industries':  '$4,100 Mn',
-  'Capricorn Logistics':  '$946 Mn'
+  'Capricorn Logistics':  '$946 Mn',
+  'San Miguel Corporation': '$27,800 Mn',
+  'San Miguel Yamamura Packaging Corporation': '$27,800 Mn',
+  'DP World':             '$18,200 Mn',
+  'Larsen & Toubro':      '$27,000 Mn'
 };
 
 const OUTCOME_ORDER = [
