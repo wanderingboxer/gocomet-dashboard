@@ -195,7 +195,7 @@
       </div>
       <div id="filterControl" class="filter-control"></div>
     </div>
-    <span class="last-updated">Last updated: 18 Jun 2026</span>
+    <span class="last-updated">Last updated: 19 Jun 2026</span>
   </div>
 </header>
 
@@ -207,6 +207,39 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-19": {
+    harshita: {
+      total: 77, answered: 9, no_answer: 64, voicemail: 4, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 1, not_interested: 1, not_relevant: 0, already_have_system: 2, wrong_contact: 1, existing_customer: 0, other: 4 },
+      calls: [
+        { name: "Ajay Mehta", company: "ROHA", region: "India", duration: "0:45", outcome: "not_interested", pain_points: "None confirmed", note: "Stated not interested after initial pitch" },
+        { name: "Moula Reddy", company: "Tessolve", region: "India", duration: "1:21", outcome: "already_have_system", pain_points: "None confirmed", note: "Has similar software; said they'll reach back if issues arise; had prior GoComet conversation" },
+        { name: "Murali V", company: "Tessolve", region: "India", duration: "0:33", outcome: "other", pain_points: "None confirmed", note: "Engaged positively; call ended mid-pitch before any outcome" },
+        { name: "Souvick Chaudhuri", company: "Aramex", region: "India", duration: "0:56", outcome: "wrong_contact", pain_points: "None confirmed", note: "Left Aramex; couldn't refer to current logistics contact" },
+        { name: "Ashish Ranjan", company: "Dabur India Limited", region: "India", duration: "0:28", outcome: "other", pain_points: "None confirmed", note: "Receptionist took message; prospect asked to hold but call ended before connecting" },
+        { name: "Sushil Pandey", company: "Dabur India Limited", region: "India", duration: "1:15", outcome: "already_have_system", pain_points: "Has supply chain systems in place", note: "Has systems in place; asked if call was AI; declined human follow-up" },
+        { name: "Lochan Mathur", company: "Bisleri International Pvt Ltd", region: "India", duration: "0:49", outcome: "other", pain_points: "None confirmed", note: "Reached prospect directly; pitch started but transcript ended mid-conversation" },
+        { name: "Malay Jaipuria", company: "Bisleri International Pvt Ltd", region: "India", duration: "1:51", outcome: "asked_for_email", pain_points: "Visibility and freight costs", note: "Asked to send WhatsApp with supply chain module details; confirmed pain areas exist" },
+        { name: "Loganthan Senthil", company: "Bisleri International Pvt Ltd", region: "India", duration: "0:46", outcome: "other", pain_points: "None confirmed", note: "Answered and said yes; call ended mid-pitch" }
+      ]
+    },
+    zara: {
+      total: 73, answered: 5, no_answer: 56, voicemail: 12, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 1, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Daniel Jeyaraj", company: "Carsem", region: "Malaysia", duration: "5:41", outcome: "meeting_booked", pain_points: "Delays in updates and approvals", note: "Meeting booked for 26 Jun at 4:00 PM Malaysia time; email being confirmed" },
+        { name: "Casey Seow", company: "NatSteel Holdings", region: "Singapore", duration: "0:37", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested twice; ended the call" },
+        { name: "Methawee Rawa", company: "G Steel Public", region: "Thailand", duration: "2:41", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send email; said she didn't have time for a call" },
+        { name: "Tang Hip Seng", company: "NatSteel Holdings", region: "Singapore", duration: "0:20", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered said 'Nope'; not Tang Hip; Zara removed the number" },
+        { name: "Benny Sikumbang", company: "PT Matahari Department Store Tbk", region: "Indonesia", duration: "2:19", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; referred to Ms. Yaiyu from the imported/supply service team" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-18": {
     harshita: {
       total: 111, answered: 23, no_answer: 83, voicemail: 5, busy: 0, unknown: 0,
