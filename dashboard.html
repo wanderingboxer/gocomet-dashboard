@@ -195,7 +195,7 @@
       </div>
       <div id="filterControl" class="filter-control"></div>
     </div>
-    <span class="last-updated">Last updated: 16 Jun 2026</span>
+    <span class="last-updated">Last updated: 18 Jun 2026</span>
   </div>
 </header>
 
@@ -207,6 +207,62 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-18": {
+    harshita: {
+      total: 111, answered: 23, no_answer: 83, voicemail: 5, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 1, asked_for_email: 2, not_interested: 2, not_relevant: 1, already_have_system: 2, wrong_contact: 4, existing_customer: 0, other: 11 },
+      calls: [
+        { name: "Pramod Kumar", company: "Jubilant Pharmova Ltd", region: "India", duration: "0:25", outcome: "not_interested", pain_points: "None confirmed", note: "Stated not relevant; declined politely" },
+        { name: "Praveen Singh", company: "Jubilant Pharmova Ltd", region: "India", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Indicated wrong contact or wrong number" },
+        { name: "Nandisha Ninganna", company: "Fosroc", region: "India", duration: "0:20", outcome: "other", pain_points: "None confirmed", note: "Answered 'Who is this?' but call ended mid-pitch" },
+        { name: "Sandip Kamat", company: "Fosroc", region: "India", duration: "0:16", outcome: "callback_requested", pain_points: "None confirmed", note: "Said busy; Harshita offered to call back" },
+        { name: "Aseem Shukla", company: "Bira 91", region: "India", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Responded throughout but call ended mid-pitch" },
+        { name: "Nasiruddin Khan", company: "Bira 91", region: "India", duration: "0:33", outcome: "other", pain_points: "None confirmed", note: "Receptionist connected call; ended without reaching prospect" },
+        { name: "Rakesh Kumar", company: "Bira 91", region: "India", duration: "1:10", outcome: "not_relevant", pain_points: "None confirmed", note: "Not in supply chain; confirmed Bira 91 has closed" },
+        { name: "Baldev Prajapati", company: "Yanfeng Automotive", region: "India", duration: "2:01", outcome: "other", pain_points: "None confirmed", note: "Deflected all questions with No; agent offered email" },
+        { name: "Suchit Gharat", company: "IFFCO", region: "India", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Brief responses; call ended during pitch" },
+        { name: "Sachin Gulati", company: "IFFCO", region: "India", duration: "1:46", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; referred to Miss Jessie in Singapore" },
+        { name: "Gopal Shankar", company: "IFFCO", region: "India", duration: "1:05", outcome: "already_have_system", pain_points: "None confirmed", note: "Already has supply chain system in place" },
+        { name: "Sunil Salvi", company: "SABIC", region: "India", duration: "2:04", outcome: "asked_for_email", pain_points: "Invoice reconciliation", note: "Traveling; asked to drop an email; mentioned invoice pain point" },
+        { name: "Poorneswar M R", company: "SABIC", region: "India", duration: "0:18", outcome: "other", pain_points: "None confirmed", note: "Said 'Yeah, tell me' then call ended before pitch" },
+        { name: "Nitin Lavhe", company: "Bekaert India", region: "India", duration: "0:30", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered was Darshan, not Nitin" },
+        { name: "Chintan Parekh", company: "Adani", region: "India", duration: "0:21", outcome: "other", pain_points: "None confirmed", note: "Said 'From?' mid-intro; call ended" },
+        { name: "Vaibhav Pore", company: "Adani", region: "India", duration: "1:18", outcome: "already_have_system", pain_points: "None confirmed", note: "Has supplier engaged for supply chain work; no need" },
+        { name: "Sharad Pareek", company: "Adani", region: "India", duration: "1:28", outcome: "asked_for_email", pain_points: "None confirmed", note: "Requested email with details" },
+        { name: "Jayesh Tank", company: "Intas Pharmaceuticals", region: "India", duration: "0:16", outcome: "other", pain_points: "None confirmed", note: "Said 'can I help you?' then call ended mid-pitch" },
+        { name: "Ninad Tharwal", company: "Adani", region: "India", duration: "0:59", outcome: "other", pain_points: "None confirmed", note: "Deflected supply chain questions; no clear outcome" },
+        { name: "Punit Barole", company: "Adani", region: "India", duration: "0:53", outcome: "other", pain_points: "None confirmed", note: "Receptionist said person not available after transfer" },
+        { name: "Kamal Sharma", company: "Adani", region: "India", duration: "0:48", outcome: "not_interested", pain_points: "None confirmed", note: "Currently doesn't require supply chain platform" },
+        { name: "Kandarp Shah", company: "Torrent Pharmaceuticals", region: "India", duration: "0:56", outcome: "wrong_contact", pain_points: "None confirmed", note: "Environment consultant, not in supply chain; confirmed wrong number" },
+        { name: "Yuvraj Sagar", company: "Intas Pharmaceuticals", region: "India", duration: "1:01", outcome: "other", pain_points: "None confirmed", note: "No pain points mentioned; call ended without outcome" }
+      ]
+    },
+    zara: {
+      total: 82, answered: 14, no_answer: 61, voicemail: 7, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 1, wrong_contact: 3, existing_customer: 0, other: 7 },
+      calls: [
+        { name: "Reyl Bongolo", company: "San Miguel Brewery Inc.", region: "Philippines", duration: "5:41", outcome: "other", pain_points: "No real-time visibility on deliveries; 8-hour delay feedback cycle", note: "Long conversation; strongly interested in real-time tracking but no meeting set" },
+        { name: "Joseph Peter Abaca", company: "San Miguel Brewery Inc.", region: "Philippines", duration: "1:25", outcome: "wrong_contact", pain_points: "None confirmed", note: "Handles sales not logistics; referred to Vincent Castillo" },
+        { name: "Gerardo Samson Jr.", company: "San Miguel Brewery Inc.", region: "Philippines", duration: "0:41", outcome: "callback_requested", pain_points: "None confirmed", note: "Was driving; asked to call back tomorrow afternoon" },
+        { name: "Mark Ednaco", company: "Travellers International Hotel Group", region: "Philippines", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number confirmed" },
+        { name: "Allen Sy", company: "Emperador Distillers Inc.", region: "Philippines", duration: "4:09", outcome: "already_have_system", pain_points: "None confirmed", note: "Uses SAP for all operations; no requirements for improvements" },
+        { name: "Maggie Leo Mei Zhi", company: "Genting Plantations Berhad", region: "Malaysia", duration: "0:21", outcome: "other", pain_points: "None confirmed", note: "Call ended during intro; asked 'Who you are?'" },
+        { name: "Nandy Thermaprime", company: "Energy Development Corporation", region: "Philippines", duration: "2:31", outcome: "callback_requested", pain_points: "None confirmed", note: "Had conferences all day; asked to send a text when available" },
+        { name: "Mark Angelo Reyes", company: "Tanduay Distillers Inc.", region: "Philippines", duration: "0:29", outcome: "other", pain_points: "None confirmed", note: "Connection issues; no substantive conversation" },
+        { name: "Widia Purwandini", company: "PT YCH Indonesia", region: "Indonesia", duration: "2:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered was Alicia, not Widia; wrong number confirmed" },
+        { name: "Nam Nguyen Thanh", company: "YCH", region: "Vietnam", duration: "0:37", outcome: "other", pain_points: "None confirmed", note: "Said 'that's okay' then call ended before pitch" },
+        { name: "Rama Mourthy Suppiah", company: "YCH", region: "Singapore", duration: "0:29", outcome: "not_interested", pain_points: "None confirmed", note: "No interest: 'no, no interest yet. Sorry'" },
+        { name: "Rakhmad Hidayat", company: "PT KRAKATAU POSCO", region: "Indonesia", duration: "0:44", outcome: "other", pain_points: "None confirmed", note: "Could not hear Zara; severe connection issues throughout" },
+        { name: "Mochamad Indra Yudhistira", company: "PT Krakatau Steel", region: "Indonesia", duration: "4:43", outcome: "other", pain_points: "None confirmed", note: "Prospect in background conversations; not engaged with sales call" },
+        { name: "Mufti Syarifuddin", company: "PT Krakatau Steel", region: "Indonesia", duration: "5:11", outcome: "other", pain_points: "None confirmed", note: "Severe connection issues; brief 'not at the moment' on pain points" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-16": {
     harshita: {
       total: 118, answered: 12, no_answer: 97, voicemail: 9, busy: 0, unknown: 0,
