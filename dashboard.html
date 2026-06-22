@@ -195,7 +195,7 @@
       </div>
       <div id="filterControl" class="filter-control"></div>
     </div>
-    <span class="last-updated">Last updated: 19 Jun 2026</span>
+    <span class="last-updated">Last updated: 22 Jun 2026</span>
   </div>
 </header>
 
@@ -207,6 +207,57 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-22": {
+    harshita: {
+      total: 270, answered: 21, no_answer: 244, voicemail: 5, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 0, not_interested: 3, not_relevant: 1, already_have_system: 1, wrong_contact: 3, existing_customer: 0, other: 11 },
+      calls: [
+        { name: "Shrey Awasthi", company: "Mondelez", region: "India", duration: "0:27", outcome: "callback_requested", pain_points: "None confirmed", note: "Said 'Can I call you back?' at 2 PM today" },
+        { name: "Jabir Ali", company: "Parle Products", region: "India", duration: "0:47", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; asked to call back in 30 minutes" },
+        { name: "Shambhavi Jha", company: "JSW", region: "India", duration: "1:24", outcome: "already_have_system", pain_points: "None confirmed", note: "Supply chain already centralized at JSW; said everything is done" },
+        { name: "Vardhman Mishra", company: "DTDC Express", region: "India", duration: "1:02", outcome: "not_interested", pain_points: "None confirmed", note: "Said everything is fine currently; will reach out if needed" },
+        { name: "Avinash Nigam", company: "JSW", region: "India", duration: "0:51", outcome: "not_interested", pain_points: "None confirmed", note: "Said 'No. Thank you.' then 'I don't think so.' to all follow-up questions" },
+        { name: "Hariharan Ragothaman", company: "Hidesign", region: "India", duration: "1:08", outcome: "not_interested", pain_points: "None confirmed", note: "Said 'Sorry, not interested. Thank you.' after initial pitch" },
+        { name: "Sundaravel Kanagavel", company: "Hatsun Agro Product", region: "India", duration: "1:13", outcome: "not_relevant", pain_points: "None confirmed", note: "Moved to different department in different industry; referred to Elavarasan at info@hap.in" },
+        { name: "Ankush Kolhe", company: "CG Power", region: "India", duration: "1:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer at CG Power; currently not working at any company" },
+        { name: "Sujay Datta", company: "Hindalco Industries", region: "India", duration: "0:35", outcome: "wrong_contact", pain_points: "None confirmed", note: "Retired from Hindalco; no longer in logistics" },
+        { name: "Kavita Naik", company: "Switz Group", region: "India", duration: "1:27", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number; person who answered was not Kavita; offered to share her actual number" },
+        { name: "Rajeev Kumar", company: "UFLEX Group", region: "India", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "Said 'Who is this?'; agent gave pitch; call ended mid-conversation" },
+        { name: "Vidyut Joshi", company: "Adani Power", region: "India", duration: "0:26", outcome: "other", pain_points: "None confirmed", note: "Receptionist asked name/reason; agent left message; call ended" },
+        { name: "Akshyat Bhatia", company: "Adani Group", region: "India", duration: "0:25", outcome: "other", pain_points: "None confirmed", note: "Answered; asked what it's about; call ended mid-pitch" },
+        { name: "Priyanka Dwivedi", company: "Tata Communications", region: "India", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Language confusion; call ended without outcome" },
+        { name: "Amol Patekar", company: "CG Power", region: "India", duration: "0:26", outcome: "other", pain_points: "None confirmed", note: "Said 'Hello, who is speaking?'; call ended after agent gave pitch" },
+        { name: "Shristi Gupta", company: "CG Power", region: "India", duration: "0:23", outcome: "other", pain_points: "None confirmed", note: "Asked 'This is regarding?'; call ended after agent gave pitch" },
+        { name: "Anjali Kashyap", company: "CG Power", region: "India", duration: "0:28", outcome: "other", pain_points: "None confirmed", note: "Gatekeeper answered; tried to connect Anjali; call ended before reaching her" },
+        { name: "Ashish Gosavi", company: "Hindalco Industries", region: "India", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Connected; agreed to hear pitch; call ended mid-conversation" },
+        { name: "Nilesh Sinha", company: "Hindalco Industries", region: "India", duration: "0:30", outcome: "other", pain_points: "None confirmed", note: "Said 'Hello, who is this?'; call ended after agent gave pitch" },
+        { name: "Rohit Barnwal", company: "Dabur India", region: "India", duration: "0:18", outcome: "other", pain_points: "None confirmed", note: "Said 'Yeah, go on' and 'For what?'; call ended mid-pitch" },
+        { name: "Arpit Gautam", company: "Dabur India", region: "India", duration: "0:20", outcome: "other", pain_points: "None confirmed", note: "Confirmed audio; call ended before outcome was reached" }
+      ]
+    },
+    zara: {
+      total: 145, answered: 11, no_answer: 116, voicemail: 18, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 1, asked_for_email: 2, not_interested: 3, not_relevant: 3, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Chanudom Kittisares", company: "Osotspa", region: "Thailand", duration: "2:37", outcome: "asked_for_email", pain_points: "Supply chain complexity", note: "Acknowledged complex supply chain; asked for email; agent confirmed email address" },
+        { name: "Butri Puttachon", company: "PTTEP", region: "Thailand", duration: "1:10", outcome: "asked_for_email", pain_points: "None confirmed", note: "On vacation; asked for email; agent confirmed email address" },
+        { name: "Prasert Denkongpol", company: "Osotspa", region: "Thailand", duration: "0:49", outcome: "callback_requested", pain_points: "None confirmed", note: "Too busy; asked Zara to call back after 6 PM Thailand time" },
+        { name: "Ruby Wong", company: "MTR Corporation", region: "Hong Kong", duration: "1:06", outcome: "not_interested", pain_points: "None confirmed", note: "Said 'not relevant. Not quite relevant.' — call ended with connection issues" },
+        { name: "Anand Nair", company: "PTTEP", region: "Malaysia", duration: "1:15", outcome: "not_interested", pain_points: "None confirmed", note: "Said 'no, not at all at this moment'; not in management or procurement side" },
+        { name: "Peera Chatchaiwong", company: "PTTEP", region: "Thailand", duration: "1:30", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said 'I don't interested. Thank you.' after agent tried twice" },
+        { name: "Montree Jindewa", company: "Shelf Drilling", region: "Thailand", duration: "2:18", outcome: "not_relevant", pain_points: "None confirmed", note: "Retired, 60+ years old; no longer working at any company" },
+        { name: "Nithipoom Durongwattana", company: "PTTEP", region: "Thailand", duration: "0:38", outcome: "not_relevant", pain_points: "None confirmed", note: "Said 'it's not relate to my business'; Zara agreed to remove number" },
+        { name: "Deepa Joseph", company: "Kenon Holdings", region: "Singapore", duration: "1:09", outcome: "not_relevant", pain_points: "None confirmed", note: "Company no longer in container or freight business; declined three times" },
+        { name: "Thanes Raj Padmanathan", company: "YCH", region: "Malaysia", duration: "0:18", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered said wrong number; Zara removed the number" },
+        { name: "Schwalit Thititheerapab", company: "Osotspa", region: "Thailand", duration: "1:43", outcome: "wrong_contact", pain_points: "None confirmed", note: "Legal person, not supply chain role; said role title is misleading; not interested" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-19": {
     harshita: {
       total: 77, answered: 9, no_answer: 64, voicemail: 4, busy: 0, unknown: 0,
