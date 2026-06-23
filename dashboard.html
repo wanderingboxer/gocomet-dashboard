@@ -236,9 +236,10 @@ const ALL_DATA = {
     },
     zara: {
       total: 197, answered: 24, no_answer: 92, voicemail: 70, busy: 0, unknown: 11,
-      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 2, not_interested: 5, not_relevant: 0, already_have_system: 1, wrong_contact: 5, existing_customer: 0, other: 9 },
+      outcomes: { meeting_booked: 2, callback_requested: 1, asked_for_email: 2, not_interested: 5, not_relevant: 0, already_have_system: 1, wrong_contact: 5, existing_customer: 0, other: 8 },
       calls: [
-        { name: "Nat Mahapanich", company: "PTTEP", region: "Thailand", duration: "2:17", outcome: "meeting_booked", pain_points: "Freight visibility and invoicing (past experience)", note: "Meeting booked for 23 Jun at 7pm Thailand time" },
+        { name: "Nat Mahapanich", designation: "Offshore Logistics Coordinator", company: "PTTEP", region: "Thailand", duration: "2:17", outcome: "meeting_booked", pain_points: "Freight visibility and invoicing (past experience)", note: "Meeting booked for 23 Jun at 7pm Thailand time" },
+        { name: "Fili Ati", designation: "(Acting) Operations Manager, Supply Chain Manager", company: "Woolworths Group", region: "New Zealand", duration: "4:05", outcome: "meeting_booked", pain_points: "Logistics visibility", note: "Placeholder calendar invite sent; call had connection issues but meeting confirmed" },
         { name: "Pongsatorn Ngowkarnjananak", company: "PTT Oil and Retail Business", region: "Thailand", duration: "1:11", outcome: "callback_requested", pain_points: "None confirmed", note: "Prospect asked Zara to call back tomorrow at 10 AM; currently busy at work" },
         { name: "Vicki Cheung", company: "MTR Corporation Limited", region: "Hong Kong", duration: "2:16", outcome: "asked_for_email", pain_points: "None confirmed", note: "Prospect asked to send email; poor line quality, preferred written communication" },
         { name: "Gun Prasonkpol", company: "PTTEP", region: "Thailand", duration: "1:54", outcome: "asked_for_email", pain_points: "None confirmed", note: "Prospect asked to drop an email first so he could review details before a call" },
@@ -258,7 +259,6 @@ const ALL_DATA = {
         { name: "Jitendra Patil", company: "Pact Group Holdings Ltd", region: "Australia", duration: "0:19", outcome: "other", pain_points: "None confirmed", note: "Confused response; call ended before pitch completed" },
         { name: "Yeshwanth Anand", company: "Pact Group Holdings Ltd", region: "Australia", duration: "0:22", outcome: "other", pain_points: "None confirmed", note: "Prospect asked where agent was calling from; call cut off mid-pitch" },
         { name: "Jeremy Hudyma", company: "Pact Group Holdings Ltd", region: "Australia", duration: "0:42", outcome: "other", pain_points: "None confirmed", note: "Prospect said 'Sure' to quick chat but call ended mid-pitch" },
-        { name: "Fili Ati", company: "Woolworths Group", region: "New Zealand", duration: "4:05", outcome: "other", pain_points: "Logistics visibility", note: "Long confused call with bad connection; mentioned past date for meeting — no valid booking confirmed" },
         { name: "Dan Sutton", company: "Woolworths Group", region: "Australia", duration: "0:37", outcome: "other", pain_points: "None confirmed", note: "Prospect said 'I don\\'t know' when asked about supply chain centralization; call ended mid-conversation" },
         { name: "Marco Fierro", company: "Fisher & Paykel Healthcare", region: "New Zealand", duration: "1:16", outcome: "other", pain_points: "None confirmed", note: "Prospect joking around (UK news, World Cup); not a serious conversation" },
         { name: "Thanyamat Duangsiri", company: "IRPC Public Company Limited", region: "Thailand", duration: "0:59", outcome: "other", pain_points: "None confirmed", note: "Prospect said 'how can I help you' then went silent; no substantive exchange" }
@@ -349,7 +349,7 @@ const ALL_DATA = {
       total: 73, answered: 5, no_answer: 56, voicemail: 12, busy: 0, unknown: 0,
       outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 1, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 0 },
       calls: [
-        { name: "Daniel Jeyaraj", company: "Carsem", region: "Malaysia", duration: "5:41", outcome: "meeting_booked", pain_points: "Delays in updates and approvals", note: "Meeting booked for 26 Jun at 4:00 PM Malaysia time; email being confirmed" },
+        { name: "Daniel Jeyaraj", designation: "Warehouse & Logistics Manager", company: "Carsem", region: "Malaysia", duration: "5:41", outcome: "meeting_booked", pain_points: "Delays in updates and approvals", note: "Meeting booked for 26 Jun at 4:00 PM Malaysia time; email being confirmed" },
         { name: "Casey Seow", company: "NatSteel Holdings", region: "Singapore", duration: "0:37", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested twice; ended the call" },
         { name: "Methawee Rawa", company: "G Steel Public", region: "Thailand", duration: "2:41", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked to send email; said she didn't have time for a call" },
         { name: "Tang Hip Seng", company: "NatSteel Holdings", region: "Singapore", duration: "0:20", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered said 'Nope'; not Tang Hip; Zara removed the number" },
@@ -1147,7 +1147,10 @@ const COMPANY_WEBSITE = {
   'San Miguel Corporation': 'sanmiguel.com.ph',
   'San Miguel Yamamura Packaging Corporation': 'smypc.com',
   'DP World':             'dpworld.com',
-  'Larsen & Toubro':      'larsentoubro.com'
+  'Larsen & Toubro':      'larsentoubro.com',
+  'Carsem':              'carsem.com',
+  'PTTEP':              'pttep.com',
+  'Woolworths Group':   'woolworthsgroup.com.au'
 };
 
 const COMPANY_REVENUE = {
@@ -1168,7 +1171,10 @@ const COMPANY_REVENUE = {
   'San Miguel Corporation': '$27,800 Mn',
   'San Miguel Yamamura Packaging Corporation': '$27,800 Mn',
   'DP World':             '$18,200 Mn',
-  'Larsen & Toubro':      '$27,000 Mn'
+  'Larsen & Toubro':      '$27,000 Mn',
+  'Carsem':              '$795 Mn',
+  'PTTEP':              '$92,600 Mn',
+  'Woolworths Group':   '$45,660 Mn'
 };
 
 const OUTCOME_ORDER = [
