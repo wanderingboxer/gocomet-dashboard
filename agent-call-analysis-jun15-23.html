@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent Call Analysis · Jun 15–23 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;font-size:14px}
+a{color:inherit}
+/* Layout */
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid #334155;padding:20px 0 16px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.header-title{font-size:20px;font-weight:700;color:#f1f5f9;letter-spacing:-0.3px}
+.header-sub{font-size:13px;color:#64748b;margin-top:3px}
+.meta-pills{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.3px}
+.pill-india{background:#1e3a5f;color:#7ab3e0}
+.pill-sea{background:#0d3d3a;color:#2dd4bf}
+.pill-us{background:#2d1b4e;color:#c084fc}
+.pill-date{background:#1e293b;color:#94a3b8}
+
+/* Sections */
+section{padding:32px 0 24px}
+section+section{border-top:1px solid #1e293b}
+.section-title{font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:18px;letter-spacing:-0.2px}
+.section-subtitle{font-size:12px;color:#64748b;margin-left:10px;font-weight:400}
+
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:4px}
+.kpi-card{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:18px 20px}
+.kpi-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.6px;font-weight:600}
+.kpi-value{font-size:32px;font-weight:800;margin:6px 0 2px;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.kpi-note{font-size:11px;color:#64748b}
+.kpi-green .kpi-value{color:#34d399}
+.kpi-amber .kpi-value{color:#fbbf24}
+.kpi-red .kpi-value{color:#f87171}
+.kpi-slate .kpi-value{color:#94a3b8}
+
+/* Charts */
+.charts-row{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:24px}
+.chart-card{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:18px 20px}
+.chart-card h3{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px}
+.chart-wrap{position:relative}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid #334155}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:#162032}
+th{padding:10px 14px;text-align:left;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap}
+td{padding:10px 14px;border-top:1px solid #1e293b;color:#cbd5e1;vertical-align:top}
+tr:hover td{background:#1e293b}
+.tbl-scroll{max-height:360px;overflow-y:auto}
+.tbl-scroll table thead th{position:sticky;top:0;z-index:2;background:#162032}
+
+/* Badges */
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:0.3px;white-space:nowrap}
+.badge-no_issue{background:#052e16;color:#34d399}
+.badge-missed_booking{background:#2d0a0a;color:#f87171}
+.badge-poor_objection_handling{background:#2c1006;color:#fb923c}
+.badge-prolonged_wrong_contact{background:#1e1048;color:#a78bfa}
+.badge-unclear_outcome{background:#1e293b;color:#94a3b8}
+.badge-connection_issues{background:#0c2245;color:#60a5fa}
+.badge-premature_end{background:#2c1f04;color:#fbbf24}
+.badge-agent_failed_reengage{background:#2d0515;color:#f43f5e}
+
+/* Agent comparison */
+.agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.agent-cmp{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:16px 18px}
+.agent-cmp-name{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px}
+.tag-h{background:#1e3a5f;color:#7ab3e0}
+.tag-z{background:#0d3d3a;color:#2dd4bf}
+.tag-m{background:#2d1b4e;color:#c084fc}
+.stat-row{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #0f172a}
+.stat-row:last-child{border-bottom:none}
+.stat-label{color:#94a3b8}
+.stat-val{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* Donut labels */
+.donut-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* Filters */
+.filter-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.filter-row label{font-size:12px;color:#64748b}
+select{background:#1e293b;border:1px solid #334155;color:#e2e8f0;padding:5px 10px;border-radius:6px;font-size:12px;cursor:pointer}
+select:focus{outline:none;border-color:#475569}
+
+/* Findings */
+.findings-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.finding-card{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:16px 18px}
+.finding-num{font-size:20px;font-weight:800;color:#f87171;margin-bottom:4px}
+.finding-title{font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:6px}
+.finding-body{font-size:12px;color:#94a3b8;line-height:1.6}
+.rec{margin-top:8px;padding:8px 12px;background:#0f172a;border-left:3px solid #2dd4bf;border-radius:0 4px 4px 0;font-size:12px;color:#94a3b8;line-height:1.5}
+.rec strong{color:#2dd4bf}
+
+/* Bar chart in table */
+.dist-bar-bg{background:#0f172a;border-radius:2px;height:6px;margin-top:4px}
+.dist-bar-fill{height:6px;border-radius:2px}
+
+/* Footer */
+footer{border-top:1px solid #1e293b;padding:18px 0;text-align:center;font-size:11px;color:#334155;margin-top:8px}
+
+@media(max-width:900px){
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .charts-row{grid-template-columns:1fr}
+  .agent-grid{grid-template-columns:1fr}
+  .findings-grid{grid-template-columns:1fr}
+  .donut-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div>
+        <div class="header-title">Agent Call Analysis Dashboard</div>
+        <div class="header-sub">15–23 Jun 2026 · Duration distribution &amp; quality analysis</div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-india">Harshita · India</span>
+        <span class="pill pill-sea">Zara · SEA</span>
+        <span class="pill pill-us">Maya · US</span>
+        <span class="pill pill-date">176 answered calls</span>
+        <span class="pill pill-date">101 quality-reviewed</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- KPI -->
+<section>
+  <div class="kpi-row">
+    <div class="kpi-card kpi-slate">
+      <div class="kpi-label">Total Answered</div>
+      <div class="kpi-value">176</div>
+      <div class="kpi-note">Jun 15–23 · all three agents</div>
+    </div>
+    <div class="kpi-card kpi-slate">
+      <div class="kpi-label">Quality Reviewed (&gt;45s)</div>
+      <div class="kpi-value">101</div>
+      <div class="kpi-note">57.4% of answered calls</div>
+    </div>
+    <div class="kpi-card kpi-red">
+      <div class="kpi-label">Calls With Issues</div>
+      <div class="kpi-value">59</div>
+      <div class="kpi-note">58.4% of reviewed calls</div>
+    </div>
+    <div class="kpi-card kpi-amber">
+      <div class="kpi-label">Missed Bookings</div>
+      <div class="kpi-value">7</div>
+      <div class="kpi-note">Qualified leads · no meeting set</div>
+    </div>
+  </div>
+</section>
+
+<!-- Duration Distribution -->
+<section>
+  <div class="section-title">Duration Distribution <span class="section-subtitle">all 176 answered calls · lower-inclusive buckets</span></div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <h3>Calls by Duration Bucket</h3>
+      <div class="chart-wrap" style="height:220px"><canvas id="durBar"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Agent Breakdown (% of each agent's answered calls)</h3>
+      <div class="chart-wrap" style="height:220px"><canvas id="durPct"></canvas></div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table id="durTable">
+      <thead>
+        <tr>
+          <th>Duration Bucket</th>
+          <th>Overall</th>
+          <th>% Total</th>
+          <th>Harshita</th>
+          <th>Zara</th>
+          <th>Maya</th>
+          <th>Distribution</th>
+        </tr>
+      </thead>
+      <tbody id="durTbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Quality Analysis -->
+<section>
+  <div class="section-title">Call Quality Analysis <span class="section-subtitle">101 calls &gt;45s · issue classification</span></div>
+
+  <div class="donut-row" style="margin-bottom:24px">
+    <div class="chart-card">
+      <h3>Issue Frequency (101 calls)</h3>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <div class="chart-wrap" style="width:180px;height:180px;flex-shrink:0"><canvas id="issueDonut"></canvas></div>
+        <div style="flex:1;min-width:200px" id="issueLegend"></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h3>Agent Comparison · Issue Rate</h3>
+      <div class="chart-wrap" style="height:180px"><canvas id="agentBar"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Issue Frequency Table -->
+  <div class="tbl-wrap" style="margin-bottom:24px">
+    <table>
+      <thead>
+        <tr>
+          <th>Issue Category</th>
+          <th>Total</th>
+          <th>% of Reviewed</th>
+          <th>Harshita</th>
+          <th>Zara</th>
+          <th>Maya</th>
+          <th>Distribution</th>
+        </tr>
+      </thead>
+      <tbody id="issueTbody"></tbody>
+    </table>
+  </div>
+
+  <!-- Agent comparison cards -->
+  <div class="agent-grid" style="margin-bottom:24px">
+    <div class="agent-cmp">
+      <div class="agent-cmp-name"><span class="tag tag-h">India</span> Harshita</div>
+      <div class="stat-row"><span class="stat-label">Answered (Jun 15–23)</span><span class="stat-val">101</span></div>
+      <div class="stat-row"><span class="stat-label">Reviewed (&gt;45s)</span><span class="stat-val">55</span></div>
+      <div class="stat-row"><span class="stat-label">No issue</span><span class="stat-val" style="color:#34d399">22 (40.0%)</span></div>
+      <div class="stat-row"><span class="stat-label">Issues found</span><span class="stat-val" style="color:#f87171">33 (60.0%)</span></div>
+      <div class="stat-row"><span class="stat-label">Top issue</span><span class="stat-val">Prolonged wrong contact (11)</span></div>
+      <div class="stat-row"><span class="stat-label">Connection issues</span><span class="stat-val">4 calls</span></div>
+      <div class="stat-row"><span class="stat-label">Missed bookings</span><span class="stat-val">3</span></div>
+    </div>
+    <div class="agent-cmp">
+      <div class="agent-cmp-name"><span class="tag tag-z">SEA</span> Zara</div>
+      <div class="stat-row"><span class="stat-label">Answered (Jun 15–23)</span><span class="stat-val">64</span></div>
+      <div class="stat-row"><span class="stat-label">Reviewed (&gt;45s)</span><span class="stat-val">42</span></div>
+      <div class="stat-row"><span class="stat-label">No issue</span><span class="stat-val" style="color:#34d399">19 (45.2%)</span></div>
+      <div class="stat-row"><span class="stat-label">Issues found</span><span class="stat-val" style="color:#f87171">23 (54.8%)</span></div>
+      <div class="stat-row"><span class="stat-label">Top issue</span><span class="stat-val">Prolonged wrong contact (7)</span></div>
+      <div class="stat-row"><span class="stat-label">Missed bookings</span><span class="stat-val">4 (incl. Reyl Bongolo 5:41)</span></div>
+      <div class="stat-row"><span class="stat-label">Unclear outcomes</span><span class="stat-val">6 calls</span></div>
+    </div>
+    <div class="agent-cmp">
+      <div class="agent-cmp-name"><span class="tag tag-m">US</span> Maya</div>
+      <div class="stat-row"><span class="stat-label">Answered (Jun 15–23)</span><span class="stat-val">11</span></div>
+      <div class="stat-row"><span class="stat-label">Reviewed (&gt;45s)</span><span class="stat-val">4</span></div>
+      <div class="stat-row"><span class="stat-label">No issue</span><span class="stat-val" style="color:#34d399">1 (25.0%)</span></div>
+      <div class="stat-row"><span class="stat-label">Issues found</span><span class="stat-val" style="color:#f87171">3 (75.0%)</span></div>
+      <div class="stat-row"><span class="stat-label">Issues</span><span class="stat-val">POH · wrong contact · failed re-engage</span></div>
+      <div class="stat-row"><span class="stat-label">Note</span><span class="stat-val" style="color:#64748b">Low sample — 4 calls reviewed</span></div>
+      <div class="stat-row"><span class="stat-label">Missed bookings</span><span class="stat-val">0</span></div>
+    </div>
+  </div>
+
+  <!-- Per-call table -->
+  <div style="margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+    <span class="section-title" style="margin:0">Per-Call Quality Log</span>
+    <div class="filter-row" style="margin:0">
+      <label>Agent:</label>
+      <select id="fAgent" onchange="renderCallTable()">
+        <option value="">All</option>
+        <option value="Harshita">Harshita</option>
+        <option value="Zara">Zara</option>
+        <option value="Maya">Maya</option>
+      </select>
+      <label>Issue:</label>
+      <select id="fIssue" onchange="renderCallTable()">
+        <option value="">All</option>
+        <option value="no_issue">No Issue</option>
+        <option value="missed_booking">Missed Booking</option>
+        <option value="poor_objection_handling">Poor Objection Handling</option>
+        <option value="prolonged_wrong_contact">Prolonged Wrong Contact</option>
+        <option value="unclear_outcome">Unclear Outcome</option>
+        <option value="connection_issues">Connection Issues</option>
+        <option value="premature_end">Premature End</option>
+        <option value="agent_failed_reengage">Failed to Re-engage</option>
+      </select>
+      <label>Date:</label>
+      <select id="fDate" onchange="renderCallTable()">
+        <option value="">All dates</option>
+        <option value="Jun 23">Jun 23</option>
+        <option value="Jun 22">Jun 22</option>
+        <option value="Jun 19">Jun 19</option>
+        <option value="Jun 18">Jun 18</option>
+        <option value="Jun 16">Jun 16</option>
+        <option value="Jun 15">Jun 15</option>
+      </select>
+    </div>
+  </div>
+  <div class="tbl-wrap tbl-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Agent</th>
+          <th>Date</th>
+          <th>Prospect</th>
+          <th>Company</th>
+          <th>Duration</th>
+          <th>Outcome</th>
+          <th>Issue</th>
+          <th>Analysis</th>
+        </tr>
+      </thead>
+      <tbody id="callTbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Key Findings -->
+<section>
+  <div class="section-title">Key Findings &amp; Recommendations</div>
+  <div class="findings-grid">
+    <div class="finding-card">
+      <div class="finding-num">19</div>
+      <div class="finding-title">Prolonged Wrong Contact (18.8%)</div>
+      <div class="finding-body">Agents spent 1–3 minutes before recognising a wrong number, retired contact, or wrong department. Across 19 calls this wasted ~30 minutes of dial time. Common pattern: Zara's three "Alicia" wrong-number calls (Jun 23) each ran 2:22.</div>
+      <div class="rec"><strong>Fix:</strong> Add a role/employment confirmation script within the first 20 seconds — "Am I speaking with [Name] who manages logistics at [Company]?" — and close within 30s if not.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num">13</div>
+      <div class="finding-title">Poor Objection Handling (12.9%)</div>
+      <div class="finding-body">Agents continued pitching past 2+ explicit declines. Harshita had 9 cases — including Dinesh (L&amp;T, 2:17) who said supply chain was "fully resolved" and Hariharan who said "Sorry, not interested. Thank you." at the start. Zara's Henry call (1:16) continued after the prospect identified the AI voice and declined twice.</div>
+      <div class="rec"><strong>Fix:</strong> Trigger an immediate graceful close script after the second clear decline. "Not interested" + hung-up tone = end the call within 2 exchanges, not 5.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num">7</div>
+      <div class="finding-title">Missed Bookings — Biggest Opportunity</div>
+      <div class="finding-body">Seven calls had qualified prospects or confirmed pain but ended without a meeting: <br>· <strong>Reyl Bongolo</strong> (Zara, 5:41) — confirmed no real-time visibility, 8-hr feedback cycle. No meeting proposed.<br>· <strong>Malay Jaipuria</strong> (Harshita, 1:51) — confirmed freight visibility and cost pain. Settled for WhatsApp.<br>· <strong>Aziz</strong> (Zara, 2:07) — acknowledged visibility and cost issues. Declined meeting; agent didn't persist.<br>· <strong>Vishwateja D</strong> (Harshita, 1:14) — sole decision-maker, no meeting proposed.</div>
+      <div class="rec"><strong>Fix:</strong> After any confirmed pain point, agent must attempt a direct meeting close: "I'd love to show you exactly how we solve that. Are you free for 20 minutes on [Day]?" Avoid settling for email/WhatsApp when pain is confirmed.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num">6</div>
+      <div class="finding-title">Connection Issues (5.9%)</div>
+      <div class="finding-body">Six calls suffered severe audio problems: Rajat (Tata Steel, 2:09) had an echo/loopback where the prospect repeated the agent's words back verbatim — no conversation was possible. Mufti Syarifuddin (PT Krakatau, 5:11) and Vicki Cheung (MTR, 2:16) had ongoing poor quality. Agents continued talking despite no usable signal.</div>
+      <div class="rec"><strong>Fix:</strong> Detect audio degradation by 60 seconds. If unclear: "I'm having trouble hearing you clearly — can I reach you via email instead?" Exit after two failed audio checks.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num">8</div>
+      <div class="finding-title">Unclear Outcomes (7.9%)</div>
+      <div class="finding-body">Eight calls ended without a clear next step or decision. Kurniawan (PT Krakatau, 3:26) said he'd "book via secretary" but no date was set. Muhammad (PT Bukit Asam, 3:52) appeared to confirm a time but call quality made the outcome inconclusive. These are unrecoverable lost opportunities.</div>
+      <div class="rec"><strong>Fix:</strong> Before ending any call, agent must confirm one of: a date/time, an email sent, a "no" acknowledged. If unclear: "Before I let you go — shall I send a calendar invite for [specific day]?"</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num">4</div>
+      <div class="finding-title">Premature Call Endings (4.0%)</div>
+      <div class="finding-body">Four calls ended before a proper close — Lochan Mathur and Loganthan Senthil (both Bisleri, Jun 19) were reached and engaged but calls ended mid-pitch. Tapas (Hindalco) said "Okay" but agent didn't follow through. Punit Barole (Adani) was placed on hold and agent didn't attempt re-contact.</div>
+      <div class="rec"><strong>Fix:</strong> If call drops mid-conversation, trigger immediate auto-callback. For "on hold" situations, wait no more than 90s then leave a voicemail and send email.</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>Generated by Claude Code · GoComet Internal · Not for external distribution · Jun 2026</footer>
+
+<script>
+// ─── Data ───────────────────────────────────────────────────────────────────
+const BUCKETS = ['<15s','15–30s','30–45s','45–60s','1–2 min','2–3 min','3–5 min','5–10 min','>10 min'];
+const DUR = {
+  overall:  [1, 43, 27, 25, 45, 20, 12, 3, 0],
+  harshita: [1, 26, 15, 19, 29,  7,  4, 0, 0],
+  zara:     [0, 12, 10,  5, 14, 13,  7, 3, 0],
+  maya:     [0,  5,  2,  1,  2,  0,  1, 0, 0]
+};
+const TOTAL = {harshita:101, zara:64, maya:11};
+
+const ISSUE_META = [
+  {key:'no_issue',             label:'No Issue',                 color:'#34d399', h:22, z:19, m:1},
+  {key:'prolonged_wrong_contact', label:'Prolonged Wrong Contact', color:'#a78bfa', h:11, z:7,  m:1},
+  {key:'poor_objection_handling', label:'Poor Objection Handling', color:'#fb923c', h:9,  z:3,  m:1},
+  {key:'unclear_outcome',      label:'Unclear Outcome',          color:'#94a3b8', h:2,  z:6,  m:0},
+  {key:'missed_booking',       label:'Missed Booking',           color:'#f87171', h:3,  z:4,  m:0},
+  {key:'connection_issues',    label:'Connection Issues',        color:'#60a5fa', h:4,  z:2,  m:0},
+  {key:'premature_end',        label:'Premature End',            color:'#fbbf24', h:4,  z:0,  m:0},
+  {key:'agent_failed_reengage',label:'Failed to Re-engage',      color:'#f43f5e', h:0,  z:1,  m:1},
+];
+
+const OUTCOME_LABEL = {
+  meeting_booked:'Meeting Booked', callback_requested:'Callback Requested',
+  asked_for_email:'Email Requested', not_interested:'Not Interested',
+  not_relevant:'Not Relevant', already_have_system:'Has System',
+  wrong_contact:'Wrong Contact', other:'Other'
+};
+
+const CALLS = [
+// ── Harshita Jun 23 ──
+{agent:'Harshita',date:'Jun 23',name:'Abhay',company:'BPCL',dur:'1:36',outcome:'callback_requested',issue:'no_issue',note:'Was driving; asked for callback tomorrow. Agent closed appropriately.'},
+{agent:'Harshita',date:'Jun 23',name:'Bibhas Chandra',company:'Hindalco',dur:'2:20',outcome:'callback_requested',issue:'no_issue',note:'Not right logistics contact; requested WhatsApp referral to correct team. Appropriate close.'},
+{agent:'Harshita',date:'Jun 23',name:'Manesh',company:'BPCL',dur:'0:50',outcome:'callback_requested',issue:'no_issue',note:'In meeting; asked to call back later. Quick efficient close.'},
+{agent:'Harshita',date:'Jun 23',name:'Dinesh',company:'Larsen & Toubro',dur:'2:17',outcome:'not_interested',issue:'poor_objection_handling',note:'Prospect said supply chain "fully centralized and resolved." Agent continued pitching for 2+ minutes past clear decline.'},
+{agent:'Harshita',date:'Jun 23',name:'Sanket',company:'BPCL',dur:'1:40',outcome:'not_relevant',issue:'prolonged_wrong_contact',note:'Not in supply chain management; unable to refer. 1:40 spent before disengaging from wrong contact.'},
+{agent:'Harshita',date:'Jun 23',name:'Sanjay Kumar Roy',company:'Tata Steel',dur:'1:24',outcome:'not_relevant',issue:'unclear_outcome',note:'Language barrier throughout; call ended politely. No clear path forward established.'},
+{agent:'Harshita',date:'Jun 23',name:'Kannan',company:'Larsen & Toubro',dur:'1:14',outcome:'already_have_system',issue:'no_issue',note:'Confirmed centralized SC system; call cut off before full close but outcome was clear.'},
+{agent:'Harshita',date:'Jun 23',name:'Vishal',company:'KEC International',dur:'1:11',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Person answered as Mr. Marandi; language barrier. 1:11 before recognizing wrong contact.'},
+{agent:'Harshita',date:'Jun 23',name:'Maiti',company:'Hindalco',dur:'1:00',outcome:'other',issue:'connection_issues',note:'Severe connection issues; call dropped before any meaningful conversation.'},
+{agent:'Harshita',date:'Jun 23',name:'Chithra',company:'Tata Steel',dur:'0:51',outcome:'other',issue:'connection_issues',note:'Garbled/unclear responses throughout; no real exchange possible.'},
+{agent:'Harshita',date:'Jun 23',name:'Rajat',company:'Tata Steel',dur:'2:09',outcome:'other',issue:'connection_issues',note:'Echo/loopback issue — prospect repeated agent words verbatim. No real conversation possible for full 2:09.'},
+{agent:'Harshita',date:'Jun 23',name:'Ravikumar',company:'KEC International',dur:'1:13',outcome:'other',issue:'connection_issues',note:'Connection issues throughout; prospect disengaged before pitch could be completed.'},
+{agent:'Harshita',date:'Jun 23',name:'Vishwateja D',company:'KEC International',dur:'1:14',outcome:'other',issue:'missed_booking',note:'Handles procurement himself; sole decision-maker. Agent ended call without proposing a meeting.'},
+// ── Harshita Jun 22 ──
+{agent:'Harshita',date:'Jun 22',name:'Jabir Ali',company:'Parle Products',dur:'0:47',outcome:'callback_requested',issue:'no_issue',note:'In meeting; requested callback in 30 minutes. Efficient close.'},
+{agent:'Harshita',date:'Jun 22',name:'Shambhavi Jha',company:'JSW',dur:'1:24',outcome:'already_have_system',issue:'no_issue',note:'Supply chain centralized at JSW. Confirmed and closed appropriately.'},
+{agent:'Harshita',date:'Jun 22',name:'Vardhman Mishra',company:'DTDC Express',dur:'1:02',outcome:'not_interested',issue:'poor_objection_handling',note:'Said "everything is fine currently." Agent continued past first clear signal rather than closing.'},
+{agent:'Harshita',date:'Jun 22',name:'Avinash Nigam',company:'JSW',dur:'0:51',outcome:'not_interested',issue:'poor_objection_handling',note:'Said "No. Thank you." then "I don\'t think so" to all follow-ups. Agent continued past two explicit declines.'},
+{agent:'Harshita',date:'Jun 22',name:'Hariharan Ragothaman',company:'Hidesign',dur:'1:08',outcome:'not_interested',issue:'poor_objection_handling',note:'Said "Sorry, not interested. Thank you." immediately. Agent continued for 1:08 past clear decline.'},
+{agent:'Harshita',date:'Jun 22',name:'Sundaravel Kanagavel',company:'Hatsun Agro',dur:'1:13',outcome:'not_relevant',issue:'no_issue',note:'Moved to different department; provided useful referral email (elavarasan@hap.in). Good outcome.'},
+{agent:'Harshita',date:'Jun 22',name:'Ankush Kolhe',company:'CG Power',dur:'1:17',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'No longer at CG Power; currently not working. 1:17 before confirming stale contact.'},
+{agent:'Harshita',date:'Jun 22',name:'Kavita Naik',company:'Switz Group',dur:'1:27',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Wrong number; person offered Kavita\'s actual number. 1:27 to resolve wrong contact.'},
+// ── Harshita Jun 19 ──
+{agent:'Harshita',date:'Jun 19',name:'Moula Reddy',company:'Tessolve',dur:'1:21',outcome:'already_have_system',issue:'no_issue',note:'Has similar software; had prior GoComet conversation. Appropriately closed with invitation to revisit.'},
+{agent:'Harshita',date:'Jun 19',name:'Souvick Chaudhuri',company:'Aramex',dur:'0:56',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Left Aramex; unable to provide referral. 56s spent on a stale contact.'},
+{agent:'Harshita',date:'Jun 19',name:'Sushil Pandey',company:'Dabur India',dur:'1:15',outcome:'already_have_system',issue:'no_issue',note:'Has SC systems in place; declined human follow-up. Efficient disqualification.'},
+{agent:'Harshita',date:'Jun 19',name:'Lochan Mathur',company:'Bisleri',dur:'0:49',outcome:'other',issue:'premature_end',note:'Reached prospect directly; pitch started but transcript ended mid-conversation without a close.'},
+{agent:'Harshita',date:'Jun 19',name:'Malay Jaipuria',company:'Bisleri',dur:'1:51',outcome:'asked_for_email',issue:'missed_booking',note:'Confirmed pain: visibility and freight costs. Settled for WhatsApp instead of proposing a specific meeting time.'},
+{agent:'Harshita',date:'Jun 19',name:'Loganthan Senthil',company:'Bisleri',dur:'0:46',outcome:'other',issue:'premature_end',note:'Answered and said yes; call ended mid-pitch without any outcome secured.'},
+// ── Harshita Jun 18 ──
+{agent:'Harshita',date:'Jun 18',name:'Rakesh Kumar',company:'Bira 91',dur:'1:10',outcome:'not_relevant',issue:'prolonged_wrong_contact',note:'Not in supply chain; Bira 91 confirmed closed. 1:10 before clear disqualification.'},
+{agent:'Harshita',date:'Jun 18',name:'Baldev Prajapati',company:'Yanfeng Automotive',dur:'2:01',outcome:'other',issue:'poor_objection_handling',note:'Deflected all questions with "No" throughout. Agent continued offering email after repeated rejections for 2:01.'},
+{agent:'Harshita',date:'Jun 18',name:'Sachin Gulati',company:'IFFCO',dur:'1:46',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Not the right person; referred to Miss Jessie in Singapore. 1:46 before resolution.'},
+{agent:'Harshita',date:'Jun 18',name:'Gopal Shankar',company:'IFFCO',dur:'1:05',outcome:'already_have_system',issue:'no_issue',note:'Confirmed SC system in place. Clean and efficient disqualification.'},
+{agent:'Harshita',date:'Jun 18',name:'Sunil Salvi',company:'SABIC',dur:'2:04',outcome:'asked_for_email',issue:'no_issue',note:'Traveling; raised invoice pain point; asked for email. Good discovery with appropriate next step.'},
+{agent:'Harshita',date:'Jun 18',name:'Vaibhav Pore',company:'Adani',dur:'1:18',outcome:'already_have_system',issue:'no_issue',note:'Supplier engaged for SC work; no need currently. Clean disqualification.'},
+{agent:'Harshita',date:'Jun 18',name:'Sharad Pareek',company:'Adani',dur:'1:28',outcome:'asked_for_email',issue:'no_issue',note:'Requested email with details. Appropriate outcome for a first touch.'},
+{agent:'Harshita',date:'Jun 18',name:'Ninad Tharwal',company:'Adani',dur:'0:59',outcome:'other',issue:'poor_objection_handling',note:'Deflected supply chain questions repeatedly. Agent continued without pivoting or closing.'},
+{agent:'Harshita',date:'Jun 18',name:'Punit Barole',company:'Adani',dur:'0:53',outcome:'other',issue:'premature_end',note:'Receptionist said person not available after transfer. Agent did not attempt re-engagement or reschedule.'},
+{agent:'Harshita',date:'Jun 18',name:'Kamal Sharma',company:'Adani',dur:'0:48',outcome:'not_interested',issue:'no_issue',note:'Doesn\'t currently require platform; appropriate and efficient close.'},
+{agent:'Harshita',date:'Jun 18',name:'Kandarp Shah',company:'Torrent Pharma',dur:'0:56',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Environment consultant, not in supply chain. 56s before confirming wrong contact.'},
+{agent:'Harshita',date:'Jun 18',name:'Yuvraj Sagar',company:'Intas Pharma',dur:'1:01',outcome:'other',issue:'poor_objection_handling',note:'No pain points surfaced; call ended without outcome. Agent failed to probe differently or redirect.'},
+// ── Harshita Jun 16 ──
+{agent:'Harshita',date:'Jun 16',name:'Prem Sounder',company:'Larsen & Toubro',dur:'2:05',outcome:'asked_for_email',issue:'no_issue',note:'No current SC issues; asked for email before scheduling. Valid first-touch outcome.'},
+{agent:'Harshita',date:'Jun 16',name:'Elangovan',company:'Larsen & Toubro',dur:'3:27',outcome:'asked_for_email',issue:'no_issue',note:'Centralized SC; asked for email first; verified email address on file. Good close.'},
+{agent:'Harshita',date:'Jun 16',name:'Kumar Shantanu',company:'Larsen & Toubro',dur:'4:46',outcome:'meeting_booked',issue:'no_issue',note:'Meeting booked for 17 Jun at 5:30 PM London time. Pain: internal approval delays. DGM of SCM.'},
+{agent:'Harshita',date:'Jun 16',name:'Amitabh',company:'Larsen & Toubro',dur:'1:18',outcome:'already_have_system',issue:'no_issue',note:'Centralized SC system in place. Clean and efficient disqualification.'},
+{agent:'Harshita',date:'Jun 16',name:'Rohith',company:'Larsen & Toubro',dur:'1:20',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Wrong person at number; asked to be removed. 1:20 before resolving wrong contact.'},
+{agent:'Harshita',date:'Jun 16',name:'Samar',company:'DP World',dur:'0:48',outcome:'other',issue:'unclear_outcome',note:'Engaged positively but transcript ended mid-pitch. No clear next step captured.'},
+{agent:'Harshita',date:'Jun 16',name:'Pankaj',company:'DP World',dur:'0:59',outcome:'already_have_system',issue:'no_issue',note:'Already has SC solution. Clean disqualification.'},
+{agent:'Harshita',date:'Jun 16',name:'Ashwin Kumar',company:'DP World',dur:'3:34',outcome:'meeting_booked',issue:'no_issue',note:'Meeting booked for 17 Jun at 2 PM IST. Clear pain: billing handling, forecasting, trip planning.'},
+// ── Harshita Jun 15 ──
+{agent:'Harshita',date:'Jun 15',name:'Naresh Kumar',company:'Croma',dur:'0:48',outcome:'not_interested',issue:'poor_objection_handling',note:'Said "No" to all SC improvement questions. Agent continued probing across multiple questions past clear signal.'},
+{agent:'Harshita',date:'Jun 15',name:'G Raja Sekhar',company:'Croma',dur:'1:24',outcome:'not_interested',issue:'poor_objection_handling',note:'Explicitly said not looking right now due to timing. Agent talked for 1:24 without securing a future callback.'},
+{agent:'Harshita',date:'Jun 15',name:'Tapas',company:'Hindalco',dur:'0:56',outcome:'other',issue:'premature_end',note:'Acknowledged pitch with "Okay" but no follow-through. Call ended without agent securing any next step.'},
+{agent:'Harshita',date:'Jun 15',name:'Rahul',company:'APAR Industries',dur:'1:06',outcome:'asked_for_email',issue:'no_issue',note:'Asked to forward materials for review. Appropriate first-touch outcome.'},
+{agent:'Harshita',date:'Jun 15',name:'Siraj',company:'APAR Industries',dur:'1:24',outcome:'other',issue:'missed_booking',note:'Said "learn later"; call ended without a concrete next step. Agent accepted vague deferral without booking a time.'},
+{agent:'Harshita',date:'Jun 15',name:'Ritesh',company:'APAR Industries',dur:'2:11',outcome:'already_have_system',issue:'no_issue',note:'Dedicated TMS with all workflows integrated. Thorough disqualification.'},
+{agent:'Harshita',date:'Jun 15',name:'Shraddha',company:'APAR Industries',dur:'1:49',outcome:'not_relevant',issue:'prolonged_wrong_contact',note:'Not the right person for logistics/procurement decisions. 1:49 before clear disqualification.'},
+{agent:'Harshita',date:'Jun 15',name:'Prabakaran',company:'Titan Company',dur:'3:18',outcome:'not_relevant',issue:'prolonged_wrong_contact',note:'Leaving Titan after 40 years; no longer a relevant contact. 3:18 spent on a dead-end contact.'},
+// ── Zara Jun 23 ──
+{agent:'Zara',date:'Jun 23',name:'Nat Mahapanich',company:'PTTEP',dur:'2:17',outcome:'meeting_booked',issue:'no_issue',note:'Meeting booked for 23 Jun at 7 PM Thailand time. Strong opener, efficient booking.'},
+{agent:'Zara',date:'Jun 23',name:'Fili Ati',company:'Woolworths Group',dur:'4:05',outcome:'meeting_booked',issue:'no_issue',note:'Calendar invite sent; connection issues but meeting confirmed. Good result despite technical friction.'},
+{agent:'Zara',date:'Jun 23',name:'Pongsatorn',company:'PTT Oil & Retail',dur:'1:11',outcome:'callback_requested',issue:'no_issue',note:'Too busy; asked for callback tomorrow at 10 AM. Specific time captured.'},
+{agent:'Zara',date:'Jun 23',name:'Vicki Cheung',company:'MTR Corporation',dur:'2:16',outcome:'asked_for_email',issue:'connection_issues',note:'Poor line quality throughout; prospect preferred written communication. 2:16 with ongoing audio issues before pivoting.'},
+{agent:'Zara',date:'Jun 23',name:'Gun Prasonkpol',company:'PTTEP',dur:'1:54',outcome:'asked_for_email',issue:'no_issue',note:'Asked to review email first before a call. Appropriate first-touch next step.'},
+{agent:'Zara',date:'Jun 23',name:'Meg Keil',company:'Woolworths Group',dur:'0:50',outcome:'not_interested',issue:'no_issue',note:'Said "No, thank you" immediately. Quick and appropriate close.'},
+{agent:'Zara',date:'Jun 23',name:'Pranav N Pandya',company:'Pact Group',dur:'0:49',outcome:'not_interested',issue:'no_issue',note:'Said "I don\'t think so. I\'m okay." Clear decline; appropriate close.'},
+{agent:'Zara',date:'Jun 23',name:'Krisada Rienmanee',company:'PTTEP',dur:'3:44',outcome:'already_have_system',issue:'no_issue',note:'Uses DAP Incoterms; supplier handles freight and provides tracking. Thorough discovery before disqualification.'},
+{agent:'Zara',date:'Jun 23',name:'Dodi Oktoriadi',company:'PT Elnusa',dur:'2:22',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Wrong number; person said "I\'m Alicia." 2:22 spent before resolving wrong contact.'},
+{agent:'Zara',date:'Jun 23',name:'Bram Bratanata',company:'PT Adaro Energy',dur:'2:22',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Same misrouted "Alicia" call as Dodi Oktoriadi. 2:22 wasted on confirmed wrong number.'},
+{agent:'Zara',date:'Jun 23',name:'Pirma Lombardo',company:'PT Adaro Energy',dur:'1:11',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Prospect said "I\'m not sure you\'re calling the right number." 1:11 before disqualification.'},
+{agent:'Zara',date:'Jun 23',name:'Nithima Boonsong',company:'PTT Oil & Retail',dur:'2:31',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'In HR department; referred to call center/procurement. 2:31 on wrong contact.'},
+{agent:'Zara',date:'Jun 23',name:'Marco Fierro',company:'Fisher & Paykel',dur:'1:16',outcome:'other',issue:'agent_failed_reengage',note:'Prospect joking about UK news and World Cup throughout. Agent failed to redirect to business purpose.'},
+{agent:'Zara',date:'Jun 23',name:'Thanyamat Duangsiri',company:'IRPC',dur:'0:59',outcome:'other',issue:'unclear_outcome',note:'Said "how can I help you" then went silent. Agent failed to pivot or close effectively.'},
+// ── Zara Jun 22 ──
+{agent:'Zara',date:'Jun 22',name:'Chanudom Kittisares',company:'Osotspa',dur:'2:37',outcome:'asked_for_email',issue:'no_issue',note:'Acknowledged complex supply chain; asked for email; confirmed address. Good discovery.'},
+{agent:'Zara',date:'Jun 22',name:'Butri Puttachon',company:'PTTEP',dur:'1:10',outcome:'asked_for_email',issue:'no_issue',note:'On vacation; asked for email. Quick and appropriate.'},
+{agent:'Zara',date:'Jun 22',name:'Prasert Denkongpol',company:'Osotspa',dur:'0:49',outcome:'callback_requested',issue:'no_issue',note:'Too busy; asked to call after 6 PM Thailand time. Specific time captured.'},
+{agent:'Zara',date:'Jun 22',name:'Ruby Wong',company:'MTR Corporation',dur:'1:06',outcome:'not_interested',issue:'no_issue',note:'Said "not relevant" with poor line quality. Agent closed appropriately given conditions.'},
+{agent:'Zara',date:'Jun 22',name:'Anand Nair',company:'PTTEP',dur:'1:15',outcome:'not_interested',issue:'no_issue',note:'Said "no, not at all at this moment"; not in management/procurement. Appropriate close.'},
+{agent:'Zara',date:'Jun 22',name:'Peera Chatchaiwong',company:'PTTEP',dur:'1:30',outcome:'not_interested',issue:'poor_objection_handling',note:'Said "I don\'t interested. Thank you." Agent attempted again after this explicit decline.'},
+{agent:'Zara',date:'Jun 22',name:'Montree Jindewa',company:'Shelf Drilling',dur:'2:18',outcome:'not_relevant',issue:'no_issue',note:'Retired, 60+ years old. Agent politely confirmed and closed appropriately.'},
+{agent:'Zara',date:'Jun 22',name:'Deepa Joseph',company:'Kenon Holdings',dur:'1:09',outcome:'not_relevant',issue:'poor_objection_handling',note:'Company not in freight business; declined three times. Agent continued past two clear rejections.'},
+{agent:'Zara',date:'Jun 22',name:'Schwalit Thititheerapab',company:'Osotspa',dur:'1:43',outcome:'wrong_contact',issue:'unclear_outcome',note:'Legal role; title was misleading. Prospect not interested; agent did not explore alternate SC contact.'},
+// ── Zara Jun 19 ──
+{agent:'Zara',date:'Jun 19',name:'Daniel Jeyaraj',company:'Carsem',dur:'5:41',outcome:'meeting_booked',issue:'no_issue',note:'Meeting booked for 26 Jun at 4 PM Malaysia. Pain: delays in updates and approvals. Warehouse & Logistics Manager.'},
+{agent:'Zara',date:'Jun 19',name:'Methawee Rawa',company:'G Steel',dur:'2:41',outcome:'asked_for_email',issue:'missed_booking',note:'Said she didn\'t have time for a call; settled for email. Agent could have proposed a specific future time.'},
+{agent:'Zara',date:'Jun 19',name:'Benny Sikumbang',company:'PT Matahari',dur:'2:19',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Not the right person; referred to Ms. Yaiyu. 2:19 before reaching referral.'},
+// ── Zara Jun 18 ──
+{agent:'Zara',date:'Jun 18',name:'Reyl Bongolo',company:'San Miguel Brewery',dur:'5:41',outcome:'other',issue:'missed_booking',note:'Strong pain confirmed: no real-time visibility, 8-hr delay feedback cycle. Clear interest but no meeting was proposed.'},
+{agent:'Zara',date:'Jun 18',name:'Joseph Peter Abaca',company:'San Miguel Brewery',dur:'1:25',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Handles sales not logistics. 1:25 before referring to Vincent Castillo.'},
+{agent:'Zara',date:'Jun 18',name:'Allen Sy',company:'Emperador Distillers',dur:'4:09',outcome:'already_have_system',issue:'no_issue',note:'Uses SAP for all operations. Thorough discovery across 4:09 before disqualification.'},
+{agent:'Zara',date:'Jun 18',name:'Nandy Thermaprime',company:'Energy Dev Corp',dur:'2:31',outcome:'callback_requested',issue:'no_issue',note:'Conferences all day; asked to send a text when available. Appropriate close.'},
+{agent:'Zara',date:'Jun 18',name:'Widia Purwandini',company:'PT YCH Indonesia',dur:'2:23',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Wrong number; "Alicia" answered. 2:23 on a confirmed wrong contact.'},
+{agent:'Zara',date:'Jun 18',name:'Mochamad Indra Yudhistira',company:'PT Krakatau Steel',dur:'4:43',outcome:'other',issue:'unclear_outcome',note:'Prospect was in background conversations; not engaged with the sales call. No clear outcome after 4:43.'},
+{agent:'Zara',date:'Jun 18',name:'Mufti Syarifuddin',company:'PT Krakatau Steel',dur:'5:11',outcome:'other',issue:'connection_issues',note:'Severe connection issues throughout; brief "not at the moment" on pain points was only exchange.'},
+// ── Zara Jun 16 ──
+{agent:'Zara',date:'Jun 16',name:'Monika',company:'SMYPC',dur:'2:26',outcome:'other',issue:'unclear_outcome',note:'Uses multiple services; no pain points or interest confirmed. Call ended without clear next step.'},
+{agent:'Zara',date:'Jun 16',name:'Huy Truong',company:'SMYPC',dur:'1:56',outcome:'meeting_booked',issue:'no_issue',note:'Meeting booked for 18 Jun at 10 AM PH time. Efficient booking.'},
+{agent:'Zara',date:'Jun 16',name:'Aziz',company:'PT Lippo Cikarang',dur:'2:07',outcome:'other',issue:'missed_booking',note:'Acknowledged visibility and cost issues but was disengaged and declined a meeting. Agent did not persist.'},
+{agent:'Zara',date:'Jun 16',name:'Muhammad',company:'PT Bukit Asam',dur:'3:52',outcome:'other',issue:'unclear_outcome',note:'Very poor call quality throughout; appeared to confirm a time but outcome inconclusive after 3:52.'},
+{agent:'Zara',date:'Jun 16',name:'Elvin',company:'PT ANTAM',dur:'1:46',outcome:'callback_requested',issue:'no_issue',note:'Can\'t talk now; asked for callback tomorrow. Specific day captured.'},
+{agent:'Zara',date:'Jun 16',name:'Kurniawan',company:'PT Krakatau Steel',dur:'3:26',outcome:'callback_requested',issue:'missed_booking',note:'Said would book via secretary; conversation incoherent with no specific date/time confirmed. Opportunity lost.'},
+// ── Zara Jun 15 ──
+{agent:'Zara',date:'Jun 15',name:'Mac Macaraig',company:'San Miguel Corp',dur:'4:10',outcome:'meeting_booked',issue:'no_issue',note:'Meeting booked for 16 Jun at 2 PM PH time. Invite confirmed to mmacaraig@sanmiguel.com.ph.'},
+{agent:'Zara',date:'Jun 15',name:'Gary',company:'Primary Connect',dur:'0:58',outcome:'other',issue:'unclear_outcome',note:'Confirmed centralized SC but gave ambiguous responses. Call ended before outcome was resolved.'},
+{agent:'Zara',date:'Jun 15',name:'Henry',company:'Dematic',dur:'1:16',outcome:'not_interested',issue:'poor_objection_handling',note:'Identified AI voice immediately; declined twice. Agent continued past explicit AI-disclosure rejection.'},
+// ── Maya Jun 23 ──
+{agent:'Maya',date:'Jun 23',name:'Matt Klopatek',company:'Greenheck',dur:'0:49',outcome:'not_interested',issue:'poor_objection_handling',note:'Said "no idea what GoComet is" and declined. Agent did not adjust pitch before prospect disconnected.'},
+{agent:'Maya',date:'Jun 23',name:'Keerthy Soundhararajan',company:'Genie',dur:'1:13',outcome:'wrong_contact',issue:'prolonged_wrong_contact',note:'Retired firefighter; not associated with Genie supply chain. 1:13 before confirming wrong contact.'},
+{agent:'Maya',date:'Jun 23',name:'Nathan Fisher',company:'Hexion Inc.',dur:'1:11',outcome:'other',issue:'agent_failed_reengage',note:'Prospect said name then went silent throughout the call. Agent failed to re-engage or pivot strategy.'},
+// ── Maya Jun 16 ──
+{agent:'Maya',date:'Jun 16',name:'Daniel Daoust',company:'W. R. Grace',dur:'3:17',outcome:'already_have_system',issue:'no_issue',note:'Uses Odyssey for transport management; satisfied. Thorough 3:17 discovery before disqualification.'},
+];
+
+// ─── Duration Distribution Table ────────────────────────────────────────────
+function renderDurTable() {
+  const total = DUR.overall.reduce((a,b)=>a+b,0);
+  const tbody = document.getElementById('durTbody');
+  tbody.innerHTML = BUCKETS.map((b,i)=>{
+    const ov = DUR.overall[i], h=DUR.harshita[i], z=DUR.zara[i], m=DUR.maya[i];
+    const pct = total>0 ? (ov/total*100).toFixed(1) : '0.0';
+    const barW = total>0 ? Math.round(ov/total*100) : 0;
+    const isAnalyzed = i>=3; // 45-60s and above are in quality analysis range
+    return `<tr>
+      <td style="font-weight:600;color:${isAnalyzed?'#e2e8f0':'#64748b'}">${b}${isAnalyzed&&i>3?' <span style="font-size:10px;color:#2dd4bf">★</span>':''}</td>
+      <td style="font-weight:700;font-variant-numeric:tabular-nums">${ov}</td>
+      <td style="color:#94a3b8">${pct}%</td>
+      <td style="color:#7ab3e0;font-variant-numeric:tabular-nums">${h}</td>
+      <td style="color:#2dd4bf;font-variant-numeric:tabular-nums">${z}</td>
+      <td style="color:#c084fc;font-variant-numeric:tabular-nums">${m}</td>
+      <td style="min-width:120px">
+        <div class="dist-bar-bg"><div class="dist-bar-fill" style="width:${barW}%;background:#3b82f6"></div></div>
+        <span style="font-size:10px;color:#64748b">${barW}%</span>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+// ─── Issue Frequency Table ───────────────────────────────────────────────────
+function renderIssueTable() {
+  const total = 101;
+  const tbody = document.getElementById('issueTbody');
+  const sorted = [...ISSUE_META].sort((a,b)=>b.h+b.z+b.m - (a.h+a.z+a.m));
+  tbody.innerHTML = sorted.map(({key,label,color,h,z,m})=>{
+    const tot = h+z+m;
+    const pct = (tot/total*100).toFixed(1);
+    const barW = Math.round(tot/total*100);
+    return `<tr>
+      <td><span class="badge badge-${key}">${label}</span></td>
+      <td style="font-weight:700;font-variant-numeric:tabular-nums">${tot}</td>
+      <td style="color:#94a3b8">${pct}%</td>
+      <td style="color:#7ab3e0;font-variant-numeric:tabular-nums">${h}</td>
+      <td style="color:#2dd4bf;font-variant-numeric:tabular-nums">${z}</td>
+      <td style="color:#c084fc;font-variant-numeric:tabular-nums">${m}</td>
+      <td style="min-width:120px">
+        <div class="dist-bar-bg"><div class="dist-bar-fill" style="width:${barW}%;background:${color}"></div></div>
+        <span style="font-size:10px;color:#64748b">${barW}%</span>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+// ─── Per-call table ──────────────────────────────────────────────────────────
+const OUTCOME_COLORS = {meeting_booked:'#34d399',callback_requested:'#fbbf24',asked_for_email:'#f0c060',not_interested:'#f87171',already_have_system:'#888',not_relevant:'#666',wrong_contact:'#555',other:'#444'};
+function renderCallTable() {
+  const fAgent = document.getElementById('fAgent').value;
+  const fIssue = document.getElementById('fIssue').value;
+  const fDate  = document.getElementById('fDate').value;
+  const filtered = CALLS.filter(c=>{
+    if(fAgent && c.agent!==fAgent) return false;
+    if(fIssue && c.issue!==fIssue) return false;
+    if(fDate && c.date!==fDate) return false;
+    return true;
+  });
+  const tbody = document.getElementById('callTbody');
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="8" style="color:#64748b;text-align:center;padding:24px">No calls match the selected filters.</td></tr>';return;}
+  const tagClass = {Harshita:'tag-h',Zara:'tag-z',Maya:'tag-m'};
+  tbody.innerHTML = filtered.map(c=>{
+    const outcomeColor = OUTCOME_COLORS[c.outcome]||'#888';
+    return `<tr>
+      <td><span class="tag ${tagClass[c.agent]||''}">${c.agent}</span></td>
+      <td style="color:#94a3b8;white-space:nowrap">${c.date}</td>
+      <td style="font-weight:600;white-space:nowrap">${c.name}</td>
+      <td style="color:#94a3b8;white-space:nowrap">${c.company}</td>
+      <td style="font-variant-numeric:tabular-nums;white-space:nowrap">${c.dur}</td>
+      <td><span style="color:${outcomeColor};font-size:11px;font-weight:600">${OUTCOME_LABEL[c.outcome]||c.outcome}</span></td>
+      <td><span class="badge badge-${c.issue}">${ISSUE_META.find(x=>x.key===c.issue)?.label||c.issue}</span></td>
+      <td style="color:#94a3b8;font-size:12px;line-height:1.5;min-width:260px">${c.note}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ─── Charts ──────────────────────────────────────────────────────────────────
+function initCharts() {
+  const gridColor='rgba(51,65,85,0.5)';
+  const tickColor='#64748b';
+
+  // Duration stacked bar
+  new Chart(document.getElementById('durBar'),{
+    type:'bar',
+    data:{
+      labels:BUCKETS,
+      datasets:[
+        {label:'Harshita',data:DUR.harshita,backgroundColor:'#3b5e8c',stack:'s'},
+        {label:'Zara',    data:DUR.zara,    backgroundColor:'#0f5c54',stack:'s'},
+        {label:'Maya',    data:DUR.maya,    backgroundColor:'#4b2b6e',stack:'s'},
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:tickColor,font:{size:11}}},tooltip:{mode:'index',intersect:false}},
+      scales:{
+        x:{stacked:true,ticks:{color:tickColor,font:{size:10}},grid:{color:gridColor}},
+        y:{stacked:true,ticks:{color:tickColor,font:{size:10}},grid:{color:gridColor},beginAtZero:true}
+      }
+    }
+  });
+
+  // Duration % by agent
+  const pctH = DUR.harshita.map(v=>(v/TOTAL.harshita*100).toFixed(1));
+  const pctZ = DUR.zara.map(v=>(v/TOTAL.zara*100).toFixed(1));
+  const pctM = DUR.maya.map(v=>(v/TOTAL.maya*100).toFixed(1));
+  new Chart(document.getElementById('durPct'),{
+    type:'bar',
+    data:{
+      labels:BUCKETS,
+      datasets:[
+        {label:'Harshita %',data:pctH,backgroundColor:'rgba(122,179,224,0.7)',borderColor:'#7ab3e0',borderWidth:1},
+        {label:'Zara %',    data:pctZ,backgroundColor:'rgba(45,212,191,0.7)', borderColor:'#2dd4bf',borderWidth:1},
+        {label:'Maya %',    data:pctM,backgroundColor:'rgba(192,132,252,0.7)',borderColor:'#c084fc',borderWidth:1},
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:tickColor,font:{size:10}}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y}%`}}},
+      scales:{
+        x:{ticks:{color:tickColor,font:{size:10}},grid:{color:gridColor}},
+        y:{ticks:{color:tickColor,font:{size:10},callback:v=>v+'%'},grid:{color:gridColor},beginAtZero:true}
+      }
+    }
+  });
+
+  // Issue donut
+  const issueLabels = ISSUE_META.map(x=>x.label);
+  const issueTotals = ISSUE_META.map(x=>x.h+x.z+x.m);
+  const issueColors = ISSUE_META.map(x=>x.color);
+  new Chart(document.getElementById('issueDonut'),{
+    type:'doughnut',
+    data:{labels:issueLabels,datasets:[{data:issueTotals,backgroundColor:issueColors,borderWidth:0,hoverOffset:4}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:'65%',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed} (${(ctx.parsed/101*100).toFixed(1)}%)`}}}
+    }
+  });
+
+  // Issue legend
+  const legEl = document.getElementById('issueLegend');
+  legEl.innerHTML = ISSUE_META.map(({label,color,h,z,m})=>{
+    const tot=h+z+m;
+    return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+      <div style="width:10px;height:10px;border-radius:50%;background:${color};flex-shrink:0"></div>
+      <span style="font-size:11px;color:#94a3b8;flex:1">${label}</span>
+      <span style="font-size:12px;font-weight:700;color:#e2e8f0;font-variant-numeric:tabular-nums">${tot}</span>
+    </div>`;
+  }).join('');
+
+  // Agent comparison bar (issue rate)
+  new Chart(document.getElementById('agentBar'),{
+    type:'bar',
+    data:{
+      labels:['Harshita','Zara','Maya'],
+      datasets:[
+        {label:'No Issue',   data:[22,19,1],backgroundColor:'#34d399'},
+        {label:'Issues',     data:[33,23,3],backgroundColor:'#f87171'},
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:tickColor,font:{size:11}}},tooltip:{mode:'index',intersect:false}},
+      scales:{
+        x:{stacked:true,ticks:{color:tickColor},grid:{color:gridColor}},
+        y:{stacked:true,ticks:{color:tickColor},grid:{color:gridColor},beginAtZero:true}
+      }
+    }
+  });
+}
+
+// ─── Init ────────────────────────────────────────────────────────────────────
+renderDurTable();
+renderIssueTable();
+renderCallTable();
+initCharts();
+</script>
+</body>
+</html>
