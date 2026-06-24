@@ -210,10 +210,10 @@ const ALL_DATA = {
   "2026-06-24": {
     harshita: {
       total: 201, answered: 24, no_answer: 174, voicemail: 3, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 0, not_interested: 4, not_relevant: 1, already_have_system: 0, wrong_contact: 4, existing_customer: 0, other: 13 },
+      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 0, not_interested: 4, not_relevant: 1, already_have_system: 0, wrong_contact: 4, existing_customer: 0, other: 13 },
       calls: [
+        { name: "Pratik Mehta", designation: "DGM- Logistics", company: "PI Industries", region: "India", duration: "7:02", outcome: "meeting_booked", pain_points: "Visibility and freight cost", note: "Pratik Mehta (DGM-Logistics) answered; agreed to a meeting to see the GoComet demo." },
         { name: "Rahul", company: "Larsen & Toubro", region: "India", duration: "2:36", outcome: "callback_requested", pain_points: "Container availability, difficulty contacting shipping lines", note: "Prospect acknowledged container availability issues; asked to call back next week to discuss further." },
-        { name: "Paresh", company: "PI Industries", region: "India", duration: "7:02", outcome: "callback_requested", pain_points: "Visibility and freight cost", note: "Long call; prospect interested in demo but travelling today, asked to call tomorrow after 10:30am." },
         { name: "Vipin Kumar", company: "JKCement", region: "India", duration: "0:57", outcome: "wrong_contact", pain_points: "None confirmed", note: "Prospect said supply chain is pieced together but referred Harshita to Mayur Chhabra." },
         { name: "Saji", company: "Mother Dairy Fruit & Vegetable Pvt. Ltd.", region: "India", duration: "0:21", outcome: "wrong_contact", pain_points: "None confirmed", note: "Prospect said no (wrong person) at GoComet agent's greeting." },
         { name: "Sanjeev", company: "KEC International Ltd.", region: "India", duration: "3:27", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered identified himself as Hemant (not Sanjeev) and said wrong number." },
@@ -1215,7 +1215,8 @@ const COMPANY_WEBSITE = {
   'Larsen & Toubro':      'larsentoubro.com',
   'Carsem':              'carsem.com',
   'PTTEP':              'pttep.com',
-  'Woolworths Group':   'woolworthsgroup.com.au'
+  'Woolworths Group':   'woolworthsgroup.com.au',
+  'PI Industries':      'piindustries.com'
 };
 
 const COMPANY_REVENUE = {
@@ -1239,7 +1240,8 @@ const COMPANY_REVENUE = {
   'Larsen & Toubro':      '$27,000 Mn',
   'Carsem':              '$795 Mn',
   'PTTEP':              '$92,600 Mn',
-  'Woolworths Group':   '$45,660 Mn'
+  'Woolworths Group':   '$45,660 Mn',
+  'PI Industries':      '$933 Mn'
 };
 
 const OUTCOME_ORDER = [
