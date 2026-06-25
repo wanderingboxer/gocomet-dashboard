@@ -195,7 +195,7 @@
       </div>
       <div id="filterControl" class="filter-control"></div>
     </div>
-    <span class="last-updated">Last updated: 24 Jun 2026</span>
+    <span class="last-updated">Last updated: 25 Jun 2026</span>
   </div>
 </header>
 
@@ -207,6 +207,54 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-25": {
+    harshita: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    zara: {
+      total: 196, answered: 30, no_answer: 154, voicemail: 12, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 3, callback_requested: 4, asked_for_email: 5, not_interested: 2, not_relevant: 0, already_have_system: 0, wrong_contact: 2, existing_customer: 0, other: 14 },
+      calls: [
+        { name: "Muhamad", company: "PT Indonesia Chemical Alumina Official", region: "Indonesia", duration: "2:02", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Jun 25 at 10:44am Jakarta time; very disjointed call but AI confirmed booking." },
+        { name: "Yogi Alfi", company: "PT Elnusa Tbk", region: "Indonesia", duration: "1:44", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Jun 25 at 11am Jakarta time; confused conversation but prospect said 'See you then'." },
+        { name: "Prima", company: "PT Adaro Indonesia", region: "Indonesia", duration: "2:47", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Fri 26 Jun at 11am Jakarta time; prospect now works at Aman Mineral, was driving." },
+        { name: "Jackie", company: "2GO Group", region: "Philippines", duration: "1:20", outcome: "callback_requested", pain_points: "None confirmed", note: "In the middle of something; asked to be called back during daytime, not today." },
+        { name: "Marlon", company: "SM Engineering Design and Development Corp.", region: "Philippines", duration: "0:42", outcome: "callback_requested", pain_points: "None confirmed", note: "Busy at the moment; asked agent to call back tomorrow." },
+        { name: "Chayakorn Chantaporn", company: "Thaioil Group", region: "Thailand", duration: "1:10", outcome: "callback_requested", pain_points: "None confirmed", note: "In a meeting; asked to be called back at 12:00 PM Thailand time today." },
+        { name: "Ng", company: "Orbotech", region: "Singapore", duration: "0:29", outcome: "callback_requested", pain_points: "None confirmed", note: "Person said they may find a number to call back, then call transferred to voicemail system." },
+        { name: "Supaporn", company: "PTTEP", region: "Thailand", duration: "3:55", outcome: "asked_for_email", pain_points: "None confirmed", note: "Person who answered said Supaporn may have left company; asked for email and WhatsApp/WeChat follow-up." },
+        { name: "Sudkanung", company: "PTTEP", region: "Thailand", duration: "1:20", outcome: "asked_for_email", pain_points: "None confirmed", note: "In another meeting; asked to send email and agreed to consider 15-min call slots." },
+        { name: "Muthita", company: "PTTEP", region: "Thailand", duration: "2:33", outcome: "asked_for_email", pain_points: "None confirmed", note: "Busy; asked for email; confirmed email muthitas@pttep.com; said she'll check and get back later." },
+        { name: "Jose Frederick", company: "2GO Group", region: "Philippines", duration: "2:02", outcome: "asked_for_email", pain_points: "None confirmed", note: "Too many priorities for a call now; asked for email only; confirmed alternate email derek_chan@twentygo.com.ph." },
+        { name: "Viana", company: "DuPont", region: "Indonesia", duration: "2:32", outcome: "asked_for_email", pain_points: "Freight costs, visibility", note: "Mentioned costs and visibility as pain points; asked for details and placeholder calendar invite." },
+        { name: "Kemala", company: "Fosroc", region: "Malaysia", duration: "0:54", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said service not required at this moment; ended call." },
+        { name: "Sumarseh", company: "YCH", region: "Indonesia", duration: "4:23", outcome: "not_interested", pain_points: "None confirmed", note: "Said 'Well, no' and 'No' to pain point questions; poor connection throughout; no booking." },
+        { name: "Thanalai F", company: "IRPC Public Company Limited", region: "Thailand", duration: "6:09", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong contact reached; person spoke Arabic throughout; no relevance to supply chain." },
+        { name: "Rochelle", company: "2GO Group", region: "Philippines", duration: "1:54", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer at 2GO Group or in procurement; now in sales for ~4 years; doesn't know current procurement contact." },
+        { name: "Arif", company: "PT Tanjung Power Indonesia", region: "Indonesia", duration: "2:03", outcome: "other", pain_points: "Visibility", note: "Prospect mentioned visibility as pain point then abruptly ended call; no meeting booked." },
+        { name: "Magdalena", company: "PT Adaro Indonesia", region: "Indonesia", duration: "6:04", outcome: "other", pain_points: "Manual payment processes, TMS only reactive, data and value-add gaps", note: "Long confused call; meeting for Wed 24 Jun 10am Dubai time partially discussed but not confirmed." },
+        { name: "Budhy", company: "PT Tempo Scan Pacific Tbk", region: "Indonesia", duration: "4:36", outcome: "other", pain_points: "None confirmed", note: "Call answered but prospect appeared to be on another call with Arabic-language interference; no meaningful engagement." },
+        { name: "Hunny Sofian", company: "PT Elnusa Tbk", region: "Indonesia", duration: "2:34", outcome: "other", pain_points: "None confirmed", note: "Poor connection throughout; prospect only said 'Hello? Yes.' repeatedly; no meaningful engagement." },
+        { name: "Dede", company: "PT Adaro Indonesia", region: "Indonesia", duration: "0:47", outcome: "other", pain_points: "None confirmed", note: "Prospect seemed to confuse call with a personal call ('Hey, Papa'); no meaningful engagement." },
+        { name: "Lhevie", company: "SM Prime Holdings, Inc.", region: "Philippines", duration: "0:49", outcome: "other", pain_points: "None confirmed", note: "Prospect asked who was calling and why; call ended abruptly with no further engagement." },
+        { name: "Roy", company: "2GO Group", region: "Philippines", duration: "1:25", outcome: "other", pain_points: "None confirmed", note: "Prospect confused call ('Hello, Paul'); no meaningful engagement; transcript cut off." },
+        { name: "Fashran", company: "PTTEP", region: "Malaysia", duration: "0:47", outcome: "other", pain_points: "None confirmed", note: "Call cut off mid-conversation after prospect acknowledged GoComet; no outcome reached." },
+        { name: "Jamal", company: "Ansell", region: "Malaysia", duration: "0:28", outcome: "other", pain_points: "None confirmed", note: "Call cut off after prospect asked to clarify company name ('Go comment')." },
+        { name: "Yijie", company: "DuPont", region: "Singapore", duration: "0:22", outcome: "other", pain_points: "None confirmed", note: "Call cut off after prospect asked why calling; no further engagement." },
+        { name: "Sandro Rossano", company: "DEXA MEDICA", region: "Indonesia", duration: "0:46", outcome: "other", pain_points: "None confirmed", note: "Prospect appeared to be on another call; said 'Hey, Papa, I'm here'; no meaningful engagement." },
+        { name: "Ally", company: "Orbotech", region: "Taiwan", duration: "0:26", outcome: "other", pain_points: "None confirmed", note: "Prospect answered but was managing another call in Chinese; asked to stay on hold; call ended." },
+        { name: "Roni Tua", company: "PT Elnusa Tbk", region: "Indonesia", duration: "4:16", outcome: "other", pain_points: "Volume and demand management", note: "Very confused 4-min call; prospect mentioned volume/demand issues but rejected meeting booking; no clear outcome." },
+        { name: "Kris", company: "Osotspa", region: "Thailand", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Prospect said 'Please stay on the line' then went silent; call ended with no engagement." }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-24": {
     harshita: {
       total: 201, answered: 24, no_answer: 174, voicemail: 3, busy: 0, unknown: 0,
