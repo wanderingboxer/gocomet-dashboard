@@ -264,9 +264,14 @@ const ALL_DATA = {
       ]
     },
     maya: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 104, answered: 4, no_answer: 52, voicemail: 48, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 1, asked_for_email: 0, not_interested: 1, not_relevant: 0, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Narain", company: "Kennametal", region: "United States", duration: "0:29", outcome: "callback_requested", pain_points: "None confirmed", note: "Prospect said 'I'll get back to you on that' then went silent; call ended without further engagement." },
+        { name: "Abraham", company: "ORBIS Corporation", region: "Mexico", duration: "1:16", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right contact; offered to provide an email address for the appropriate person." },
+        { name: "Dan", company: "Marvin", region: "United States", duration: "2:31", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect repeatedly tested if Maya was AI; ultimately said 'I don't think so' and declined to engage." },
+        { name: "Nicola", company: "Ingevity", region: "United States", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Prospect picked up but communication was unclear (possible bad connection); no substantive supply chain discussion." }
+      ]
     }
   },
   "2026-06-24": {
