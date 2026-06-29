@@ -1,3 +1,11 @@
+## Agent and Region Mapping
+
+- harshita → India & MEA region
+- zara → SEA + Australia/NZ region. Includes: Singapore, Malaysia, Indonesia, Thailand, Philippines, Vietnam, Australia, New Zealand, and any Asia Pacific country that is not India.
+- maya → US region
+
+When processing Zara transcripts, any contact with Region values of Australia, New Zealand, APAC, or similar should be counted under Zara's totals.
+
 # GoComet Call Analytics Dashboard
 
 ## Your job
@@ -8,7 +16,7 @@ Read all transcript files in the /transcripts folder, extract metrics for every 
 ## Folder structure
 ```
 /transcripts/harshita/     → Harshita agent (India)
-/transcripts/zara/         → Zara agent (SEA)
+/transcripts/zara/         → Zara agent (SEA + Australia/NZ)
 /transcripts/maya/         → Maya agent (US)
 ```
 Each file is named by date: `YYYY-MM-DD.txt`
