@@ -207,6 +207,64 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-29": {
+    harshita: {
+      total: 182, answered: 27, no_answer: 142, voicemail: 10, busy: 0, unknown: 3,
+      outcomes: { meeting_booked: 0, callback_requested: 4, asked_for_email: 0, not_interested: 6, not_relevant: 1, already_have_system: 1, wrong_contact: 2, existing_customer: 0, other: 13 },
+      calls: [
+        { name: "Himmat Singh", company: "Fosroc", region: "India", duration: "0:47", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect said not relevant and nothing is a headache at the moment" },
+        { name: "Namrata Salunke", company: "Bekaert", region: "India", duration: "1:17", outcome: "not_interested", pain_points: "No centralized supply chain, delays in getting updates and approvals", note: "Acknowledged visibility gaps but said not immediately and declined meeting" },
+        { name: "Virendra Singh Rathore", company: "Larsen & Toubro", region: "India", duration: "1:12", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not in L&T anymore and not involved in supply chain" },
+        { name: "Tarun Gupta", company: "Larsen & Toubro", region: "India", duration: "0:45", outcome: "other", pain_points: "None confirmed", note: "Engaged and asked how he can help, but call cut off mid-pitch" },
+        { name: "Manuranjan Barik", company: "Larsen & Toubro", region: "India", duration: "1:21", outcome: "other", pain_points: "Wants AI to automatically detect and dispatch logistics", note: "Showed interest in AI-powered logistics automation, call cut off mid-conversation" },
+        { name: "Rahul Barad", company: "DP World", region: "India", duration: "1:04", outcome: "not_interested", pain_points: "None confirmed", note: "Large team, no specific issues; not interested in platform" },
+        { name: "Abhishek Panda", company: "DP World", region: "India", duration: "1:43", outcome: "callback_requested", pain_points: "Real-time visibility required", note: "Interested in visibility, needs to check with team; asked to call tomorrow" },
+        { name: "Ravish Tiwari", company: "DP World", region: "India", duration: "0:16", outcome: "wrong_contact", pain_points: "None confirmed", note: "Told agent to use another number; wrong contact" },
+        { name: "Dhanalakshmy Santha", company: "DP World", region: "India", duration: "1:33", outcome: "not_relevant", pain_points: "None confirmed", note: "Runs an ERP company providing logistics solutions to MSME; not a logistics user" },
+        { name: "Priyank Gautam", company: "Adani Group", region: "India", duration: "0:59", outcome: "other", pain_points: "None confirmed", note: "Engaged in conversation, asking about pain points, call cut off mid-pitch" },
+        { name: "Ponnambalan M", company: "Suzlon", region: "India", duration: "1:10", outcome: "already_have_system", pain_points: "None confirmed", note: "Has own in-house system covering everything; not looking to change" },
+        { name: "Munjal Bhatt", company: "Suzlon", region: "India", duration: "0:44", outcome: "callback_requested", pain_points: "None confirmed", note: "Busy, asked to call back after 7pm today" },
+        { name: "V.K.Raman Kutty", company: "Suzlon", region: "India", duration: "0:45", outcome: "other", pain_points: "None confirmed", note: "Connected via operator, brief exchange, pitch started but call cut off" },
+        { name: "Suresh Rode", company: "Suzlon", region: "India", duration: "1:19", outcome: "callback_requested", pain_points: "None confirmed", note: "Busy, asked to call back tomorrow" },
+        { name: "Dhaval Patel", company: "PI Industries", region: "India", duration: "0:39", outcome: "other", pain_points: "None confirmed", note: "Connected, asked 'What?' during pitch, call cut off before outcome" },
+        { name: "Kinjal Mehta", company: "PI Industries", region: "India", duration: "0:40", outcome: "other", pain_points: "None confirmed", note: "Connected and engaged, pitch delivered, call cut off before outcome" },
+        { name: "Karan Ahuja", company: "PI Industries", region: "India", duration: "0:28", outcome: "other", pain_points: "None confirmed", note: "Connected via operator, brief exchange, pitch started" },
+        { name: "Prakash Parmar", company: "PI Industries", region: "India", duration: "0:20", outcome: "other", pain_points: "None confirmed", note: "Confirmed his name, agent asked if good time, call cut off" },
+        { name: "Arun Basu", company: "JMC Projects", region: "India", duration: "0:52", outcome: "callback_requested", pain_points: "None confirmed", note: "Busy, asked to call back tomorrow evening" },
+        { name: "Jagadish Rajanna", company: "JMC Projects", region: "India", duration: "0:54", outcome: "other", pain_points: "None confirmed", note: "Engaged, asking for agent name repeatedly, call cut off mid-conversation" },
+        { name: "Purnima Marwah", company: "JMC Projects", region: "India", duration: "0:29", outcome: "other", pain_points: "None confirmed", note: "Said 'Yes, tell me', pitch delivered, call cut off" },
+        { name: "Subhasis Das", company: "Jai Balaji Group India", region: "India", duration: "0:31", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not looking for this solution" },
+        { name: "Sankaralingam Ramalingam", company: "Godrej Agrovet Limited", region: "India", duration: "1:00", outcome: "not_interested", pain_points: "None confirmed", note: "Directly said no to platform, nothing is a headache" },
+        { name: "Yalamanchili Venkata Sathish", company: "Godrej Agrovet Limited", region: "India", duration: "0:52", outcome: "other", pain_points: "None confirmed", note: "Connected via operator, brief exchange, call cut off" },
+        { name: "Yaswanth Tippireddy", company: "Godrej Agrovet Limited", region: "India", duration: "1:11", outcome: "not_interested", pain_points: "None confirmed", note: "Domestic-only business, limited scope, not interested in GoComet" },
+        { name: "Avinash Zade", company: "Godrej Agrovet Limited", region: "India", duration: "0:39", outcome: "other", pain_points: "None confirmed", note: "Connected and engaged, pitch cut off mid-way" },
+        { name: "Ramadas Shanbhag", company: "Larsen & Toubro", region: "India", duration: "0:17", outcome: "other", pain_points: "None confirmed", note: "Said 'What is it regarding? Yes.' then agent gave pitch, cut off" }
+      ]
+    },
+    zara: {
+      total: 149, answered: 12, no_answer: 118, voicemail: 19, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 1, asked_for_email: 3, not_interested: 1, not_relevant: 0, already_have_system: 1, wrong_contact: 2, existing_customer: 0, other: 3 },
+      calls: [
+        { name: "John Ronie Papellero", designation: "Logistics Operations Superintendent", company: "Cemex", region: "Philippines", duration: "8:23", outcome: "meeting_booked", pain_points: "Multi-modal logistics across Philippine islands (chartered vessels, spot vessels, trucking)", note: "Management open to innovation in supply chain; meeting booked with calendar placeholder sent" },
+        { name: "Ernylyn Cardema", company: "Energy Development Corporation", region: "Philippines", duration: "1:38", outcome: "callback_requested", pain_points: "None confirmed", note: "Has a system in place, poor line quality, asked Zara to call back tomorrow" },
+        { name: "Jake(JeKeun) Oh", company: "Orbotech", region: "South Korea", duration: "0:33", outcome: "asked_for_email", pain_points: "None confirmed", note: "Driving, asked to send email instead of talking" },
+        { name: "Vladie Aspillaga", company: "Fluor Corporation", region: "Philippines", duration: "1:24", outcome: "asked_for_email", pain_points: "None confirmed", note: "In a meeting, asked to drop email first; mentioned they already have automated logistics" },
+        { name: "Uthuang Wongpipattanopas", company: "Cardinal Health", region: "Thailand", duration: "5:11", outcome: "asked_for_email", pain_points: "None confirmed", note: "Follow corporate policy for outside platforms; suggested contacting Thailand logistics; email confirmed" },
+        { name: "Jose Lorenzo Roxas", company: "Energy Development Corporation", region: "Philippines", duration: "1:12", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly not interested and doesn't have time" },
+        { name: "Anucha Detlertprayoon", company: "Cardinal Health", region: "Thailand", duration: "1:51", outcome: "already_have_system", pain_points: "None confirmed", note: "Supply chain 90% streamlined via global system, no gaps identified" },
+        { name: "Peter Bonaventure", company: "PTTEP", region: "Malaysia", duration: "0:24", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered said wrong number" },
+        { name: "Rusmono", company: "PT Bayan Resources Tbk", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered identified herself as Alicia, not Rusmono" },
+        { name: "Sheryl Teo", company: "Orbotech", region: "Singapore", duration: "1:04", outcome: "other", pain_points: "None confirmed", note: "Confused interaction, said 'call me now' but call ended mid-pitch with no clear outcome" },
+        { name: "Rini Danila", company: "PT YCH Indonesia", region: "Indonesia", duration: "5:58", outcome: "other", pain_points: "Visibility and invoicing", note: "Long call with very poor connection, mentioned visibility and invoicing issues but no next step agreed" },
+        { name: "Acharaporn P", company: "Cardinal Health", region: "Thailand", duration: "1:33", outcome: "other", pain_points: "Freight costs", note: "Acknowledged freight cost challenges; call ended mid-pitch without a next step" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-25": {
     harshita: {
       total: 200, answered: 13, no_answer: 181, voicemail: 6, busy: 0, unknown: 0,
