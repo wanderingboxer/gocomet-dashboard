@@ -260,9 +260,12 @@ const ALL_DATA = {
       ]
     },
     maya: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 99, answered: 2, no_answer: 38, voicemail: 59, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 1 },
+      calls: [
+        { name: "Joshua Cooper", company: "Nippon Sanso MATHESON", region: "United States", duration: "0:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number — Edgar at Matheson Logistics answered, confirmed Joshua not at this line" },
+        { name: "Daniel Draheim", company: "Neapco", region: "United States", duration: "1:54", outcome: "other", pain_points: "None confirmed", note: "Receptionist Raymond answered and asked what Maya was calling about; pitch made but call transferred to hold then voicemail" }
+      ]
     }
   },
   "2026-06-25": {
