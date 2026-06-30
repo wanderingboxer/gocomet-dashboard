@@ -209,9 +209,27 @@
 const ALL_DATA = {
   "2026-06-30": {
     harshita: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 193, answered: 17, no_answer: 167, voicemail: 9, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 0, asked_for_email: 0, not_interested: 5, not_relevant: 0, already_have_system: 0, wrong_contact: 6, existing_customer: 1, other: 4 },
+      calls: [
+        { name: "Kapil", company: "Varroc", region: "India", duration: "2:27", outcome: "meeting_booked", pain_points: "Already has digital supply chain systems; interested in benchmarking potential savings", note: "Meeting booked for Friday 3 Jul at 6pm IST" },
+        { name: "Pawan", company: "Varroc", region: "India", duration: "1:02", outcome: "existing_customer", pain_points: "None confirmed", note: "Existing GoComet user, very familiar with the platform" },
+        { name: "Chandan", company: "Bisleri International Pvt Ltd", region: "India", duration: "0:55", outcome: "wrong_contact", pain_points: "None confirmed", note: "No longer in supply chain, moved to project department" },
+        { name: "Karthi", company: "Bisleri International Pvt Ltd", region: "India", duration: "2:26", outcome: "wrong_contact", pain_points: "None confirmed", note: "Confused call about job opportunities; referred agent to HR, not in logistics" },
+        { name: "Saurabh", company: "Varroc", region: "India", duration: "1:15", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not part of supply chain team; referred agent to Ranbha Patil" },
+        { name: "Rajender", company: "Ceasefire Industries", region: "India", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Answered mid-conversation with someone else about an order; wrong context" },
+        { name: "Pramod", company: "Parle Agro", region: "India", duration: "0:50", outcome: "wrong_contact", pain_points: "None confirmed", note: "Said wrong number; not the person responsible for supply chain" },
+        { name: "Navdeep Singh", company: "NBC Bearings", region: "India", duration: "0:23", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong person answered; call concluded without reaching target" },
+        { name: "Jilajeet", company: "Dalmia Bharat Group", region: "India", duration: "0:31", outcome: "not_interested", pain_points: "None confirmed", note: "Said not interested immediately after agent's opening pitch" },
+        { name: "Shadiyan", company: "Rugberry", region: "India", duration: "0:41", outcome: "not_interested", pain_points: "None confirmed", note: "Said 'No' to supply chain platform; not relevant to his role" },
+        { name: "Bhanu Prakash", company: "Mohan Spintex India", region: "India", duration: "0:45", outcome: "not_interested", pain_points: "None confirmed", note: "Said the platform is not good for him and ended the call" },
+        { name: "Amrish", company: "PharmEasy", region: "India", duration: "0:50", outcome: "not_interested", pain_points: "None confirmed", note: "Frustrated by repeated calls; asked not to be contacted again" },
+        { name: "Ajay Kumar", company: "NBC Bearings", region: "India", duration: "1:07", outcome: "not_interested", pain_points: "None confirmed", note: "Said supply chain has no big issues; not interested in the platform" },
+        { name: "Shahrukh", company: "Varroc", region: "India", duration: "0:34", outcome: "other", pain_points: "None confirmed", note: "Connected and confirmed hearing agent but transcript cut off before pitch" },
+        { name: "Akshay", company: "PharmEasy", region: "India", duration: "0:31", outcome: "other", pain_points: "None confirmed", note: "Was on another call; could not engage with GoComet pitch" },
+        { name: "Ajay", company: "Parle Agro", region: "India", duration: "1:01", outcome: "other", pain_points: "None confirmed", note: "Connected briefly, agent started pitch, prospect went silent and call ended" },
+        { name: "Amit", company: "NBC Bearings", region: "India", duration: "0:18", outcome: "other", pain_points: "None confirmed", note: "Confirmed identity, agent started greeting but transcript ended before pitch" }
+      ]
     },
     zara: {
       total: 223, answered: 9, no_answer: 172, voicemail: 42, busy: 0, unknown: 0,
