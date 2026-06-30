@@ -247,9 +247,13 @@ const ALL_DATA = {
       ]
     },
     maya: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 100, answered: 3, no_answer: 31, voicemail: 66, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 1, not_relevant: 1, already_have_system: 0, wrong_contact: 1, existing_customer: 0, other: 0 },
+      calls: [
+        { name: "Preston Wilmot", company: "IPG Photonics", region: "United States", duration: "0:17", outcome: "wrong_contact", pain_points: "None confirmed", note: "Person who answered said 'This is not Preston'; wrong contact at this number." },
+        { name: "Kodie Ferketich", company: "IPG", region: "United States", duration: "0:31", outcome: "not_relevant", pain_points: "None confirmed", note: "Prospect said he is no longer in supply chain and is now a 'house man'; not relevant." },
+        { name: "Larry Pfaff", company: "Kraton Corporation", region: "United States", duration: "2:14", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect said 'I've mastered the supply chain piece' and declined a meeting twice; explicitly not interested." }
+      ]
     }
   },
   "2026-06-29": {
