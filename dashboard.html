@@ -207,6 +207,33 @@
 
 <script>
 const ALL_DATA = {
+  "2026-06-30": {
+    harshita: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    zara: {
+      total: 223, answered: 9, no_answer: 172, voicemail: 42, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 1, asked_for_email: 0, not_interested: 1, not_relevant: 1, already_have_system: 0, wrong_contact: 4, existing_customer: 0, other: 2 },
+      calls: [
+        { name: "Franklin Neville", company: "Fortescue", region: "Australia", duration: "1:32", outcome: "wrong_contact", pain_points: "None confirmed", note: "Not the right person; Fortescue has multiple logistics teams and Franklin could not provide a referral" },
+        { name: "Laura Landau", company: "Fortescue", region: "Australia", duration: "0:18", outcome: "callback_requested", pain_points: "None confirmed", note: "Prospect said to call back and left their number" },
+        { name: "Akhmad Djunaedi", company: "Nufarm", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Reached 'Alicia' who doesn't know Akhmad; severe connection issues throughout" },
+        { name: "Herry Martadinata", company: "Mondelez", region: "Singapore", duration: "0:20", outcome: "not_interested", pain_points: "None confirmed", note: "Prospect said not interested after brief introduction" },
+        { name: "Rifqi Febrianto", company: "PT HM Sampoerna", region: "Indonesia", duration: "5:48", outcome: "other", pain_points: "None confirmed", note: "Call lasted ~6 minutes but severe audio issues throughout; no productive outcome reached" },
+        { name: "Derek Li", company: "DP World", region: "Singapore", duration: "0:35", outcome: "wrong_contact", pain_points: "None confirmed", note: "Derek confirmed he is not the right contact and politely ended the call" },
+        { name: "Andi Hendrawan", company: "tiket.com", region: "Indonesia", duration: "2:22", outcome: "wrong_contact", pain_points: "None confirmed", note: "Reached 'Alicia' again; severe audio issues, Andi Hendrawan not reachable at this number" },
+        { name: "Sunyoung Lim", company: "SK Innovation", region: "South Korea", duration: "0:38", outcome: "other", pain_points: "None confirmed", note: "Prospect confirmed identity but call ended mid-introduction with no outcome" },
+        { name: "Jeong Moses", company: "SK Biopharmaceuticals", region: "South Korea", duration: "2:12", outcome: "not_relevant", pain_points: "None confirmed", note: "Moved to a new company and changed to CMC role; no longer in supply chain, cannot refer anyone" }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-29": {
     harshita: {
       total: 182, answered: 27, no_answer: 142, voicemail: 10, busy: 0, unknown: 3,
