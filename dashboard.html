@@ -209,9 +209,27 @@
 const ALL_DATA = {
   "2026-07-01": {
     harshita: {
-      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
-      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
-      calls: []
+      total: 205, answered: 17, no_answer: 181, voicemail: 7, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 1, callback_requested: 2, asked_for_email: 1, not_interested: 2, not_relevant: 0, already_have_system: 2, wrong_contact: 1, existing_customer: 0, other: 8 },
+      calls: [
+        { name: "Lakshmi K.P. Kanthan", company: "KEC International Ltd.", region: "India", duration: "1:41", outcome: "meeting_booked", pain_points: "None confirmed", note: "Meeting booked for Thursday 2 July at 5:30pm IST; email confirmed" },
+        { name: "Ponraj Rajpon", company: "Larsen & Toubro", region: "India", duration: "2:32", outcome: "callback_requested", pain_points: "Uses only email/Excel for internal communication, no dedicated TMS", note: "Prospect repeatedly deflected scheduling and said he'd call back to discuss sometime" },
+        { name: "Bhagwan Bhombe", company: "MACLEODS PHARMACEUTICALS LTD.", region: "India", duration: "0:32", outcome: "callback_requested", pain_points: "None confirmed", note: "Call quality was poor; prospect asked agent to call back again" },
+        { name: "Manya Singh", company: "ReNew", region: "India", duration: "3:24", outcome: "asked_for_email", pain_points: "Procurement/logistics handled separately across verticals, occasional delays for certain materials", note: "Asked for details via email to review with her team before any further discussion" },
+        { name: "Vipul Patel", company: "PI Industries", region: "India", duration: "1:04", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not looking for this; call was then interrupted by a hold transfer" },
+        { name: "Nitin Aggarwal", company: "Bharat Electronics Limited", region: "India", duration: "0:37", outcome: "not_interested", pain_points: "None confirmed", note: "Said the company is not into this kind of solution" },
+        { name: "Prajeesh Chandra", company: "Larsen & Toubro", region: "India", duration: "0:53", outcome: "already_have_system", pain_points: "None confirmed", note: "Has own system in place; call cut off while agent probed for predictive ETA capability" },
+        { name: "Rahul Vadhan", company: "Larsen & Toubro", region: "India", duration: "1:30", outcome: "already_have_system", pain_points: "None confirmed", note: "Everything handled internally and digitally on their own platform; politely declined" },
+        { name: "Rajdeep Sikand", company: "Tata Consumer Products", region: "India", duration: "0:38", outcome: "wrong_contact", pain_points: "None confirmed", note: "Retired and confirmed he is the wrong person to speak with" },
+        { name: "Prakhar Gupta", company: "KEC International Ltd.", region: "India", duration: "0:46", outcome: "other", pain_points: "None confirmed", note: "Said he's not doing well today; call cut off before any resolution" },
+        { name: "Lubna Ansari", company: "KEC International Ltd.", region: "India", duration: "0:43", outcome: "other", pain_points: "None confirmed", note: "Brief engagement via what sounded like a relayed/gatekeeper line; call cut off mid-pitch" },
+        { name: "Parveen Dhall", company: "Tata Steel", region: "India", duration: "0:29", outcome: "other", pain_points: "None confirmed", note: "Asked which company was calling; conversation cut off mid-pitch" },
+        { name: "Rajesh Tomar", company: "Mother Dairy Fruit & Vegetable Pvt. Ltd.", region: "India", duration: "1:01", outcome: "other", pain_points: "None confirmed", note: "Engaged but said he wasn't doing well; call cut off before reaching a decision" },
+        { name: "Jagannath Panda", company: "Tata Consumer Products", region: "India", duration: "1:44", outcome: "other", pain_points: "None confirmed", note: "Gave repeated vague acknowledgements ('Okay'); call ended with no clear outcome" },
+        { name: "Deepak Kumar", company: "Tata Consumer Products", region: "India", duration: "2:25", outcome: "other", pain_points: "None confirmed", note: "Attempted to schedule a call for July 16 but no specific time was ever confirmed" },
+        { name: "Siddhi Salokhe", company: "Tata Consumer Products", region: "India", duration: "0:38", outcome: "other", pain_points: "None confirmed", note: "Brief engagement; call cut off mid-pitch with no clear outcome" },
+        { name: "James Julian Thomas", company: "Tata Consumer Products", region: "India", duration: "0:22", outcome: "other", pain_points: "None confirmed", note: "Minimal engagement; transcript cut off right after the greeting" }
+      ]
     },
     zara: {
       total: 190, answered: 7, no_answer: 140, voicemail: 9, busy: 1, unknown: 33,
