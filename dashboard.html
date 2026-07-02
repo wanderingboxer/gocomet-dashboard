@@ -207,6 +207,50 @@
 
 <script>
 const ALL_DATA = {
+  "2026-07-02": {
+    harshita: {
+      total: 194, answered: 26, no_answer: 159, voicemail: 7, busy: 0, unknown: 2,
+      outcomes: { meeting_booked: 0, callback_requested: 2, asked_for_email: 1, not_interested: 3, not_relevant: 2, already_have_system: 1, wrong_contact: 4, existing_customer: 0, other: 13 },
+      calls: [
+        { name: "Himadri", company: "ReNew", region: "India", duration: "0:29", outcome: "callback_requested", pain_points: "None confirmed", note: "Agreed to a callback tomorrow; no pain points discussed yet." },
+        { name: "Nitin", company: "Tata Steel", region: "India", duration: "0:40", outcome: "callback_requested", pain_points: "None confirmed", note: "Asked to be called back later; no specific time given." },
+        { name: "Lokesh", company: "ReNew", region: "India", duration: "2:17", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked for email with details before considering a call; corrected contact email to lokesh.khanna@motherson.com (moved to new company, still open to ReNew discussion)." },
+        { name: "Carolyn", company: "Varroc", region: "India", duration: "1:10", outcome: "not_interested", pain_points: "None confirmed", note: "Repeatedly declined, said no to every question about pain points or current systems." },
+        { name: "Chetan", company: "Parle Agro", region: "India", duration: "1:07", outcome: "not_interested", pain_points: "None confirmed", note: "Explicitly said not interested." },
+        { name: "Ganesh", company: "Thermax", region: "India", duration: "0:52", outcome: "not_interested", pain_points: "None confirmed", note: "Declined interest and a Teams meeting offer; call ended before response." },
+        { name: "Abhinav", company: "Varroc", region: "India", duration: "0:36", outcome: "not_relevant", pain_points: "None confirmed", note: "Said he's not currently working in a supply chain role; not applicable." },
+        { name: "Mangesh", company: "Thermax", region: "India", duration: "1:12", outcome: "not_relevant", pain_points: "None confirmed", note: "No longer works at Thermax; currently job-searching." },
+        { name: "Vinod", company: "Hindustan Construction Company", region: "India", duration: "1:04", outcome: "already_have_system", pain_points: "None confirmed", note: "Uses a different platform already; asked whether it gives predictive ETAs." },
+        { name: "Rabindra", company: "Tata Steel", region: "India", duration: "0:40", outcome: "wrong_contact", pain_points: "None confirmed", note: "Said he is not Rabindra; wrong contact." },
+        { name: "O.P.", company: "Mother Dairy Fruit & Vegetable Pvt. Ltd.", region: "India", duration: "0:25", outcome: "wrong_contact", pain_points: "None confirmed", note: "Said this is not O.P.'s number; wrong contact." },
+        { name: "Boobalan", company: "Mother Dairy Fruit & Vegetable Pvt. Ltd.", region: "India", duration: "0:43", outcome: "wrong_contact", pain_points: "None confirmed", note: "Confusion over identity (mentioned 'Kopalakrishnan'); call dropped before confirming right contact." },
+        { name: "Pinku", company: "United Breweries", region: "India", duration: "1:55", outcome: "wrong_contact", pain_points: "None confirmed", note: "Handles plant logistics only; referred to Mr. Amit Singh at head office for supply chain decisions." },
+        { name: "Dhirendra", company: "JMC Projects", region: "India", duration: "1:48", outcome: "other", pain_points: "None confirmed", note: "Language barrier (Hindi vs English) prevented a substantive pitch; no clear outcome." },
+        { name: "Chandrashekar", company: "Suzlon", region: "India", duration: "1:07", outcome: "other", pain_points: "None confirmed", note: "Said things are 'pretty easy' right now; call ended without a clear next step." },
+        { name: "Amit", company: "ReNew", region: "India", duration: "0:24", outcome: "other", pain_points: "None confirmed", note: "Asked what the call was about; cut off mid-pitch before any outcome." },
+        { name: "Chittaranjan", company: "Tata Steel", region: "India", duration: "1:40", outcome: "other", pain_points: "None confirmed", note: "Agreed to a meeting on July 2nd but call cut off before a specific time was confirmed." },
+        { name: "Shiv Kumar", company: "Mother Dairy Fruit & Vegetable Pvt. Ltd.", region: "India", duration: "1:52", outcome: "other", pain_points: "Handles highly perishable products (milk); delays/visibility gaps can cause spoilage and losses; invoice reconciliation and approvals across teams aren't smooth.", note: "Engaged well on pain points but call cut off before next steps were discussed." },
+        { name: "Rishiraj", company: "Tata Communications", region: "India", duration: "0:35", outcome: "other", pain_points: "None confirmed", note: "Brief exchange of greetings; call cut off before the pitch landed." },
+        { name: "Atul", company: "Delhivery", region: "India", duration: "1:37", outcome: "other", pain_points: "None confirmed", note: "Confirmed a pain point exists but call cut off before specifics were shared." },
+        { name: "Mangesh", company: "Delhivery", region: "India", duration: "0:34", outcome: "other", pain_points: "None confirmed", note: "Responded skeptically ('Yeah, really?'); call cut off mid-pitch." },
+        { name: "Ravindra", company: "Serum Institute of India", region: "India", duration: "0:32", outcome: "other", pain_points: "None confirmed", note: "Asked to speak with someone else; unclear resolution before call cut off." },
+        { name: "Suvajit", company: "United Breweries", region: "India", duration: "0:25", outcome: "other", pain_points: "None confirmed", note: "Asked agent to stay on the line; call cut off before further conversation." },
+        { name: "Bindu Lakshmi", company: "Thermax", region: "India", duration: "0:25", outcome: "other", pain_points: "None confirmed", note: "Asked what the call was regarding; cut off mid-pitch." },
+        { name: "Gurudas", company: "Thermax", region: "India", duration: "1:00", outcome: "other", pain_points: "None confirmed", note: "Gave an unclear, possibly declining response; call ended without clarity." },
+        { name: "Ganesh", company: "Thermax", region: "India", duration: "1:11", outcome: "other", pain_points: "None confirmed", note: "Engaged on whether supply chain is centralized; call cut off before pain points surfaced." }
+      ]
+    },
+    zara: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-07-01": {
     harshita: {
       total: 205, answered: 17, no_answer: 181, voicemail: 7, busy: 0, unknown: 0,
