@@ -207,6 +207,31 @@
 
 <script>
 const ALL_DATA = {
+  "2026-07-01": {
+    harshita: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    },
+    zara: {
+      total: 190, answered: 7, no_answer: 140, voicemail: 9, busy: 1, unknown: 33,
+      outcomes: { meeting_booked: 0, callback_requested: 1, asked_for_email: 1, not_interested: 1, not_relevant: 0, already_have_system: 1, wrong_contact: 1, existing_customer: 0, other: 2 },
+      calls: [
+        { name: "Maria Bernadeth Ferreras", company: "Asia Brewery Incorporated", region: "Philippines", duration: "2:07", outcome: "callback_requested", pain_points: "None confirmed", note: "In the middle of a meeting; agent offered to call back later, prospect didn't object but had to go." },
+        { name: "Pakapim Kongkittisakul", company: "PTT Oil and Retail Business Public Company Limited", region: "Thailand", duration: "1:13", outcome: "asked_for_email", pain_points: "None confirmed", note: "Asked for the proposal to be emailed first since other team members need to be looped in." },
+        { name: "Wenny Tan", company: "Genting Malaysia Berhad", region: "Malaysia", duration: "1:03", outcome: "not_interested", pain_points: "None confirmed", note: "Repeatedly said no when asked about supply chain pain points, showed no curiosity." },
+        { name: "Thitirat Rattanakajornsakul", company: "Osotspa", region: "Thailand", duration: "1:48", outcome: "already_have_system", pain_points: "None confirmed", note: "Uses an appointed freight forwarder that handles everything; declined as not relevant." },
+        { name: "Clarisa Madilao", company: "PSA International", region: "Singapore", duration: "0:16", outcome: "wrong_contact", pain_points: "None confirmed", note: "Wrong number - reached Krista instead of Clarisa, flagged for removal from list." },
+        { name: "Anak Bt Karim", company: "PETRONAS", region: "Not specified", duration: "1:53", outcome: "other", pain_points: "None confirmed", note: "Poor connection, confused responses throughout; no clear pain point or outcome established." },
+        { name: "Noorwian Abdul Ghani", company: "PETRONAS", region: "Not specified", duration: "0:57", outcome: "other", pain_points: "None confirmed", note: "Engaged about supply chain challenges but call cut off before details or outcome established." }
+      ]
+    },
+    maya: {
+      total: 0, answered: 0, no_answer: 0, voicemail: 0, busy: 0, unknown: 0,
+      outcomes: { meeting_booked: 0, callback_requested: 0, asked_for_email: 0, not_interested: 0, not_relevant: 0, already_have_system: 0, wrong_contact: 0, existing_customer: 0, other: 0 },
+      calls: []
+    }
+  },
   "2026-06-30": {
     harshita: {
       total: 193, answered: 17, no_answer: 167, voicemail: 9, busy: 0, unknown: 0,
